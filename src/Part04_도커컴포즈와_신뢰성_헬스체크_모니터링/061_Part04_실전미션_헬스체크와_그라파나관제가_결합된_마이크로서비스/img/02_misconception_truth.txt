@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Integrated Mission myth vs reality.
+Left Side ('오해 (Myth) - Fragmented Silos'): Individual isolated islands for Compose, Healthcheck, and Monitoring running without integration; silent DB connection crashes happen unseen, and monitoring servers fail to scrape broken containers. Dorothy looks puzzled amidst disjointed machinery.
+Right Side ('진실 (Truth) - Unified All-in-One Compose Architecture'): A perfectly synchronized microservice ecosystem where compose.yaml orchestrates health checks, conditional dependencies (`service_healthy`), and automated Prometheus scraping seamlessly in glowing emerald green and cyan. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy wags his tail cheerfully beside the harmonized stack.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

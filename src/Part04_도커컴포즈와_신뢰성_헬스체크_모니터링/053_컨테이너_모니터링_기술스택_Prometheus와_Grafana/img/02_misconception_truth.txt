@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Container Monitoring myth vs reality.
+Left Side ('오해 (Myth) - Blind Reliance on Single Server Logs & top'): A cluttered terminal with static text scrolling wildly, missing fleeting memory spikes and dead microservices, marked with red question marks. Dorothy looks confused, rubbing her eyes with a magnifying glass.
+Right Side ('진실 (Truth) - CNCF Prometheus Pull Scraping & Grafana TSDB'): An organized, radiant monitoring architecture where Prometheus systematically pulls metrics from every container's '/metrics' endpoint and Grafana visualizes real-time performance graphs with green health status indicators. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy watches happily beside the Grafana chart.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

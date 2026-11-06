@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating Swarm rolling update order and instant rollback:
+Left side: 'Order: Start-First Transition' showing a new green container box spinning up and showing a green checkmark before the fading blue old container box is decommissioned, keeping service capacity at 100% constant without drops.
+Right side: 'Instant Emergency Rollback (docker service rollback)' showing a red emergency lever labeled 'Rollback' being triggered. Swarm Raft memory ledger quickly snaps the cluster state back to the previous verified stable blueprint.
+NO human characters, isolated clean technical diagram cutout.

@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'Part06 중간미션 컨피그와 시크릿이 적용된 고가용성스택배포'.
+System Structure & Data Flow:
+- external: true 선언의 의미: 컨피그(p6_cfg)와 시크릿(p6_sec)이 로컬 파일이 아니라 이미 스웜 클러스터 금고에 등록되어 있는 외부 객체임을 명시
+- 스택 네임스페이스 프리픽스: p6-mission이라는 스택 이름으로 배포하면 서비스 이름은 p6-mission_app, 기본 오버레이 네트워크는 p6-mission_defa
+- 다음 단계: 무중단 업데이트 자동화: 최초 배포를 마쳤다면 이제 v2, v3 신버전을 고객이 전혀 눈치채지 못하게 무중단 배포하고 불량 시 자동 롤백하는 14장(088~095강)으로
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

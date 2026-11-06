@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice pipeline for Docker Compose condition service_healthy.
+Step 1 (Top Left): YAML editor card showing 'compose.yaml' with 'healthcheck: test: ["CMD", "curl", "-f", "http://localhost:80/"]' and dependent app having 'depends_on: web: condition: service_healthy'.
+Step 2 (Top Right): Terminal command card showing 'docker compose up -d' with orderly step execution indicators.
+Step 3 (Bottom Left): Monitoring terminal card displaying 'docker compose ps' showing STATUS '(health: starting)' transitioning smoothly to '(healthy)'.
+Step 4 (Bottom Right): Log verification card showing dependent worker logging 'Database connection verified healthy, starting background jobs... SUCCESS'.
+Clean directional flow arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

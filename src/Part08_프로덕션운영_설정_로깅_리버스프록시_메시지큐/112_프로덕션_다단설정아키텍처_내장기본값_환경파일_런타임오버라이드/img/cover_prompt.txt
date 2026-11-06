@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 16:9 widescreen presentation banner format, warm vibrant flat cel shading, dark espresso brown line art (#26211E), masterpiece, highly detailed.
+Wide title banner illustration for '프로덕션 다단설정아키텍처 내장기본값 환경파일 런타임오버라이드'.
+On the left, Professor Hojin (youthful early 40s Korean male, neat salt-and-pepper hair, thin round wire-rim glasses, dark navy polo shirt, blue jeans) gestures confidently alongside Dorothy (cheerful 9yo girl, twin chestnut pigtails, denim overalls, STEM HERO patch) who happily points her stylus at a glowing holographic technical display in the center.
+The center holographic display visualizes the core architecture of 1계층: 이미지 내장 기본값, 2계층: 설정 파일 마운트 (Config/Secret), 3계층: 런타임 환경 변수 (최우선).
+Toto the fluffy cream puppy with sky-blue bandana wags his tail playfully near Dorothy's feet, and Jiny the tuxedo cat with round spectacles inspects the diagrams.
+Pure solid clean white background (#FFFFFF), perfectly centered, subtle soft floor contact shadows, widescreen 16:9 aspect ratio, no cutoffs, no messy clutter, no text containers, no Japanese text.

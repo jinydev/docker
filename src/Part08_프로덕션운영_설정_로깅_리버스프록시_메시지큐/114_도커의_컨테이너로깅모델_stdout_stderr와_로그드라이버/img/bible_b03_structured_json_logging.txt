@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating structured JSON logging vs fragmented plaintext logging:
+Left side: 'Fragmented Plaintext Logs' showing an error explosion shattering a 30-line Java stack trace into 30 tiny chaotic pieces of paper falling everywhere, marked with a red warning badge.
+Right side: 'Single-Line Structured JSON' showing an organized, elegant glowing cyan glass capsule labeled '{"timestamp":..., "level":"ERROR", "trace_id":..., "stack_trace":"...\n..."}'. The capsule smoothly glides along a transparent conveyor belt into an enterprise cloud log analytics indexer.
+NO human characters, isolated clean technical diagram cutout.

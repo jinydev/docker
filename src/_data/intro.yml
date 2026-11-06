@@ -1,0 +1,14 @@
+title: "🧭 강의 소개 & 오리엔테이션"
+url: "/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/"
+main:
+  - title: "000. 강의 오리엔테이션 (도커 대모험)"
+    url: "/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/"
+  - title: "📅 2학기 (28주) 정규 커리큘럼"
+    url: "/curriculum/"
+  - title: "🎯 라라벨 & MSA 실전 실습 로드맵"
+    url: "/curriculum/practice/"
+  - title: "👥 등장인물 소개 (교수님과 친구들)"
+    url: "/character/"
+  - title: "📋 도커 핵심 명령어 치트시트"
+    url: "/guides/docker_cheatsheet/"
+

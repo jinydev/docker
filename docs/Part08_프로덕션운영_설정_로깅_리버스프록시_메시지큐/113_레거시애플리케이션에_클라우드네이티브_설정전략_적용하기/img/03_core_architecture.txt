@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '레거시애플리케이션에 클라우드네이티브 설정전략 적용하기'.
+System Structure & Data Flow:
+- envsubst 템플릿 치환: GNU gettext 패키지에 포함된 표준 리눅스 도구로, 텍스트 파일 안의 ${환경변수}를 현재 셸의 실제 값으로 0.01초 만에 치환
+- 어댑터 엔트리포인트 (docker-entrypoint.sh): Dockerfile의 ENTRYPOINT ["/docker-entrypoint.sh"]에서 템플릿 치환을 먼저 수행한 뒤 exec "$@"로 원
+- 설정 검증 로직 추가: 치환 후 필수 설정값이 비어 있는지 셸 스크립트로 검증하고, 빠졌다면 친절한 안내 메시지와 함께 Fail-Fast 종료
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

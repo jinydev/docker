@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating Swarm reconciliation loop and Global service mode:
+Left side: 'Reconciliation Control Loop' showing a balance scale comparing 'Desired State (Replicas: 3)' and 'Actual State (Replicas: 2)'. An automatic robotic dispatcher arm picks a healthy container block from a repair bench and places it on a worker node to restore balance.
+Right side: 'Global Service Mode (--mode global)' showing three Swarm node columns, each with a uniform blue radar satellite box labeled 'Node-Exporter (1 per node)'. An arrow shows a fourth new node joining the cluster, instantly spawning a matching radar box automatically.
+NO human characters, isolated clean technical diagram cutout.

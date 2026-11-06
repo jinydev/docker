@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice and verification pipeline for '환경별 설정워크플로 개발 테스트 운영 아키텍처설계'.
+Step 1 (Top Left): Declarative Manifest / Setup - Terminal or code block specifying configuration: cat << 'EOF' // [1. Dev 환경]  : docker compose -f compose.yaml -f compose.dev.yaml -p app-dev up -d // [2. Test 환경] : docker compose -f compose.yaml -f compose.test.yaml -p app-test up -d.
+Step 2 (Top Right): Execution Command - Terminal prompt executing deployment / inspection commands.
+Step 3 (Bottom Center): Evaluated Verification Window - Glowing CLI console showing healthy status, verified replicas, and emerald green checkmarks.
+Clear directional flow arrows connecting Step 1 -> Step 2 -> Step 3.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

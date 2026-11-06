@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Docker Compose startup dependency myth vs reality.
+Left Side ('오해 (Myth) - Simple depends_on'): A reddish caution card showing a web app starting immediately while DB is still booting up, causing a red crashing warning 'Connection Refused! App Crashes!'. Dorothy looks distressed with question marks floating above her head.
+Right Side ('진실 (Truth) - condition: service_healthy'): A soft mint-green reassuring card showing the web app held at a checkpoint until the DB completes internal initialization and emits a green 'healthy' shield, resulting in a flawless seamless connection 'All Systems Operational!'. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy wags his tail cheerfully beside the green card.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

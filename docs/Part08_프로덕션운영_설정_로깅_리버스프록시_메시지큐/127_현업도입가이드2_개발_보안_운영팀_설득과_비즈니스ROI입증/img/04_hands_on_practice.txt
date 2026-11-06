@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice and verification pipeline for '현업도입가이드2 개발 보안 운영팀 설득과 비즈니스ROI입증'.
+Step 1 (Top Left): Declarative Manifest / Setup - Terminal or code block specifying configuration: cat << 'EOF' // [개발팀 (Dev)]  -> "내 PC에서 잘 되던 코드가 운영에서도 100% 똑같이 동작합니다!" (환경 불일치 야근 0시간) // [운영팀 (Ops)]  -> "모든 앱의 배포와 모니터링 방식이 도커 표준으로 통일됩니다!" (새벽 장애 긴급 호출 80% 감소).
+Step 2 (Top Right): Execution Command - Terminal prompt executing deployment / inspection commands.
+Step 3 (Bottom Center): Evaluated Verification Window - Glowing CLI console showing healthy status, verified replicas, and emerald green checkmarks.
+Clear directional flow arrows connecting Step 1 -> Step 2 -> Step 3.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

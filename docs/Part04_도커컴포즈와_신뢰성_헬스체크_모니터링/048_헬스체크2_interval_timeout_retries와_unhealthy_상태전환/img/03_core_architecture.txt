@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical architecture and timing sequence diagram illustrating the 4 Docker HEALTHCHECK tuning parameters.
+Timeline flowing from left to right on a clean horizontal axis:
+1. 'start-period (e.g. 30s)': An initial shielded grace window where container boots up; probe failures are ignored and do NOT increment failure streaks.
+2. 'interval (e.g. 15s)': Regular periodic heartbeat intervals between checks.
+3. 'timeout (e.g. 3s)': Maximum time allowed for each probe command to respond before being marked as failed.
+4. 'retries (e.g. 3 times)': Failure streak counter showing 1st fail -> 2nd fail -> 3rd consecutive fail.
+5. Final transition: Clear state box switching from 'STATUS: healthy' to bright red badge 'STATUS: unhealthy'.
+Pure solid clean white background (#FFFFFF), centered balanced timeline layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, clear legible English technical labels, no Japanese text.

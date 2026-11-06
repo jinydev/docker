@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating Docker Registry Cross-Repository Blob Mount:
+Left side: Local Docker host showing a layered image box where base layers are shaded gray and labeled 'Existing Base (Ubuntu)'. Only the top thin mint-green slice labeled 'App Code (50KB)' is being uploaded across a network line.
+Right side: Container Registry cloud storage showing a central storage vault with SHA-256 blocks. A curved glowing link arrow connects from 'library/ubuntu' block directly to the new repository 'mycorp/my-app', stamped with 'Mounted from library/ubuntu - 0 Bytes Network Transfer'.
+NO human characters, isolated clean technical diagram cutout.

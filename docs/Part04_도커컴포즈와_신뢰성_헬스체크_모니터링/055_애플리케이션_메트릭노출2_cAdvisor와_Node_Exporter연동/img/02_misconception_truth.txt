@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Infrastructure Monitoring myth vs reality.
+Left Side ('오해 (Myth) - Application-Only Tunnel Vision'): A developer looking only at an app dashboard showing 'Status: 200 OK', while the underlying host disk is 100% full and the host OS kernel is suffocating, marked with urgent red skull warning sirens. Dorothy looks shocked and dismayed.
+Right Side ('진실 (Truth) - Full-Stack Telemetry with cAdvisor & Node Exporter'): A complete layered observatory inspecting Host Hardware (Node Exporter), Container cgroups (cAdvisor), and Docker Daemon metrics, providing 360-degree early warning visibility in glowing emerald green. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy wags his tail cheerfully beside the healthy system charts.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

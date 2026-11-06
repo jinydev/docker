@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the PromQL Mathematical Processing Engine.
+Step 1: 'Raw Time Series Storage' - Discrete metric data points plotted across time axis with labels `{job="api", status="200"}`.
+Step 2: 'Range Vector Selection `[5m]`' - A 5-minute sliding time window capturing instantaneous delta samples.
+Step 3: '`rate()` Derivation Function' - Calculating per-second average rate of increase across counter resets.
+Step 4: 'Aggregation `sum by (service)`' - Merging 3 replica container curves into a single clean cluster-wide throughput line.
+Output: Real-time Requests Per Second (RPS) graph curve with clear axis labels.
+Clean directional pipeline arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4 -> Output.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

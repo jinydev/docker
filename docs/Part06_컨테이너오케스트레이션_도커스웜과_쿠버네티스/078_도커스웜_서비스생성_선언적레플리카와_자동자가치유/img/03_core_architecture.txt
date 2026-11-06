@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커스웜 서비스생성 선언적레플리카와 자동자가치유'.
+System Structure & Data Flow:
+- 서비스(Service) vs 태스크(Task): 서비스는 '어떤 이미지를 몇 개 실행할지'에 대한 클러스터 선언 명세 / 태스크(Task)는 그 서비스를 위해 각 노드에 할당된 개별 컨테이너 
+- 즉각적인 자가 치유 (Self-Healing): 컨테이너 프로세스가 크래시되거나 누군가 실수로 docker rm -f를 쳐도, 스웜 컨트롤 루프가 목표 개수(2개)와 현재 개수(1개)의 차이를
+- docker service scale과 update: docker service scale oz-ha-web=5로 즉시 확장하거나, docker service update --image ...로 무
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

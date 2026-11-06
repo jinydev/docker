@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Key takeaways and character discussion for Lesson 045.
+Jiny the lab assistant cat (chubby black-and-white tuxedo cat with scholar glasses and red bell collar) stands proudly pointing with a wooden pointer stick toward a clean whiteboard displaying the 3 Core Lessons of Docker Compose Storage & Config:
+'1. environment vs env_file precedence', '2. Named volumes persist across down', '3. Use down -v only for full cleanup'.
+Dorothy (cheerful 9-year-old girl in denim overalls with 'STEM HERO' patch) and Toto the cream puppy applaud joyfully with high energy.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

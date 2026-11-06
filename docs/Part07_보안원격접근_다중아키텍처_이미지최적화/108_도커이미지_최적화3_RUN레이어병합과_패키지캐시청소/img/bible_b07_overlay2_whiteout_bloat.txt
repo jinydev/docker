@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating Linux Overlay2 UnionFS Whiteout marker mechanics:
+Bottom layer (LowerDir): A heavy dark gray metallic block containing a massive 500MB tarball labeled 'Layer 1: RUN wget large-file.tar.gz'.
+Top layer (UpperDir): A thin translucent glass plate labeled 'Layer 2: RUN rm large-file.tar.gz' containing an opaque white correction tape stamp labeled '.wh.large-file.tar.gz (Whiteout Marker 0B)'.
+A viewer looking from above cannot see the file, but a digital scale underneath measures both layers together totaling '500MB Bloat!'.
+Right side shows the fix: 'Single Layer Chaining' with a magical broom sweeping away temporary data completely before the layer solidifies.
+NO human characters, isolated clean technical diagram cutout.

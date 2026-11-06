@@ -1,0 +1,10 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing the 'entrypoint.sh' dependency check execution pipeline.
+Step 1: 'Container Initialization' loading ENV API_URL="http://api-server:80/health".
+Step 2: 'Pre-flight Probe' executing 'wget -q --spider $API_URL'.
+Step 3 (Branching Decision Gate):
+- If failure (Exit Code != 0) -> triggers 'exit 1 (Abort before launching half-baked server)'.
+- If success (Exit Code == 0) -> proceeds to Step 4.
+Step 4: 'exec nginx -g "daemon off;"' handing over PID 1 to the production web server with zero downtime.
+Clean sequential workflow cards connected by directional logic arrows.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

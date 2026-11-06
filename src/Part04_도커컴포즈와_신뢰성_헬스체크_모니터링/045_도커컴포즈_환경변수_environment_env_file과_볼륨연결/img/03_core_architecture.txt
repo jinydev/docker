@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical architecture diagram illustrating Docker Compose environment variable injection and persistent named volume architecture.
+At the top left: An external configuration scroll labeled '.env' containing key-value configurations (APP_ENV=prod, DB_HOST=todo-db).
+At the top right: A declarative compose file block labeled 'compose.yaml' with sections for 'environment:' and 'volumes: - db-storage:/var/lib/postgresql/data'.
+In the center: A clean mint-green container box labeled 'todo-db (postgres:16)' showing environment variables flowing into its internal process environment.
+At the bottom: A sturdy bronze-and-stone storage vault cylinder labeled 'Docker Named Volume: db-storage' residing safely on the host filesystem, connected via a heavy-duty bidirectional pipe to '/var/lib/postgresql/data'.
+A distinct visual badge showing: 'Data preserved across docker compose down'.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, clear legible English technical labels, no Japanese text.

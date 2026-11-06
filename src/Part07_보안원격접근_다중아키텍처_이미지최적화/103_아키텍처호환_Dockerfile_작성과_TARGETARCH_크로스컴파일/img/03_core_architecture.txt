@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '아키텍처호환 Dockerfile 작성과 TARGETARCH 크로스컴파일'.
+System Structure & Data Flow:
+- --platform=$BUILDPLATFORM: 컴파일러가 실행되는 1단계 빌더 환경은 내 호스트의 네이티브 CPU로 빠르게 구동
+- TARGETARCH 자동 주입: 도커가 amd64, arm64, arm 등의 타깃 아키텍처 문자열을 자동으로 주입해 줌
+- 인터프리터 언어(Python/Node) 호환: 순수 파이썬/JS 코드는 CPU에 무관하지만 C 확장 모듈(gcc)이 들어가는 경우 멀티 아키텍처 빌드가 필수!
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

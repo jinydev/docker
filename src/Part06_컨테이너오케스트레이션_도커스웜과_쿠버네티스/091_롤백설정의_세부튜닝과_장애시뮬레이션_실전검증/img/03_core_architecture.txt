@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '롤백설정의 세부튜닝과 장애시뮬레이션 실전검증'.
+System Structure & Data Flow:
+- UpdateStatus 상태 변화: updating ➔ (불량 감지) ➔ rollback_started ➔ (이전 버전 컨테이너 복구) ➔ rollback_completed!
+- 카나리(Canary) 테스트 효과: parallelism: 1로 설정해 두면 전체 10개 레플리카 중 9개는 정상 v1을 계속 서비스하는 상태에서 단 1개만 먼저 v2로 시험 가동
+- 수동 롤백 명령: 기능은 정상인데 화면 디자인이 잘못 나간 경우처럼 사람이 직접 되돌려야 할 때는 언제든 docker service rollback <서비스명> 
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

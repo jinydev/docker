@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'Part07 실전미션 800MB 레거시이미지를 15MB 멀티아키텍처 보안이미지로 혁신하기'.
+System Structure & Data Flow:
+- 극적인 용량 다이어트 달성: 빌드에 필요한 모든 임시 소스와 컴파일 도구를 완전히 분리하여 최종 이미지를 10MB대로 축소 성공!
+- 보안성 완벽 확보: 비루트 사용자(UID 10001)로 실행되며 파일 소유권도 격리되어 안전성 보장
+- Part 07 핵심 요약: 원격 도커 엔진을 TLS/SSH로 안전하게 연결하고, Buildx로 모든 CPU용 이미지를 만들며, 극단적 이미지 최적화로 성능과 보안을 모두 
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

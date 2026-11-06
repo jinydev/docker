@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+16:9 cinematic widescreen cover illustration for Chapter 066 'YAML 앵커와 확장필드 x 로 컴포즈중복 완벽제거'.
+In the center, Professor Hojin (youthful early 40s Korean male engineering professor, smooth youthful skin, clean-shaven, 7:3 parted dark hair with subtle salt-and-pepper streaks around temples, round silver wire-rim glasses, dark navy polo shirt, blue denim jeans) stands alongside Dorothy (cheerful 9yo girl, chestnut brown twin pigtails with colorful beads, blue denim overalls with circular 'STEM HERO' patch, orange striped t-shirt) at an architectural refactoring terminal console.
+Floating in the center is a glowing golden nautical anchor connected to luminous cards labeled 'x-common-service:', '&default-Option', and '<<: *default-Option', beautifully demonstrating the elimination of boilerplate code across microservices.
+Beside them, Toto the fluffy cream puppy wags his tail excitedly, and Jiny the smart tuxedo cat with glasses inspects a streamlined YAML blueprint.
+Prominent Korean title typography in the composition: '066. YAML 앵커와 확장필드 x 로 컴포즈중복 완벽제거'.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft shadow, 16:9 widescreen aspect ratio, no slide borders, no Japanese text.

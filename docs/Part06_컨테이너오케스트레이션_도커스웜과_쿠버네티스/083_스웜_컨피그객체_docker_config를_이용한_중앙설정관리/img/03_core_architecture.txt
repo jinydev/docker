@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '스웜 컨피그객체 docker config를 이용한 중앙설정관리'.
+System Structure & Data Flow:
+- 클러스터 중앙 설정 배포: 매니저 노드에 단 한 번 docker config create를 실행하면 클러스터 내 어느 워커 노드에서 컨테이너가 켜지든 해당 설정 파일이 자
+- 불변성(Immutability)과 버전 네이밍: 한 번 생성된 docker config 객체는 내용을 직접 수정할 수 없음! 설정을 변경할 때는 oz_app_config_v2처럼 새 이름으로 
+- 일반 설정 전용: docker config는 평문(Base64 인코딩)으로 조회(inspect --pretty)가 가능하므로 일반 환경 설정 파일(json, ya
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

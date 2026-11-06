@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '현업도입가이드1 우리조직의 애플리케이션으로 PoC성공시키기'.
+System Structure & Data Flow:
+- 파일럿 대상 선정 기준: 1) 상태가 없는(Stateless) 웹/API 서비스, 2) 테스트 코드가 갖춰진 프로젝트, 3) 릴리스 주기가 잦은 프로젝트
+- 팀원 온보딩 효과 입증: "신규 입사자가 개발 환경을 세팅하는 데 3일 걸리던 것을 docker compose up 5분으로 단축했습니다!"라는 정량적 수치를 제시
+- 점진적 마이그레이션 (Strangler Fig 패턴): 기존 모놀리식 서버 앞단에 20장에서 배운 Nginx/Traefik 리버스 프록시를 두고, 신규 기능이나 분리된 기능만 컨테이너로 띄워 트래픽을
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

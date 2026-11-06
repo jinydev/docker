@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '호스트의존성 제로 Docker out of Docker 소켓마운트'.
+System Structure & Data Flow:
+- Docker-out-of-Docker (DooD): CI 컨테이너 안에는 가벼운 Docker CLI만 설치하고, 실제 통신 소켓(/var/run/docker.sock)은 호스트와 공유
+- 형제 컨테이너 (Sibling Containers): DooD 방식으로 띄운 컨테이너는 CI 컨테이너의 '자식'이 아니라 호스트 도커 엔진 위에서 나란히 실행되는 '형제' 컨테이너가 됨
+- 보안 주의사항: /var/run/docker.sock 접근 권한은 곧 호스트 서버의 root 권한과 동급임!
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+16:9 cinematic widescreen cover illustration for Chapter 070 '도커컴포즈 build 속성심화 context args labels'.
+In the center, Professor Hojin (youthful early 40s Korean male engineering professor, smooth youthful skin, clean-shaven, 7:3 parted dark hair with subtle salt-and-pepper streaks around temples, round silver wire-rim glasses, dark navy polo shirt, blue denim jeans) stands alongside Dorothy (cheerful 9yo girl, chestnut brown twin pigtails with colorful beads, blue denim overalls with circular 'STEM HERO' patch, orange striped t-shirt) at an advanced container build control console.
+Floating in the center are glowing build manifest panels showing 'context:', 'dockerfile:', 'args:', and OCI standard 'labels:', demonstrating how modern Docker Compose orchestrates multi-container builds in parallel with automated image tagging.
+Beside them, Toto the fluffy cream puppy wags his tail excitedly, and Jiny the smart tuxedo cat with glasses inspects an automated build inspection card.
+Prominent Korean title typography in the composition: '070. 도커컴포즈 build 속성심화 context args labels'.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft shadow, 16:9 widescreen aspect ratio, no slide borders, no Japanese text.

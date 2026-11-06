@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical workflow diagram demonstrating Docker Compose lifecycle command sequence.
+Step 1: 'docker compose config' (Syntax validation and variable interpolation check with a golden checkmark).
+Step 2: 'docker compose up -d' (Spawning container services in detached mode).
+Step 3: 'docker compose stop' and 'docker compose start' (Pausing and resuming without losing container file diffs).
+Step 4: 'docker compose down' (Full clean teardown of network and containers).
+Clean numbered pipeline cards connected by sequential curved arrows.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

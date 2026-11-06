@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커스웜 vs 쿠버네티스 Kubernetes 아키텍처완벽비교'.
+System Structure & Data Flow:
+- 도커 스웜 (Docker Swarm)의 강점: 도커 엔진에 기본 내장(설치 0초), 기존 compose.yaml 문법을 그대로 사용, 컨트롤 플레인 메모리 소모 극소화
+- 쿠버네티스 (Kubernetes)의 강점: CNCF 클라우드 네이티브 생태계의 사실상 표준, 세밀한 네트워크/스토리지/오토스케일링(HPA) 제어, 모든 퍼블릭 클라우드(EKS/GKE/AK
+- 공통된 컨테이너 설계 원칙: 이미지 최적화, 멀티 스테이지 빌드, stdout 로깅, /metrics 노출, 헬스/디펜던시 체크, 12-Factor 설정 관리는 스웜이든 쿠
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

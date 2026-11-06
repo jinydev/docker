@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side conceptual comparison for '비동기메시징4 코드수정없는 기능확장 팬아웃과 감사로그핸들러'.
+Left Side (The Painful Misconception):
+- Red warning aura, tangled wires, fragile infrastructure, error banners.
+- Dorothy (cheerful 9yo girl, chestnut pigtails, denim overalls) looking overwhelmed, scratching her head in confusion.
+Right Side (The Production Truth & Best Practice):
+- Emerald green verification glow, clean modular architecture of 개방 폐쇄 원칙 (OCP, Open-Closed Principle), 독립적 장애 격리, 마이크로서비스 진화의 종착역.
+- Professor Hojin (youthful early 40s Korean male, round glasses, dark navy polo) gesturing with an encouraging thumbs-up, accompanied by happy Toto with sky-blue bandana and Jiny the tuxedo cat with glasses.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadow at feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

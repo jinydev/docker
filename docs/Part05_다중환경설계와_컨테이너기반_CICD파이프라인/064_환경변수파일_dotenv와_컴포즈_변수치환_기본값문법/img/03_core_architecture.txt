@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '환경변수파일 dotenv와 컴포즈 변수치환 기본값문법'.
+System Structure & Data Flow:
+- ${VAR:-기본값} 문법: VAR가 정의되어 있지 않거나 빈 문자열일 때 오른쪽 기본값을 대신 사용
+- ${VAR:?필수에러메시지} 문법: VAR가 비어 있으면 컴포즈 실행 자체를 중단하고 지정한 에러 메시지를 출력
+- .env vs env_file: 완벽 구분: 루트의 .env(--env-file)는 compose.yaml 자체의 ${변수} 치환 및 프로젝트명(COMPOSE_PROJECT_NAME) 설정
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,99 @@
+<!-- 캐릭터 소개 섹션 -->
+<div class="card border-0 rounded-4 p-4 p-md-5 mb-5 shadow-sm" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0 !important;">
+    <div class="row align-items-center mb-4">
+        <div class="col-lg-8">
+            <span class="badge rounded-pill px-3 py-2 fw-bold mb-2" style="background-color: #e0f2fe; color: #0369a1;">Characters</span>
+            <h3 class="fw-bold mb-2" style="color: #2b3947;">🧭 함께 떠나는 도커 원정대를 소개합니다</h3>
+            <p class="text-secondary mb-0">
+                복잡한 클라우드 네이티브 기술을 <strong>이호진 교수님</strong>, 호기심 많은 소녀 <strong>도로시</strong>, 영리한 조교 <strong>지니</strong>, 반려견 <strong>토토</strong>, 로봇 <strong>티니</strong>와 함께 즐겁게 탐험합니다.
+            </p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+            <a href="{{ '/character/' | relative_url }}" class="btn btn-hero-primary rounded-pill px-4 py-2 fw-bold">
+                캐릭터 상세 소개 ➔
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- 이호진 교수님 -->
+        <div class="col-md-4 col-lg">
+            <a href="{{ '/character/' | relative_url }}" class="text-decoration-none text-reset d-block h-100">
+                <div class="card h-100 border-0 rounded-4 p-3 text-center bg-white shadow-sm transition-hover">
+                    <div class="d-flex justify-content-center align-items-center my-3" style="height: 100px;">
+                        <img src="{{ '/img/hojin.png' | relative_url }}" alt="이호진 교수님" style="max-height: 100px; width: auto; object-fit: contain;">
+                    </div>
+                    <h5 class="fw-bold mb-1" style="color: #2b3947;">이호진 교수님</h5>
+                    <p class="small text-muted mb-2"><span class="badge rounded-pill badge-part8 px-2 py-1">총괄 멘토</span></p>
+                    <p class="card-text text-secondary small mb-0">
+                        원리와 본질을 꿰뚫는 엔지니어링 멘토! 리눅스 커널 격리부터 아키텍처까지 든든하게 이끌어줍니다.
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- 도로시 -->
+        <div class="col-md-4 col-lg">
+            <a href="{{ '/character/' | relative_url }}" class="text-decoration-none text-reset d-block h-100">
+                <div class="card h-100 border-0 rounded-4 p-3 text-center bg-white shadow-sm transition-hover">
+                    <div class="d-flex justify-content-center align-items-center my-3" style="height: 100px;">
+                        <img src="{{ '/img/dorothy.png' | relative_url }}" alt="도로시" style="max-height: 100px; width: auto; object-fit: contain;">
+                    </div>
+                    <h5 class="fw-bold mb-1" style="color: #2b3947;">도로시</h5>
+                    <p class="small text-muted mb-2"><span class="badge rounded-pill badge-part1 px-2 py-1">주니어 메이커</span></p>
+                    <p class="card-text text-secondary small mb-0">
+                        호기심 많은 주니어 개발자! 직접 Dockerfile을 작성하고 멀티 컨테이너 분산 시스템을 구축하며 성장합니다.
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- 지니 -->
+        <div class="col-md-4 col-lg">
+            <a href="{{ '/character/' | relative_url }}" class="text-decoration-none text-reset d-block h-100">
+                <div class="card h-100 border-0 rounded-4 p-3 text-center bg-white shadow-sm transition-hover">
+                    <div class="d-flex justify-content-center align-items-center my-3" style="height: 100px;">
+                        <img src="{{ '/img/jiny.png' | relative_url }}" alt="조교 지니" style="max-height: 100px; width: auto; object-fit: contain;">
+                    </div>
+                    <h5 class="fw-bold mb-1" style="color: #2b3947;">조교 지니</h5>
+                    <p class="small text-muted mb-2"><span class="badge rounded-pill badge-part4 px-2 py-1">연구실 조교</span></p>
+                    <p class="card-text text-secondary small mb-0">
+                        천재 수석 연구실 냥이! 포트 충돌이나 레이어 캐시 실수가 발생하면 날카롭게 원인을 짚어줍니다.
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- 토토 -->
+        <div class="col-md-6 col-lg">
+            <a href="{{ '/character/' | relative_url }}" class="text-decoration-none text-reset d-block h-100">
+                <div class="card h-100 border-0 rounded-4 p-3 text-center bg-white shadow-sm transition-hover">
+                    <div class="d-flex justify-content-center align-items-center my-3" style="height: 100px;">
+                        <img src="{{ '/img/toto.png' | relative_url }}" alt="토토" style="max-height: 100px; width: auto; object-fit: contain;">
+                    </div>
+                    <h5 class="fw-bold mb-1" style="color: #2b3947;">토토</h5>
+                    <p class="small text-muted mb-2"><span class="badge rounded-pill badge-part2 px-2 py-1">긍정 비타민</span></p>
+                    <p class="card-text text-secondary small mb-0">
+                        도로시의 단짝 크림빛 강아지! 빌드가 성공하면 꼬리를 흔들고, 에러가 나면 곁에서 힘을 북돋워 줍니다.
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- 티니 -->
+        <div class="col-md-6 col-lg">
+            <a href="{{ '/character/' | relative_url }}" class="text-decoration-none text-reset d-block h-100">
+                <div class="card h-100 border-0 rounded-4 p-3 text-center bg-white shadow-sm transition-hover">
+                    <div class="d-flex justify-content-center align-items-center my-3" style="height: 100px;">
+                        <img src="{{ '/img/tinny.png' | relative_url }}" alt="로봇 티니" style="max-height: 100px; width: auto; object-fit: contain;">
+                    </div>
+                    <h5 class="fw-bold mb-1" style="color: #2b3947;">로봇 티니</h5>
+                    <p class="small text-muted mb-2"><span class="badge rounded-pill badge-part7 px-2 py-1">인프라 로봇</span></p>
+                    <p class="card-text text-secondary small mb-0">
+                        컨테이너를 가뿐히 들어 나르고 좀비 프로세스를 쓸어 담는 든든한 서포터 로봇입니다.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

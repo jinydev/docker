@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '로그저장소와 시각화스택 OpenSearch Loki 통합로그검색'.
+System Structure & Data Flow:
+- EFK (Elasticsearch + Fluentd + Kibana): 전통의 엔터프라이즈 빅데이터 검색 스택으로, 복잡한 통계 분석과 대규모 전문 텍스트 검색에 최적화
+- Grafana Loki (클라우드 네이티브 초경량 로그): 로그 본문 전체를 인덱싱하지 않고 오직 컨테이너 레이블(service, env)만 인덱싱하여 메모리 소모가 Elasticsearch의 1/10에
+- 장애 해결 시간(MTTR) 90% 단축: 서버마다 SSH 접속해서 로그 파일을 뒤지던 수작업이 사라지고, 브라우저 창 하나에서 모든 마이크로서비스의 상관관계를 분석
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

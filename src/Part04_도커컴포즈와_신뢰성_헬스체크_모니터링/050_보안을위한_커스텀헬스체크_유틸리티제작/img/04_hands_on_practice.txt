@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing custom health check utility implementation and Dockerfile embedding.
+Step 1 (Top Left): Code editor card showing 'http_check.py' using Python standard library 'urllib.request' (zero external dependencies).
+Step 2 (Top Right): Dockerfile card showing 'COPY http_check.py /usr/local/bin/' and 'HEALTHCHECK CMD ["python3", "/usr/local/bin/http_check.py"]'.
+Step 3 (Bottom Left): Dual-purpose reuse card showing the same script used for startup Dependency Check ('python3 http_check.py http://db:5432 && exec python app.py').
+Step 4 (Bottom Right): Terminal verification card showing 'docker ps' displaying '(healthy)' with zero security alerts.
+Clean directional flow arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

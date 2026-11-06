@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A clear educational diagram comparing Docker build cache validation engines:
+Left side: 'RUN Instruction (String Match Engine)' shown with a robotic scanner reading exact characters of code 'RUN apt-get update', hitting an identical cached memory slot.
+Right side: 'COPY/ADD Instruction (SHA256 Content Hash Engine)' shown with an optical magnifying lens scanning the actual binary bits of source files, calculating a cryptographic checksum block.
+Bottom banner: 'Buildx Remote Registry Cache' showing a CI/CD cloud pipeline box pushing and pulling cached layers directly to an enterprise container registry without downloading whole images.
+NO human characters, isolated clean technical diagram cutout.

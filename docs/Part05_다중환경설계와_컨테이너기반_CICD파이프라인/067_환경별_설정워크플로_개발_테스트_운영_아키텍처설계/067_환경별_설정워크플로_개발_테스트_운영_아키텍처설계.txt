@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+16:9 cinematic widescreen cover illustration for Chapter 067 '환경별 설정워크플로 개발 테스트 운영 아키텍처설계'.
+In the center, Professor Hojin (youthful early 40s Korean male engineering professor, smooth youthful skin, clean-shaven, 7:3 parted dark hair with subtle salt-and-pepper streaks around temples, round silver wire-rim glasses, dark navy polo shirt, blue denim jeans) stands alongside Dorothy (cheerful 9yo girl, chestnut brown twin pigtails with colorful beads, blue denim overalls with circular 'STEM HERO' patch, orange striped t-shirt) at an enterprise SDLC multi-environment command terminal.
+Floating in the center is a glowing tri-fold holographic pipeline displaying 'Dev -> Test -> Prod', illustrating seamless configuration inheritance via Docker Compose override files without a single line of redundant code.
+Beside them, Toto the fluffy cream puppy wags his tail excitedly, and Jiny the smart tuxedo cat with glasses inspects the automated promotion pipeline.
+Prominent Korean title typography in the composition: '067. 환경별 설정워크플로 개발 테스트 운영 아키텍처설계'.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft shadow, 16:9 widescreen aspect ratio, no slide borders, no Japanese text.

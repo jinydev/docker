@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Lab finale and preview for Part 05.
+Professor Hojin (youthful early 40s Korean male engineering professor, smooth youthful skin without wrinkles, clean-shaven, 7:3 parted dark charcoal black hair with soft bangs and subtle silver-grey salt-and-pepper streaks around temples, thin minimalist round silver metal wire-rim glasses, kind gentle brown eyes, warm encouraging smile, wearing a plain solid dark charcoal navy polo shirt and blue denim jeans) stands proudly beside Dorothy (cheerful 9-year-old girl in denim overalls with 'STEM HERO' patch).
+Professor Hojin opens an architectural portal revealing glowing real-time telemetry dashboards showing Prometheus metric graphs and Grafana visualizations, pointing forward toward 'Part 05: 053. 프로메테우스와 그라파나 도커 모니터링 환경구축'.
+Dorothy gazes ahead with wide, curious, inspired eyes, ready for the next adventure.
+Toto the cream puppy barks playfully at the colorful glowing metric charts.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

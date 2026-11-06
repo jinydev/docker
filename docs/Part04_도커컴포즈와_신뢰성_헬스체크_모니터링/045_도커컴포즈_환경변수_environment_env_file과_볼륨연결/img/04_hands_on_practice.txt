@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing volume persistence verification across container lifecycle.
+Step 1 (Top Left): 'docker compose up -d' creating container and named volume 'db-storage'.
+Step 2 (Top Right): Terminal command writing data 'INSERT INTO tasks VALUES (1, 'Master Docker')' into the database volume.
+Step 3 (Bottom Left): Teardown command 'docker compose down' showing container and network removed, but volume 'db-storage' preserved with a green checkmark.
+Step 4 (Bottom Right): Re-creation command 'docker compose up -d' followed by 'SELECT * FROM tasks' verifying that data persists intact without data loss.
+Clean directional flow arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

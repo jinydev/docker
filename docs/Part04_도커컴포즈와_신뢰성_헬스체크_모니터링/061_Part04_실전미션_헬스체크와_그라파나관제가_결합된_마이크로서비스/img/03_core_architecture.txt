@@ -1,0 +1,12 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the complete Part 04 Integrated All-in-One Compose Architecture.
+Network Container Cluster ('app-network: bridge'):
+1. 'Database Service (PostgreSQL)' with internal healthcheck ('pg_isready') emitting green 'healthy' shield.
+2. 'Web Application Service (API)' guarded by 'depends_on: db: condition: service_healthy', exposing ':8080/metrics'.
+3. 'Prometheus Server (:9090)' automatically scraping 'web:8080/metrics' via internal DNS.
+4. 'Grafana Dashboard (:3000)' connected to 'http://prometheus:9090' data source via provisioned code.
+Data flows:
+- Green dashed arrows: Health & startup dependencies.
+- Cyan solid arrows: Metric scraping requests.
+- Amber arrows: Grafana visualization queries.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

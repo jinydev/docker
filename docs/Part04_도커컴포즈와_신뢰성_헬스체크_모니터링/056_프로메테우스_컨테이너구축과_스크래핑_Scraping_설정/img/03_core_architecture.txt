@@ -1,0 +1,11 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram comparing 'static_configs' vs 'dns_sd_configs' in Prometheus.
+Left Column ('static_configs: targets: ["api:8080"]'):
+- DNS resolves single IP through round-robin.
+- Only 1 container scraped out of 5, causing missing metric blind spots marked with dotted outlines.
+Right Column ('dns_sd_configs: names: ["tasks.api"], type: "A", port: 8080'):
+- DNS resolves full list of all replica IP addresses (10.0.1.2, 10.0.1.3, 10.0.1.4, 10.0.1.5).
+- Prometheus initiates 4 parallel scraper rays, collecting 100% full cluster telemetry with emerald green checkmarks.
+Center: Docker internal embedded DNS engine facilitating lookup.
+Clean directional flow arrows, clear YAML code snippet cards, professional typography.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '이미지메타데이터 OCI표준레이블과 감사추적성 확보'.
+System Structure & Data Flow:
+- OCI 표준 이미지 레이블: org.opencontainers.image.source(Git URL), .revision(커밋 해시), .version(버전), .creat
+- 감사 추적성 (Auditability): 운영 컨테이너에서 버그 발견 시 docker inspect --format '{{json .Config.Labels}}'로 즉시 정확한 Git 
+- 레이블 기반 필터링: docker image ls --filter "label=com.oz-cloud.team=platform-engineering"으로 특정 팀이나
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

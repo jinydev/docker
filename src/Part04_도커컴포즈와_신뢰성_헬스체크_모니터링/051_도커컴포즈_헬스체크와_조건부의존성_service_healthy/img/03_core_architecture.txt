@@ -1,0 +1,12 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing Docker Compose conditional dependency and state progression.
+Upper Section (Redis / Database Service):
+- Box 1: Container starts in state 'health: starting' with a yellow pulse indicator.
+- Box 2: Periodic healthcheck probe executed ('test: ["CMD", "redis-cli", "ping"]').
+- Box 3: Transition to state 'health: healthy' with a solid glowing emerald green checkmark shield.
+Lower Section (Web Application Service):
+- Box 4: Blocked in 'Waiting...' state governed by 'depends_on: redis: condition: service_healthy'.
+- Solid glowing connector arrow pointing from Box 3 (Redis Healthy) down to Box 5 (Web Container Launch).
+- Box 5: 'Web Container Starting - Safe & Ready' in clean soft blue.
+Clear signal flow arrows, clean status labels, state progression timeline.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

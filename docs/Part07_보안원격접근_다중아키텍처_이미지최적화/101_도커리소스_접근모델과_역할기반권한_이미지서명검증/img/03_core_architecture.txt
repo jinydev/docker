@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커리소스 접근모델과 역할기반권한 이미지서명검증'.
+System Structure & Data Flow:
+- Docker Content Trust (DCT): export DOCKER_CONTENT_TRUST=1 설정 시 도커 엔진이 이미지 다이제스트와 디지털 서명을 엄격히 검증
+- 공급망 보안 (Supply Chain Security): 소스 코드 ➔ CI 빌드 ➔ 이미지 서명 ➔ 클러스터 검증으로 이어지는 소프트웨어 공급망 보안의 핵심 축
+- 거버넌스 원칙: 개발자에게는 빌드/테스트 환경 권한만 부여하고 운영 클러스터 배포 권한은 CI/CD 파이프라인 서비스 계정에만 위임
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '리버스프록시2 SSL TLS HTTPS적용과 업스트림 로드밸런싱'.
+System Structure & Data Flow:
+- SSL 오프로딩 (SSL Termination): 외부 고객과 프록시 사이는 안전한 https://(443) 암호화 통신을 하고, 프록시와 내부 백엔드 컨테이너 사이는 고속 사설 HTTP(80)
+- Nginx 부하 분산 알고리즘: 기본 라운드로빈(순환 분배), least_conn(연결 수 최소 분배), ip_hash(동일 클라이언트는 동일 컨테이너로 고정, 스티키 세션)
+- backup과 max_fails 헬스 모니터링: 특정 백엔드 컨테이너가 응답하지 않으면 Nginx가 자동으로 해당 컨테이너를 우회하고 정상 컨테이너로 재요청 전달
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

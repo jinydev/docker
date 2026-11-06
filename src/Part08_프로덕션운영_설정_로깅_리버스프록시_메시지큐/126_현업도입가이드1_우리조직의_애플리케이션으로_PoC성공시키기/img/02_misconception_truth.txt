@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side conceptual comparison for '현업도입가이드1 우리조직의 애플리케이션으로 PoC성공시키기'.
+Left Side (The Painful Misconception):
+- Red warning aura, tangled wires, fragile infrastructure, error banners.
+- Dorothy (cheerful 9yo girl, chestnut pigtails, denim overalls) looking overwhelmed, scratching her head in confusion.
+Right Side (The Production Truth & Best Practice):
+- Emerald green verification glow, clean modular architecture of 파일럿 대상 선정 기준, 팀원 온보딩 효과 입증, 점진적 마이그레이션 (Strangler Fig 패턴).
+- Professor Hojin (youthful early 40s Korean male, round glasses, dark navy polo) gesturing with an encouraging thumbs-up, accompanied by happy Toto with sky-blue bandana and Jiny the tuxedo cat with glasses.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadow at feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

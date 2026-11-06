@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing the 4-step execution of 'docker compose up -d'.
+Step 1 (Top Left): A neat blueprint card labeled '[+] Running 1/1 - Network app_default Created'.
+Step 2 (Top Right): Two synchronized cards labeled '[+] Running 2/2 - Container access-log Starting' and 'Container iotd-api Starting' in green and blue.
+Step 3 (Bottom Left): A sequential card with a gold dependency lock icon labeled '[+] Running 3/3 - Container image-gallery Started (depends_on fulfilled)'.
+Step 4 (Bottom Right): A dark slate-blue terminal window showing the output of 'docker compose ps' with all three services showing STATUS 'Up (running)' and ports mapped to '0.0.0.0:8092->80/tcp'.
+Clean directional arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), perfectly centered infographic layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating the kernel process replacement mechanism of exec in Docker entrypoint:
+Left side: 'Without exec' showing PID 1 as a shell box /bin/sh blocking a yellow lightning SIGTERM signal, leaving child process PID 2 (Node.js) unprotected until a red SIGKILL sword strikes it down.
+Right side: 'With exec "$@"' showing the /bin/sh shell seamlessly transforming and vanishing as the Node.js application takes over PID 1 directly inside a glowing mint-green shield, receiving SIGTERM gracefully and saving pending data.
+Isolated schematic diagram, pure white background #FFFFFF, NO human characters.

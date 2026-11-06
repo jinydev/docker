@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side conceptual comparison for '숨어있는 파일로그를 표준출력 stdout으로 끌어내기'.
+Left Side (The Painful Misconception):
+- Red warning aura, tangled wires, fragile infrastructure, error banners.
+- Dorothy (cheerful 9yo girl, chestnut pigtails, denim overalls) looking overwhelmed, scratching her head in confusion.
+Right Side (The Production Truth & Best Practice):
+- Emerald green verification glow, clean modular architecture of 심볼릭 링크 트릭 (/dev/stdout), tail -n +1 -F 파일경로 백그라운드 패턴, 중앙 로깅으로의 연결.
+- Professor Hojin (youthful early 40s Korean male, round glasses, dark navy polo) gesturing with an encouraging thumbs-up, accompanied by happy Toto with sky-blue bandana and Jiny the tuxedo cat with glasses.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadow at feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

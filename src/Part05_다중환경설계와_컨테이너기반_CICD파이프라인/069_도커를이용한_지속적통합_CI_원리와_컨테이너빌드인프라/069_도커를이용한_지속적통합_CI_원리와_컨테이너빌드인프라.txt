@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+16:9 cinematic widescreen cover illustration for Chapter 069 '도커를이용한 지속적통합 CI 원리와 컨테이너빌드인프라'.
+In the center, Professor Hojin (youthful early 40s Korean male engineering professor, smooth youthful skin, clean-shaven, 7:3 parted dark hair with subtle salt-and-pepper streaks around temples, round silver wire-rim glasses, dark navy polo shirt, blue denim jeans) stands alongside Dorothy (cheerful 9yo girl, chestnut brown twin pigtails with colorful beads, blue denim overalls with circular 'STEM HERO' patch, orange striped t-shirt) at an automated container continuous integration console.
+Floating in the center is an automated build conveyor linking Git commit triggers, ephemeral test containers, and a private Docker registry, illustrating zero-dependency CI where the container engine builds, tests, and packages everything in isolation.
+Beside them, Toto the fluffy cream puppy wags his tail excitedly, and Jiny the smart tuxedo cat with glasses inspects an automated test status screen.
+Prominent Korean title typography in the composition: '069. 도커를이용한 지속적통합 CI 원리와 컨테이너빌드인프라'.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft shadow, 16:9 widescreen aspect ratio, no slide borders, no Japanese text.

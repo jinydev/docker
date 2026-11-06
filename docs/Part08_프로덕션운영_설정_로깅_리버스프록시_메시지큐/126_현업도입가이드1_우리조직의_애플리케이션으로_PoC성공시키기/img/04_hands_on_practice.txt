@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice and verification pipeline for '현업도입가이드1 우리조직의 애플리케이션으로 PoC성공시키기'.
+Step 1 (Top Left): Declarative Manifest / Setup - Terminal or code block specifying configuration: cat << 'EOF' // [Week 1: 파일럿 선정] -> 의존성이 적은 프론트엔드 또는 독립 배치 API 1개 선정, Dockerfile 초안 작성 // [Week 2: 로컬 환경 통일] -> docker compose로 팀원들의 로컬 개발 환경(소스코드 바인드 마운트) 일치화.
+Step 2 (Top Right): Execution Command - Terminal prompt executing deployment / inspection commands.
+Step 3 (Bottom Center): Evaluated Verification Window - Glowing CLI console showing healthy status, verified replicas, and emerald green checkmarks.
+Clear directional flow arrows connecting Step 1 -> Step 2 -> Step 3.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

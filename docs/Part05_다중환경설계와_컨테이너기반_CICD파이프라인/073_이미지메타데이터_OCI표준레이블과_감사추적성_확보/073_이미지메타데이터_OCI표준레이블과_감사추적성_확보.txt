@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+16:9 cinematic widescreen cover illustration for Chapter 073 '이미지메타데이터 OCI표준레이블과 감사추적성 확보'.
+In the center, Professor Hojin (youthful early 40s Korean male engineering professor, smooth youthful skin, clean-shaven, 7:3 parted dark hair with subtle salt-and-pepper streaks around temples, round silver wire-rim glasses, dark navy polo shirt, blue denim jeans) stands alongside Dorothy (cheerful 9yo girl, chestnut brown twin pigtails with colorful beads, blue denim overalls with circular 'STEM HERO' patch, orange striped t-shirt) at an official container governance inspection console.
+Floating in the center is an ornate, high-tech glowing digital passport stamped with OCI standard labels ('org.opencontainers.image.*'), linking live containers directly to their exact Git commits, build jobs, and security scan certifications with cryptographic certainty.
+Beside them, Toto the fluffy cream puppy wags his tail excitedly, and Jiny the smart tuxedo cat with glasses inspects an official verification stamp.
+Prominent Korean title typography in the composition: '073. 이미지메타데이터 OCI표준레이블과 감사추적성 확보'.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft shadow, 16:9 widescreen aspect ratio, no slide borders, no Japanese text.

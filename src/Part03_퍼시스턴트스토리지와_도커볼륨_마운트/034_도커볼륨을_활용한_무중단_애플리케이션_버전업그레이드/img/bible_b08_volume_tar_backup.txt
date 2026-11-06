@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating the ephemeral utility container backup pattern for Docker volumes:
+Center: A persistent cylinder volume block labeled 'db_production_data' with a soft sky-blue glow.
+Above: A running database container querying the volume safely.
+Below: An ephemeral utility worker container labeled 'alpine --rm' mounting the volume with a blue padlock marked ':ro (Read-Only)'.
+The utility container is packing data into a compressed archive labeled 'backup.tar.gz' and streaming it out to a host directory labeled 'Host Backup Storage'.
+NO human characters, isolated clean technical diagram cutout.

@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '단일호스트에 여러애플리케이션 격리배포하기 프로젝트이름'.
+System Structure & Data Flow:
+- 프로젝트 이름 기본값: compose.yaml이 위치한 디렉터리 이름(예: todo-list)이 기본 프로젝트 이름이 됨
+- -p (--project-name) 플래그: docker compose -p dev up -d처럼 명시적 프로젝트 이름을 부여해 리소스 이름 공간을 완전히 분리
+- 포트 번호 동적 할당 (ports: ["80"]): 호스트 포트를 생략하고 컨테이너 포트(80)만 적으면 도커가 호스트의 비어 있는 임의 포트(예: 32768, 32769)를 자동 할당
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

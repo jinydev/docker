@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커이미지 최적화4 비루트유저 nonroot와 최소권한보안'.
+System Structure & Data Flow:
+- 컨테이너 내부 root의 위험성: 컨테이너의 UID 0은 호스트 커널의 UID 0(root)과 직접 매핑될 수 있어 취약점 발생 시 호스트 전체가 위협받음
+- COPY --chown=사용자:그룹: 호스트에서 파일을 복사할 때 소유권을 root가 아닌 애플리케이션 실행 사용자로 즉시 지정
+- 권한 거부 에러 예방: 1024번 이하의 웰노운 포트(예: 80) 바인딩이나 시스템 파일 수정 권한이 없으므로, 비루트 컨테이너는 8080이나 3000번 등 비특권 포
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

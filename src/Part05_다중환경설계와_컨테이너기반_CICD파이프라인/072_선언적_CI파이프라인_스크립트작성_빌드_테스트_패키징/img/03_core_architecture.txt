@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '선언적 CI파이프라인 스크립트작성 빌드 테스트 패키징'.
+System Structure & Data Flow:
+- 테스트 스테이지 내장 패턴: 별도의 테스트 러너 세팅 없이 docker build 과정의 일부로 단위 테스트(Unit Test)와 정적 분석을 강제 수행
+- 파이프라인 스크립트 모듈화: 01-verify.sh ➔ 02-build.sh ➔ 03-integration-test.sh ➔ 04-push.sh 형태로 셸 스크립트를 분리하
+- 통합 테스트 (End-to-End Test): 빌드된 이미지들을 docker compose up -d로 실제 네트워크에 띄운 뒤 테스트 컨테이너가 HTTP API 요청을 보내 응답을 검증
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

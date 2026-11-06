@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 16:9 widescreen presentation banner format, warm vibrant flat cel shading, dark espresso brown line art (#26211E), masterpiece, highly detailed.
+Wide title banner illustration for '숨어있는 파일로그를 표준출력 stdout으로 끌어내기'.
+On the left, Professor Hojin (youthful early 40s Korean male, neat salt-and-pepper hair, thin round wire-rim glasses, dark navy polo shirt, blue jeans) gestures confidently alongside Dorothy (cheerful 9yo girl, twin chestnut pigtails, denim overalls, STEM HERO patch) who happily points her stylus at a glowing holographic technical display in the center.
+The center holographic display visualizes the core architecture of 심볼릭 링크 트릭 (/dev/stdout), tail -n +1 -F 파일경로 백그라운드 패턴, 중앙 로깅으로의 연결.
+Toto the fluffy cream puppy with sky-blue bandana wags his tail playfully near Dorothy's feet, and Jiny the tuxedo cat with round spectacles inspects the diagrams.
+Pure solid clean white background (#FFFFFF), perfectly centered, subtle soft floor contact shadows, widescreen 16:9 aspect ratio, no cutoffs, no messy clutter, no text containers, no Japanese text.

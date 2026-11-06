@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Misconception vs Truth comparison for Lesson 049: Blind trust in 'depends_on' vs resilient Fail-Fast dependency checking.
+On the left (Misconception/Crash): Dorothy (cheerful 9-year-old girl in denim overalls) shocked and distressed as her web container abruptly crashes with 'Connection Refused', because depends_on only started the database container but didn't wait for internal DB initialization to finish.
+On the right (Truth/Resilience): Jiny the lab assistant cat (chubby black-and-white tuxedo cat with scholar glasses and red bell collar) sitting serenely holding a green safety latch, allowing the web container to safely probe the DB with a quick test and restart automatically until the database responds with a smile.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

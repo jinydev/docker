@@ -1,0 +1,12 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical architecture diagram comparing vulnerable curl/wget containers with hardened native-language health utility containers.
+Left side (Vulnerable Legacy Architecture):
+- Container with full shell tools ('curl', 'wget', 'bash').
+- Attack vector line showing unauthorized external payload download using curl.
+- Red warning badge: 'CVE vulnerability surface & supply-chain risk'.
+Right side (Hardened Cloud-Native Architecture):
+- Minimalist Distroless container without curl, wget, or shell.
+- A tiny internal file 'http_check.py' or static Go binary using standard urllib.
+- Direct memory-level socket connection to localhost:8000/health returning Exit Code 0 (OK) or 1 (Fail).
+- Green shield badge: 'Zero CVE attack vector & minimal image footprint'.
+Pure solid clean white background (#FFFFFF), centered balanced diagram layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, clear legible English technical labels, no Japanese text.

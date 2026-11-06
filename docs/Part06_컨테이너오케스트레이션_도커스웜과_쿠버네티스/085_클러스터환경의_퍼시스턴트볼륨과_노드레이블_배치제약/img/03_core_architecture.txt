@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '클러스터환경의 퍼시스턴트볼륨과 노드레이블 배치제약'.
+System Structure & Data Flow:
+- 배치 제약 조건 (placement.constraints): node.role == manager(매니저 전용), node.labels.storage == ssd(특정 레이블 노드), node.hostna
+- 클라우드 공유 스토리지 플러그인: 노드 고정 외에 다중 노드 간 볼륨 이동이 필요할 때는 AWS EFS, NFS, Ceph, GlusterFS 같은 네트워크 볼륨 드라이버 플러그
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

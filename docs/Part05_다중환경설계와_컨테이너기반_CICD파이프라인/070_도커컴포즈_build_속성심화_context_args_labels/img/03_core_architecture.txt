@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커컴포즈 build 속성심화 context args labels'.
+System Structure & Data Flow:
+- image: + build: 동시 지정: build:만 적으면 자동 생성된 이름이 붙지만, image:와 build:를 함께 적으면 빌드된 결과 이미지에 image:에 적힌 정확한 태그
+- ARG vs ENV 차이점: ARG는 오직 이미지 빌드(docker build) 중에만 존재하는 변수 / ENV는 빌드 중 + 컨테이너 실행(docker run) 시점까지 
+- 병렬 빌드 가속: 최신 Docker Compose V2(BuildKit 내장)는 docker compose build 실행 시 의존성이 없는 여러 서비스 이미지를
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side conceptual comparison for '클라우드네이티브 리버스프록시 Traefik 자동서비스디스커버리'.
+Left Side (The Painful Misconception):
+- Red warning aura, tangled wires, fragile infrastructure, error banners.
+- Dorothy (cheerful 9yo girl, chestnut pigtails, denim overalls) looking overwhelmed, scratching her head in confusion.
+Right Side (The Production Truth & Best Practice):
+- Emerald green verification glow, clean modular architecture of 자동 서비스 디스커버리, Traefik 웹 대시보드 (:8080), Let's Encrypt 무료 SSL 자동 갱신.
+- Professor Hojin (youthful early 40s Korean male, round glasses, dark navy polo) gesturing with an encouraging thumbs-up, accompanied by happy Toto with sky-blue bandana and Jiny the tuxedo cat with glasses.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadow at feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

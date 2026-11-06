@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '스웜클러스터의 스택관리원리 서비스 태스크 복제와글로벌모드'.
+System Structure & Data Flow:
+- mode: replicated (기본값): 클러스터에 노드가 몇 대이든 상관없이 사용자가 지정한 replicas: N 개수를 클러스터 전체에서 유지
+- mode: global (쿠버네티스의 DaemonSet): replicas 숫자를 적지 않으며, 클러스터에 참여 중인 모든 노드마다 정확히 1개씩의 컨테이너를 실행!
+- max_replicas_per_node: 1: 레플리카가 2개인데 우연히 둘 다 1번 노드에 배치되면 1번 노드 다운 시 서비스가 전멸함! 이를 막기 위해 노드당 최대 배치 개수를 제한
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

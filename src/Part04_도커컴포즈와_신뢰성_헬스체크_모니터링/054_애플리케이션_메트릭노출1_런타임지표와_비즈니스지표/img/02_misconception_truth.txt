@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Application Metrics myth vs reality.
+Left Side ('오해 (Myth) - Blind Averaging'): A deceptive smooth green chart showing 'Average Latency: 200ms', while hidden beneath it angry red spikes of 5-second timeout failures torment users, marked with caution icons. Dorothy looks bewildered with question marks.
+Right Side ('진실 (Truth) - Prometheus Histogram & P99 Tail Latency'): A clear, layered scientific histogram chart dissecting buckets (p50, p90, p99), accurately revealing the slowest 1% bottleneck requests for surgical optimization. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy wags his tail cheerfully beside the histogram chart.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

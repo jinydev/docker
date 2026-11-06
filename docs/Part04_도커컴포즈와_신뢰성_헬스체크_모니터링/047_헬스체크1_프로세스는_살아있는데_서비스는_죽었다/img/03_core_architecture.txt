@@ -1,0 +1,10 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical architecture diagram contrasting default Docker process monitoring with HEALTHCHECK instruction mechanism.
+Left side (Default Behavior):
+- A container box running PID 1 (nginx). The internal app logic is deadlocked (red cross: HTTP 500), but PID 1 process table entry still exists.
+- The external Docker Daemon only inspects 'Is PID 1 alive? -> YES' and falsely flags container as 'Up (healthy)'.
+Right side (Active HEALTHCHECK):
+- Inside the container, a periodic probing loop 'HEALTHCHECK CMD wget http://localhost/' actively tests real HTTP response.
+- Response fails -> returns Exit Code 1.
+- Docker Daemon receives Exit Code 1 -> updates container metadata to 'STATUS: Up (unhealthy)'.
+Pure solid clean white background (#FFFFFF), centered balanced diagram layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, clear legible English technical labels, no Japanese text.

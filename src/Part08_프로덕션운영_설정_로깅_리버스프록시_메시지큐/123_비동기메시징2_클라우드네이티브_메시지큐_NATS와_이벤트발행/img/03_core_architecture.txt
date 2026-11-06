@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '비동기메시징2 클라우드네이티브 메시지큐 NATS와 이벤트발행'.
+System Structure & Data Flow:
+- NATS의 압도적 효율성: 무거운 Java 기반 Kafka/ActiveMQ와 달리 Go로 작성되어 단 15MB 메모리만으로 컨테이너 즉시 가동
+- 서브젝트 계층 (events.todo.newitem): 점(.)으로 구분된 계층형 토픽 네이밍과 와일드카드(* 한 단어, > 하위 전체) 지원
+- NATS 내장 모니터링 (:8222): http://localhost:8222/varz 및 /connz 엔드포인트를 통해 현재 연결된 클라이언트 수, 처리된 메시지 바이트 수를 JSO
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

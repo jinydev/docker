@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice pipeline for Grafana container deployment and dashboard creation.
+Step 1 (Top Left): Compose card showing 'grafana/grafana' service definition with port '3000:3000' on the shared 'monitoring' network.
+Step 2 (Top Right): Data Source configuration card showing URL 'http://prometheus:9090' and a green 'Save & Test: Success' prompt.
+Step 3 (Bottom Left): Dashboard panel builder card showing PromQL query input 'rate(http_requests_total[1m])' and unit format selection 'reqps'.
+Step 4 (Bottom Right): Finished live dashboard card displaying full multi-panel observability with real-time streaming charts.
+Clean directional flow arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

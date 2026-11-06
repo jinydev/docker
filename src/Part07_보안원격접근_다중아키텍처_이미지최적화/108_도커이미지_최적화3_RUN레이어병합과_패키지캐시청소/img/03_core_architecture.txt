@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커이미지 최적화3 RUN레이어병합과 패키지캐시청소'.
+System Structure & Data Flow:
+- 레이어 불변성의 함정: 이전 레이어에 기록된 파일은 상위 레이어에서 삭제 표시(Whiteout)만 될 뿐, 하위 레이어 데이터는 이미지 파일 속에 영구 박제됨
+- --no-install-recommends: 우분투/데비안 APT 설치 시 권장(Recommends)되는 수십 개의 불필요한 보조 문서/패키지 설치를 건너뜀
+- 알파인의 --no-cache: apk add --no-cache curl을 사용하면 /var/cache/apk/에 인덱스 캐시를 남기지 않고 즉시 설치 및 청소 완료
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

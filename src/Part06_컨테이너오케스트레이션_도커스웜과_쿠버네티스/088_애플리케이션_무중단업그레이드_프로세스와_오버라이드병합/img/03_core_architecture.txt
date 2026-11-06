@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '애플리케이션 무중단업그레이드 프로세스와 오버라이드병합'.
+System Structure & Data Flow:
+- 변경된 서비스만 스마트 업데이트: docker stack deploy를 새 버전 파일로 다시 실행하면, 스웜은 전체 스택을 껐다 켜지 않고 정의가 바뀐 서비스의 컨테이너들만 무중
+- 인그레스 라우팅 메시와의 조화: 구버전 컨테이너가 종료(Shutdown)되기 전에 인그레스 로드밸런서 목록에서 먼저 제외되고, 신버전 컨테이너가 Running/Healthy가 
+- 단일 병합 아티팩트 보관: docker compose config > prod-release-v2.yml로 생성된 단일 파일을 배포 기록(Release History)으로
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

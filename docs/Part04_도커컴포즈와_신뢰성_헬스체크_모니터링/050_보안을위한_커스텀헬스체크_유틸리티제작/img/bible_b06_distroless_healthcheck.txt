@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating a static Go healthchecker in a shell-less Distroless container:
+Left side: A minimalist translucent container box labeled 'Distroless (No Shell, No curl)' containing only the main application and a tiny glowing mint-green tool labeled 'Static Go Healthcheck Binary (2MB)'.
+Center: A medical stethoscope pulse wave indicating HTTP probe to '/healthz', outputting a glowing green badge 'Exit Code 0 (HEALTHY)'.
+Right side: A timeline graph showing 'Startup Warmup (--start-period = 30s)' with an umbrella shielding the initializing app from early healthcheck failure counts until it safely stabilizes.
+NO human characters, isolated clean technical diagram cutout.

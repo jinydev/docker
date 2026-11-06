@@ -1,0 +1,15 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the Monitoring-as-Code Provisioning Pipeline.
+Left Column (Source Code Repository):
+- Folder 'provisioning/datasources/prometheus.yaml' defining automated source connection.
+- Folder 'provisioning/dashboards/dashboards.yaml' defining provider specs.
+- File 'dashboards/docker-cluster-overview.json' containing full panel schema.
+Center Column (Docker Compose Container Bind Mounts):
+- Arrow mounting 'datasources/ -> /etc/grafana/provisioning/datasources:ro'.
+- Arrow mounting 'dashboards/ -> /etc/grafana/provisioning/dashboards:ro'.
+Right Column (Grafana Runtime Boot):
+- Internal engine parses YAML on container start.
+- Instantaneous creation of data source connection to 'http://prometheus:9090'.
+- Instantaneous rendering of multi-panel telemetry dashboards with 0 manual clicks.
+Clean directional flow arrows, clear YAML/JSON snippet cards, professional typography.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

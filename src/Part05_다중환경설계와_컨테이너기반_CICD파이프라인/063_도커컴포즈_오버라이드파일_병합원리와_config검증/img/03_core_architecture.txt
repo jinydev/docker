@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커컴포즈 오버라이드파일 병합원리와 config검증'.
+System Structure & Data Flow:
+- 다중 -f 병합 규칙: 앞선 파일(-f compose.yaml)의 설정 위에 뒤따르는 파일(-f compose.prod.yaml)의 설정이 덮어써짐(Override)
+- compose.override.yaml 자동 로드: 별도의 -f 옵션을 주지 않고 그냥 docker compose up을 치면 compose.yaml과 compose.override.yaml 두 
+- docker compose config: 여러 오버라이드 파일과 환경 변수가 모두 합쳐진 최종 컴포즈 명세를 표준 출력으로 보여줌
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

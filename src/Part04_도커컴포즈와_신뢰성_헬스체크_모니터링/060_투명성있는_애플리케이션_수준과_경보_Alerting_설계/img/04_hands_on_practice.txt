@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice pipeline for Prometheus Alertmanager configuration and firing test.
+Step 1 (Top Left): Rule definition card showing 'alert_rules.yml' with 'alert: HighErrorRate', 'expr: job:error_rate > 5', 'for: 1m'.
+Step 2 (Top Right): Alertmanager config card showing 'alertmanager.yml' with 'receivers: - name: "slack-notifications"' and webhook URL.
+Step 3 (Bottom Left): Chaos injection card showing stress test generating artificial 500 errors, with Prometheus UI showing state transitioning to 'FIRING'.
+Step 4 (Bottom Right): Dispatch confirmation card showing structured incoming Slack notification with incident title, severity, and dashboard link.
+Clean directional flow arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

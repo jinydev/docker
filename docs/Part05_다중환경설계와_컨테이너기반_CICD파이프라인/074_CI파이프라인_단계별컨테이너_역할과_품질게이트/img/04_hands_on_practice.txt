@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice and verification pipeline for 'CI파이프라인 단계별컨테이너 역할과 품질게이트'.
+Step 1 (Top Left): Declarative Manifest / Setup - Terminal or code block specifying configuration: set -euo pipefail // trap 'echo "[Cleanup] Removing CI test containers..."; docker compose -p ci-job-101 down -v 2>/dev/null || true' EXIT // echo "[Step 1] Building & Running Unit Tests...".
+Step 2 (Top Right): Execution Command - Terminal prompt executing deployment / inspection commands.
+Step 3 (Bottom Center): Evaluated Verification Window - Glowing CLI console showing healthy status, verified replicas, and emerald green checkmarks.
+Clear directional flow arrows connecting Step 1 -> Step 2 -> Step 3.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

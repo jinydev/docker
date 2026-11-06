@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 16:9 widescreen presentation banner format, warm vibrant flat cel shading, dark espresso brown line art (#26211E), masterpiece, highly detailed.
+Wide title banner illustration for '클러스터 장애복구 시나리오 리더노드이탈과 워커승격'.
+On the left, Professor Hojin (youthful early 40s Korean male, neat salt-and-pepper hair, thin round wire-rim glasses, dark navy polo shirt, blue jeans) gestures confidently alongside Dorothy (cheerful 9yo girl, twin chestnut pigtails, denim overalls, STEM HERO patch) who happily points her stylus at a glowing holographic technical display in the center.
+The center holographic display visualizes the core architecture of docker node promote / demote, 정족수 상실(Quorum Loss) 시 증상, Raft 데이터베이스 백업.
+Toto the fluffy cream puppy with sky-blue bandana wags his tail playfully near Dorothy's feet, and Jiny the tuxedo cat with round spectacles inspects the diagrams.
+Pure solid clean white background (#FFFFFF), perfectly centered, subtle soft floor contact shadows, widescreen 16:9 aspect ratio, no cutoffs, no messy clutter, no text containers, no Japanese text.

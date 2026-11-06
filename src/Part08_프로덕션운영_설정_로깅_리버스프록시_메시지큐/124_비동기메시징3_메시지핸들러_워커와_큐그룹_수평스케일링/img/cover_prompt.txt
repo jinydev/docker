@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 16:9 widescreen presentation banner format, warm vibrant flat cel shading, dark espresso brown line art (#26211E), masterpiece, highly detailed.
+Wide title banner illustration for '비동기메시징3 메시지핸들러 워커와 큐그룹 수평스케일링'.
+On the left, Professor Hojin (youthful early 40s Korean male, neat salt-and-pepper hair, thin round wire-rim glasses, dark navy polo shirt, blue jeans) gestures confidently alongside Dorothy (cheerful 9yo girl, twin chestnut pigtails, denim overalls, STEM HERO patch) who happily points her stylus at a glowing holographic technical display in the center.
+The center holographic display visualizes the core architecture of 일반 Pub/Sub vs 큐 그룹 (Queue Group), 워커의 완전 무중단 스케일 아웃, 역할의 명확한 분리.
+Toto the fluffy cream puppy with sky-blue bandana wags his tail playfully near Dorothy's feet, and Jiny the tuxedo cat with round spectacles inspects the diagrams.
+Pure solid clean white background (#FFFFFF), perfectly centered, subtle soft floor contact shadows, widescreen 16:9 aspect ratio, no cutoffs, no messy clutter, no text containers, no Japanese text.

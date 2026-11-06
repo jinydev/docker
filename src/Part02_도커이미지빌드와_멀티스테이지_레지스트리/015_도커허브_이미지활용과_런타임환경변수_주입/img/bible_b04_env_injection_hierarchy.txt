@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A clear educational schematic diagram illustrating Docker environment variable injection hierarchy:
+On the left, three stacked horizontal input blocks with soft pastel labels:
+1) Top Block: 'docker run -e / --env-file' in vibrant mint green (Highest Priority at Runtime)
+2) Middle Block: 'Dockerfile ENV' in sky blue (Baked into Image Config metadata)
+3) Bottom Block: 'Dockerfile ARG' in warm amber (Build-time only, vanished at runtime)
+Arrows pointing into the center depicting a Linux process container box labeled 'PID 1 Process Memory (/proc/1/environ)'.
+A small red alert lock icon beside the box warning 'Plaintext credentials exposed in inspect and stack'.
+NO human characters, isolated clean technical diagram cutout.

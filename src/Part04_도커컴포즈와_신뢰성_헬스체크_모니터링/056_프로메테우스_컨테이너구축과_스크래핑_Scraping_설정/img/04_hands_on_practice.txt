@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice pipeline for Prometheus container setup and scrape verification.
+Step 1 (Top Left): YAML configuration card showing 'prometheus.yml' with 'global: scrape_interval: 5s' and 'scrape_configs: - job_name: "docker-apps"'.
+Step 2 (Top Right): Container deployment card showing 'docker run -d -p 9090:9090 -v ./prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus'.
+Step 3 (Bottom Left): Web UI inspection card showing 'http://localhost:9090/targets' with all endpoints displaying bold green 'UP' badges and latency stamps.
+Step 4 (Bottom Right): Horizontal scale test card showing 'docker compose up -d --scale web=3' with Prometheus automatically detecting 3 active targets within seconds.
+Clean directional flow arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

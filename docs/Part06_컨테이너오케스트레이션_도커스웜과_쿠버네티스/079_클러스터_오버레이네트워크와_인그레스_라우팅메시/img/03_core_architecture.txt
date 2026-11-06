@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '클러스터 오버레이네트워크와 인그레스 라우팅메시'.
+System Structure & Data Flow:
+- 오버레이 네트워크 (--driver overlay): 여러 호스트 서버에 걸쳐 있는 컨테이너들이 마치 한 컴퓨터 안에 있는 것처럼 사설 IP(10.0.x.x)와 서비스 이름으로 자유롭게 통신
+- 내장 VIP (Virtual IP) 로드 밸런싱: 도커 컴포즈의 DNS 라운드 로빈(클라이언트가 캐싱하면 편중 발생)과 달리, 스웜은 서비스마다 고정된 단일 가상 IP(VIP)를 부여하고 커널 
+- 인그레스 라우팅 메시 (Ingress Mesh): -p 8080:80으로 포트를 공개하면 스웜 클러스터의 모든 노드(1번~10번 서버 전체)에서 8080 포트가 열리고 내부 컨테이너로 자동 포워
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

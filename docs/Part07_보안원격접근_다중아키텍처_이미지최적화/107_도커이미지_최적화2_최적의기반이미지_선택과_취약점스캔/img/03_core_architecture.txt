@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커이미지 최적화2 최적의기반이미지 선택과 취약점스캔'.
+System Structure & Data Flow:
+- 알파인 (alpine): 용량 약 5MB, 패키지 매니저 apk 제공, 대부분의 경량 마이크로서비스에 최적 / 주의: 표준 glibc 대신 musl libc를 쓰므로 C
+- 데비안 슬림 (debian-slim): 용량 약 30MB, 표준 glibc 100% 호환, 시스템 유틸리티를 최소화한 슬림 버전
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

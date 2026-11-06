@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>백그라운드 컨테이너: 데몬 실행과 포트 포워딩 웹 호스팅 | 지니와 도로시가 함께 학습하는 도커와 컨테이너</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="백그라운드 컨테이너: 데몬 실행과 포트 포워딩 웹 호스팅" />
+<meta name="author" content="Hojin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스" />
+<meta name="twitter:description" property="og:description" content="이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스" />
+<link rel="canonical" href="https://docker.jiny.dev/Part01_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EA%B8%B0%EC%B4%88%EC%99%80_%EB%8F%84%EC%BB%A4%EC%97%94%EC%A7%84%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/009_%EB%B0%B1%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88_%EB%8D%B0%EB%AA%AC%EC%8B%A4%ED%96%89%EA%B3%BC_%ED%8F%AC%ED%8A%B8%ED%8F%AC%EC%9B%8C%EB%94%A9_%EC%9B%B9%ED%98%B8%EC%8A%A4%ED%8C%85/" />
+<meta property="og:url" content="https://docker.jiny.dev/Part01_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EA%B8%B0%EC%B4%88%EC%99%80_%EB%8F%84%EC%BB%A4%EC%97%94%EC%A7%84%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/009_%EB%B0%B1%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88_%EB%8D%B0%EB%AA%AC%EC%8B%A4%ED%96%89%EA%B3%BC_%ED%8F%AC%ED%8A%B8%ED%8F%AC%EC%9B%8C%EB%94%A9_%EC%9B%B9%ED%98%B8%EC%8A%A4%ED%8C%85/" />
+<meta property="og:site_name" content="지니와 도로시가 함께 학습하는 도커와 컨테이너" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="백그라운드 컨테이너: 데몬 실행과 포트 포워딩 웹 호스팅" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스","headline":"백그라운드 컨테이너: 데몬 실행과 포트 포워딩 웹 호스팅","url":"https://docker.jiny.dev/Part01_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EA%B8%B0%EC%B4%88%EC%99%80_%EB%8F%84%EC%BB%A4%EC%97%94%EC%A7%84%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/009_%EB%B0%B1%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88_%EB%8D%B0%EB%AA%AC%EC%8B%A4%ED%96%89%EA%B3%BC_%ED%8F%AC%ED%8A%B8%ED%8F%AC%EC%9B%8C%EB%94%A9_%EC%9B%B9%ED%98%B8%EC%8A%A4%ED%8C%85/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/assets/css/docs.css?v=1793957445" rel="stylesheet" />
+  <link href="/assets/css/highlight.css" rel="stylesheet" />
+
+  <style>
+    /* Table Styling: 회색 실선 테두리 및 가독성 최적화 */
+    .bd-content table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 2rem !important;
+      font-size: 0.95rem !important;
+      border: 1px solid #cbd5e1 !important;
+      border-spacing: 0 !important;
+      background-color: #ffffff !important;
+    }
+
+    .bd-content table thead th {
+      background-color: #f1f5f9 !important;
+      color: #1e293b !important;
+      font-weight: 700 !important;
+      border: 1px solid #cbd5e1 !important;
+      padding: 0.75rem 1rem !important;
+      vertical-align: middle !important;
+      text-align: left !important;
+    }
+
+    .bd-content table tbody td {
+      border: 1px solid #cbd5e1 !important;
+      padding: 0.75rem 1rem !important;
+      color: #334155 !important;
+      vertical-align: top !important;
+      background-color: #ffffff !important;
+    }
+
+    .bd-content table tbody tr:nth-of-type(even) td {
+      background-color: #f8fafc !important;
+    }
+
+    .bd-content table tbody tr:hover td {
+      background-color: #f1f5f9 !important;
+    }
+
+    @media (max-width: 768px) {
+      .bd-content table {
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+    }
+  </style>
+
+  <style>
+    blockquote {
+      border-left: solid 5px #dee2e6;
+      padding: 5px 10px;
+      background-color: #f8f9fa;
+    }
+  </style>
+
+  <style>
+    h1 a {
+      text-decoration: none;
+    }
+
+    h2 a {
+      text-decoration: none;
+    }
+
+    h3 a {
+      text-decoration: none;
+    }
+
+    h4 a {
+      text-decoration: none;
+    }
+
+    h5 a {
+      text-decoration: none;
+    }
+
+    h6 a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: top
+    }
+
+    strong a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 스크롤바 커스텀 */
+    /* 임의의 영역 생성 */
+    .scrollBar {}
+
+    /* 아래의 모든 코드는 영역::코드로 사용 */
+    .scrollBar::-webkit-scrollbar {
+      width: 7px;
+      /* 스크롤바의 너비 */
+    }
+
+    .scrollBar::-webkit-scrollbar-thumb {
+      height: 30%;
+      /* 스크롤바의 길이 */
+      background: #cccccc;
+      /* 스크롤바의 색상 */
+
+      border-radius: 5px;
+    }
+
+    .scrollBar::-webkit-scrollbar-track {
+      background: rgba(33, 122, 244, .1);
+      /*스크롤바 뒷 배경 색상*/
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4VBPCT3CR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-R4VBPCT3CR');
+  </script>
+
+  <!-- MathJax for LaTeX Rendering -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+
+</head>
+
+<body>
+  <header class="navbar navbar-expand-lg bd-navbar sticky-top">
+    <nav class="container bd-gutter flex-wrap flex-lg-nowrap position-relative" aria-label="Main navigation">
+
+      <!-- Mobile: Left Toggle (Browse) -->
+      <div class="bd-navbar-toggle d-lg-none">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar"
+          aria-controls="bdSidebar" aria-label="Toggle docs navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+            </path>
+          </svg>
+          <span class="d-none fs-6 pe-1">Browse</span>
+        </button>
+      </div>
+
+      <!-- Brand: Desktop (Static), Mobile (Absolute Center) -->
+      <a class="navbar-brand p-0 me-0 me-lg-2 ms-lg-0 d-none d-lg-inline-block" href="/" aria-label="jinydev">
+        <svg width="32" height="26" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24.2746 5.33377C25.8486 7.33981 25.1183 11.1792 24.3961 13.0177C24.4028 13.0199 24.4094 13.0221 24.4161 13.0243L24.4013 13.0248L22.649 12.9082C22.649 12.9053 22.6488 12.9013 22.649 12.8993C22.9902 8.93373 22.5975 7.34575 22.2147 7.07677C17.6316 10.3896 13.5379 9.33658 12.2725 9.01111C11.928 8.9225 11.7932 8.88781 11.9152 9.00988C12.2872 9.38185 13.1336 9.82821 13.7371 10.1465H13.7372L13.7376 10.1467C13.8743 10.2188 13.9985 10.2843 14.1019 10.3409C9.12673 10.3984 7.12659 8.00279 6.53855 7.29846C6.47859 7.22664 6.4333 7.1724 6.40105 7.14015C6.11408 6.85318 4.49961 5.87252 3.99256 7.74227C3.50142 9.55335 3.81246 11.6775 3.97665 12.7988C3.99089 12.896 3.99257 12.8981 3.99257 12.9298L2.37635 13.0248L2.37213 13.0247C0.223493 8.05534 1.83854 5.26971 3.29536 4.2246C3.29536 1.78444 6.27428 -0.592359 10.0455 0.263262C14.8768 1.64043 16.3468 1.18409 18.0759 0.647278C18.774 0.430562 19.5143 0.200726 20.5351 0.073124C25.2219 -0.512739 26.7993 2.56612 27 4.16122C26.2141 3.70487 24.8556 4.73165 24.2746 5.33377ZM12.3374 1.5872C11.1225 1.16466 7.99257 0.717209 6.3478 2.41116C5.98397 2.78587 5.55554 3.48864 5.55554 3.48864C5.55554 3.48864 4.82665 4.81961 4.25622 4.24919C3.68579 3.67878 5.0168 1.96749 6.06259 1.46044C7.10838 0.953388 9.70703 0.0660505 12.3374 1.5872Z"
+            fill="currentColor" />
+          <path
+            d="M10.078 13.5002H3.10601C2.2309 13.5002 1.52148 14.2097 1.52148 15.0848V18.3172C1.52148 19.1923 2.2309 19.9018 3.10601 19.9018H10.078C10.9531 19.9018 11.6625 19.1923 11.6625 18.3172V15.0848C11.6625 14.2097 10.9531 13.5002 10.078 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M0.823513 14.6094H0.379847C0.187322 14.6094 0.03125 14.7654 0.03125 14.958V15.9721C0.03125 16.1646 0.187322 16.3207 0.379847 16.3207H0.823513C1.01604 16.3207 1.17211 16.1646 1.17211 15.9721V14.958C1.17211 14.7654 1.01604 14.6094 0.823513 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M16.7326 13.5002H23.7045C24.5796 13.5002 25.2891 14.2097 25.2891 15.0848V18.3172C25.2891 19.1923 24.5796 19.9018 23.7045 19.9018H16.7326C15.8575 19.9018 15.1481 19.1923 15.1481 18.3172V15.0848C15.1481 14.2097 15.8575 13.5002 16.7326 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M25.9861 14.6094H26.4297C26.6222 14.6094 26.7783 14.7654 26.7783 14.958V15.9721C26.7783 16.1646 26.6222 16.3207 26.4297 16.3207H25.9861C25.7935 16.3207 25.6375 16.1646 25.6375 15.9721V14.958C25.6375 14.7654 25.7935 14.6094 25.9861 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M12.2954 15.5601H14.5137C14.7062 15.5601 14.8623 15.7161 14.8623 15.9087V16.9228C14.8623 17.1153 14.7062 17.2713 14.5137 17.2713H12.2954C12.1028 17.2713 11.9468 17.1153 11.9468 16.9228V15.9087C11.9468 15.7161 12.1028 15.5601 12.2954 15.5601Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M9.93343 16.3937C9.93343 16.7087 9.76317 16.9641 9.55314 16.9641C9.34311 16.9641 9.17285 16.7087 9.17285 16.3937C9.17285 16.0786 9.34311 15.8232 9.55314 15.8232C9.76317 15.8232 9.93343 16.0786 9.93343 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M16.9688 16.3937C16.9688 16.7087 17.139 16.9641 17.3491 16.9641C17.5591 16.9641 17.7293 16.7087 17.7293 16.3937C17.7293 16.0786 17.5591 15.8232 17.3491 15.8232C17.139 15.8232 16.9688 16.0786 16.9688 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M14.2758 20.1016C13.642 20.6086 12.7863 20.3551 12.5645 20.1016C12.6278 20.4185 12.8687 20.8622 13.4518 20.8622C14.0349 20.8622 14.2441 20.3551 14.2758 20.1016Z"
+            fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1312 22.411C12.1575 22.2914 12.2759 22.2157 12.3956 22.2421L14.6347 22.735C14.7544 22.7614 14.83 22.8797 14.8036 22.9994C14.7773 23.119 14.659 23.1947 14.5393 23.1683L12.3002 22.6753C12.1805 22.649 12.1049 22.5307 12.1312 22.411Z"
+            fill="currentColor" />
+          <path
+            d="M13.4203 27.6754C9.00897 27.7261 5.77228 23.6613 4.70536 21.6225C4.54691 21.3197 4.42016 21.2739 4.32509 21.3373C4.17297 21.4387 4.28282 21.6437 4.32507 21.7493C4.85747 22.9916 5.58213 24.0416 5.87791 24.4113C4.83846 26.1353 4.49409 27.855 4.45183 28.4994C6.1758 26.8008 7.91668 26.8832 8.57162 27.1367C13.7055 29.7987 16.5577 27.929 18.1739 27.1367C19.4669 26.5029 21.4803 27.7388 22.3254 28.436C22.224 26.8642 21.3747 25.1402 20.9627 24.4747C21.6282 23.5873 22.1669 22.5099 22.4522 21.9711C22.6803 21.5401 22.6106 21.369 22.5472 21.3373C22.3951 21.2613 22.2092 21.4958 22.1353 21.6225C21.6599 22.4148 18.9345 27.6121 13.4203 27.6754Z"
+            fill="currentColor" />
+        </svg>
+      </a>
+      <a class="navbar-brand p-0 me-0 position-absolute top-50 start-50 translate-middle d-lg-none" href="/"
+        aria-label="jinydev">
+        <svg width="100" height="26" viewBox="0 0 112 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24.2746 5.33377C25.8486 7.33981 25.1183 11.1792 24.3961 13.0177C24.4028 13.0199 24.4094 13.0221 24.4161 13.0243L24.4013 13.0248L22.649 12.9082C22.649 12.9053 22.6488 12.9013 22.649 12.8993C22.9902 8.93373 22.5975 7.34575 22.2147 7.07677C17.6316 10.3896 13.5379 9.33658 12.2725 9.01111C11.928 8.9225 11.7932 8.88781 11.9152 9.00988C12.2872 9.38185 13.1336 9.82821 13.7371 10.1465H13.7372L13.7376 10.1467C13.8743 10.2188 13.9985 10.2843 14.1019 10.3409C9.12673 10.3984 7.12659 8.00279 6.53855 7.29846C6.47859 7.22664 6.4333 7.1724 6.40105 7.14015C6.11408 6.85318 4.49961 5.87252 3.99256 7.74227C3.50142 9.55335 3.81246 11.6775 3.97665 12.7988C3.99089 12.896 3.99257 12.8981 3.99257 12.9298L2.37635 13.0248L2.37213 13.0247C0.223493 8.05534 1.83854 5.26971 3.29536 4.2246C3.29536 1.78444 6.27428 -0.592359 10.0455 0.263262C14.8768 1.64043 16.3468 1.18409 18.0759 0.647278C18.774 0.430562 19.5143 0.200726 20.5351 0.073124C25.2219 -0.512739 26.7993 2.56612 27 4.16122C26.2141 3.70487 24.8556 4.73165 24.2746 5.33377ZM12.3374 1.5872C11.1225 1.16466 7.99257 0.717209 6.3478 2.41116C5.98397 2.78587 5.55554 3.48864 5.55554 3.48864C5.55554 3.48864 4.82665 4.81961 4.25622 4.24919C3.68579 3.67878 5.0168 1.96749 6.06259 1.46044C7.10838 0.953388 9.70703 0.0660505 12.3374 1.5872Z"
+            fill="currentColor" />
+          <path
+            d="M10.078 13.5002H3.10601C2.2309 13.5002 1.52148 14.2097 1.52148 15.0848V18.3172C1.52148 19.1923 2.2309 19.9018 3.10601 19.9018H10.078C10.9531 19.9018 11.6625 19.1923 11.6625 18.3172V15.0848C11.6625 14.2097 10.9531 13.5002 10.078 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M0.823513 14.6094H0.379847C0.187322 14.6094 0.03125 14.7654 0.03125 14.958V15.9721C0.03125 16.1646 0.187322 16.3207 0.379847 16.3207H0.823513C1.01604 16.3207 1.17211 16.1646 1.17211 15.9721V14.958C1.17211 14.7654 1.01604 14.6094 0.823513 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M16.7326 13.5002H23.7045C24.5796 13.5002 25.2891 14.2097 25.2891 15.0848V18.3172C25.2891 19.1923 24.5796 19.9018 23.7045 19.9018H16.7326C15.8575 19.9018 15.1481 19.1923 15.1481 18.3172V15.0848C15.1481 14.2097 15.8575 13.5002 16.7326 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M25.9861 14.6094H26.4297C26.6222 14.6094 26.7783 14.7654 26.7783 14.958V15.9721C26.7783 16.1646 26.6222 16.3207 26.4297 16.3207H25.9861C25.7935 16.3207 25.6375 16.1646 25.6375 15.9721V14.958C25.6375 14.7654 25.7935 14.6094 25.9861 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M12.2954 15.5601H14.5137C14.7062 15.5601 14.8623 15.7161 14.8623 15.9087V16.9228C14.8623 17.1153 14.7062 17.2713 14.5137 17.2713H12.2954C12.1028 17.2713 11.9468 17.1153 11.9468 16.9228V15.9087C11.9468 15.7161 12.1028 15.5601 12.2954 15.5601Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M9.93343 16.3937C9.93343 16.7087 9.76317 16.9641 9.55314 16.9641C9.34311 16.9641 9.17285 16.7087 9.17285 16.3937C9.17285 16.0786 9.34311 15.8232 9.55314 15.8232C9.76317 15.8232 9.93343 16.0786 9.93343 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M16.9688 16.3937C16.9688 16.7087 17.139 16.9641 17.3491 16.9641C17.5591 16.9641 17.7293 16.7087 17.7293 16.3937C17.7293 16.0786 17.5591 15.8232 17.3491 15.8232C17.139 15.8232 16.9688 16.0786 16.9688 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M14.2758 20.1016C13.642 20.6086 12.7863 20.3551 12.5645 20.1016C12.6278 20.4185 12.8687 20.8622 13.4518 20.8622C14.0349 20.8622 14.2441 20.3551 14.2758 20.1016Z"
+            fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1312 22.411C12.1575 22.2914 12.2759 22.2157 12.3956 22.2421L14.6347 22.735C14.7544 22.7614 14.83 22.8797 14.8036 22.9994C14.7773 23.119 14.659 23.1947 14.5393 23.1683L12.3002 22.6753C12.1805 22.649 12.1049 22.5307 12.1312 22.411Z"
+            fill="currentColor" />
+          <path
+            d="M13.4203 27.6754C9.00897 27.7261 5.77228 23.6613 4.70536 21.6225C4.54691 21.3197 4.42016 21.2739 4.32509 21.3373C4.17297 21.4387 4.28282 21.6437 4.32507 21.7493C4.85747 22.9916 5.58213 24.0416 5.87791 24.4113C4.83846 26.1353 4.49409 27.855 4.45183 28.4994C6.1758 26.8008 7.91668 26.8832 8.57162 27.1367C13.7055 29.7987 16.5577 27.929 18.1739 27.1367C19.4669 26.5029 21.4803 27.7388 22.3254 28.436C22.224 26.8642 21.3747 25.1402 20.9627 24.4747C21.6282 23.5873 22.1669 22.5099 22.4522 21.9711C22.6803 21.5401 22.6106 21.369 22.5472 21.3373C22.3951 21.2613 22.2092 21.4958 22.1353 21.6225C21.6599 22.4148 18.9345 27.6121 13.4203 27.6754Z"
+            fill="currentColor" />
+          <text x="32" y="21" font-family="Arial, sans-serif" font-weight="bold" font-size="22"
+            fill="currentColor">Jiny</text>
+        </svg>
+      </a>
+
+      <!-- Mobile: Right Toggle (Menu) -->
+      <div class="d-flex d-lg-none ms-auto">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar"
+          aria-controls="bdNavbar" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid"
+            viewBox="0 0 16 16">
+            <path
+              d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- OffCanvas -->
+      <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="bdNavbar"
+        aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
+        <!-- OffCanver Header -->
+        <div class="offcanvas-header px-4 pb-0">
+          <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">Jiny</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"
+            data-bs-target="#bdNavbar">
+          </button>
+        </div>
+
+        <!-- OffCanver Body -->
+        <div class="offcanvas-body p-4 pt-0 p-lg-0">
+          <hr class="d-lg-none text-white-50">
+
+          <ul class="navbar-nav flex-column flex-lg-row bd-navbar-nav">
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/">소개하기</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 active"
+                href="/Part01_컨테이너기초와_도커엔진아키텍처/001_컨테이너가_IT세상을_점령한_이유1_클라우드이주와_레거시현대화/">컨테이너기초</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part02_도커이미지빌드와_멀티스테이지_레지스트리/015_도커허브_이미지활용과_런타임환경변수_주입/">이미지빌드</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part03_퍼시스턴트스토리지와_도커볼륨_마운트/032_컨테이너속_데이터가_사라지는이유_기록가능레이어와_CoW/">스토리지</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part04_도커컴포즈와_신뢰성_헬스체크_모니터링/042_도커컴포즈_소개와_compose_yaml_선언적구조/">컴포즈</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part05_다중환경설계와_컨테이너기반_CICD파이프라인/062_단일호스트에_여러애플리케이션_격리배포하기_프로젝트이름/">CI/CD</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part06_컨테이너오케스트레이션_도커스웜과_쿠버네티스/076_컨테이너_오케스트레이션이란_왜_클러스터가_필요한가/">스웜&K8s</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part07_보안원격접근_다중아키텍처_이미지최적화/096_도커엔진_API엔드포인트와_비보안TCP포워딩의_치명적위험/">보안&최적화</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/112_프로덕션_다단설정아키텍처_내장기본값_환경파일_런타임오버라이드/">운영&캡스톤</a>
+            </li>
+            
+          </ul>
+
+          <hr class="d-lg-none text-white-50">
+
+          <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <li class="nav-item col-6 col-lg-auto">
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev" target="_blank"
+                rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                  viewBox="0 0 512 499.36" role="img">
+                  <title>GitHub</title>
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z">
+                  </path>
+                </svg>
+                <small class="d-lg-none ms-2">GitHub</small>
+              </a>
+            </li>
+
+            <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none my-2 text-white-50">
+            </li>
+
+            <li class="nav-item col-6 col-lg-auto">
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://jiny.dev" aria-label="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                  viewBox="0 0 16 16" role="img">
+                  <title>Home</title>
+                  <path fill="currentColor"
+                    d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
+                </svg>
+                <small class="d-lg-none ms-2">Home</small>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container bd-gutter mt-3 my-md-4 bd-layout">
+    <aside class="bd-sidebar scrollBar">
+        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="bdSidebar"
+            aria-labelledby="bdSidebarOffcanvasLabel">
+            <div class="offcanvas-header border-bottom">
+                <h5 class="offcanvas-title" id="bdSidebarOffcanvasLabel">학습목차</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                    data-bs-target="#bdSidebar"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <!-- 네비게이션 -->
+                <nav class="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
+  <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
+    <li class="bd-links-group py-2">
+      
+      
+
+      
+      
+      
+
+      
+
+      <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold text-primary mb-3 pb-2 border-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-seam me-2 flex-shrink-0" viewBox="0 0 16 16">
+          <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+        </svg>
+        <span class="text-truncate">Part 01. 컨테이너 기초와 도커 엔진 아키텍처</span>
+      </strong>
+
+      <ul class="list-unstyled fw-normal pb-2 small">
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/001_컨테이너가_IT세상을_점령한_이유1_클라우드이주와_레거시현대화/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              001. 컨테이너가 IT 세상을 점령한 이유 1: 클라우드 이주와 레거시 현대화
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/002_컨테이너가_IT세상을_점령한_이유2_마이크로서비스와_데브옵스/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              002. 컨테이너가 IT 세상을 점령한 이유 2: 마이크로서비스와 데브옵스
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/003_실습환경구축1_Windows_WSL2와_macOS_Docker_Desktop/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              003. 실습 환경 구축 1: Windows WSL2와 macOS Apple Silicon/Intel Docker Desktop
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/004_실습환경구축2_Linux서버_Docker_Engine과_CLI검증/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              004. 실습 환경 구축 2: Linux 서버 Docker Engine과 CLI 검증
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/005_첫번째컨테이너_Hello_World와_빌드공유실행_워크플로/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              005. 첫 번째 컨테이너: Hello World와 빌드-공유-실행 워크플로
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/006_컨테이너란_무엇인가_격리와밀집의_두마리토끼/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              006. 컨테이너란 무엇인가: 격리와 밀집의 두 마리 토끼
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/007_가상머신_VM_vs_도커컨테이너_커널공유의_원리/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              007. 가상머신(VM) vs 도커 컨테이너: 커널 공유의 원리
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/008_대화형컨테이너_원격컴퓨터처럼_쉘접속하기/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              008. 대화형 컨테이너: 원격 컴퓨터처럼 셸 접속하기
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/009_백그라운드컨테이너_데몬실행과_포트포워딩_웹호스팅/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none active fw-bold text-primary bg-light border-start border-primary border-3"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              009. 백그라운드 컨테이너: 데몬 실행과 포트 포워딩 웹 호스팅
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/010_컨테이너_생애주기_관리와_상태모니터링/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              010. 컨테이너 생애주기: Created, Running, Paused, Stopped, Dead 상태 전이와 모니터링
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/011_실행중인_컨테이너_내부진단_exec와_파일복사_cp/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              011. 실행 중인 컨테이너 내부 진단: exec와 파일 복사 cp
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/012_도커엔진_내부아키텍처_CLI_데몬_containerd_runc/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              012. 도커 엔진 내부 아키텍처: CLI, 데몬, containerd, runc
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/013_리눅스커널_격리기술_네임스페이스와_cgroups/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              013. 리눅스 커널 격리 기술: 네임스페이스와 cgroups
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part01_컨테이너기초와_도커엔진아키텍처/014_Part01_실전미션_컨테이너파일시스템_탐색과_커스텀웹서버/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              014. Part 01 실전 미션: 컨테이너 파일시스템 탐색과 커스텀 웹 서버
+            </a>
+          
+        </li>
+        
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+            </div>
+        </div>
+    </aside>
+
+    <main class="bd-main order-1">
+        <nav aria-label="breadcrumb" class="mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item"><a href="/Part01_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EA%B8%B0%EC%B4%88%EC%99%80_%EB%8F%84%EC%BB%A4%EC%97%94%EC%A7%84%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/">Part01 컨테이너기초와 도커엔진아키텍처</a></li>
+        
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item active" aria-current="page">009. 백그라운드 컨테이너: 데몬 실행과 포트 포워딩 웹 호스팅</li>
+        
+        
+        
+    </ol>
+</nav>
+
+        <div class="bd-content ps-lg-4">
+            <h1 id="009-백그라운드-컨테이너-데몬-실행과-포트-포워딩-웹-호스팅">009. 백그라운드 컨테이너: 데몬 실행과 포트 포워딩 웹 호스팅</h1>
+
+<p>이전 강의에서 살펴본 대화형 모드(<code class="language-plaintext highlighter-rouge">-it</code>)는 직접 셸에 들어가 디버깅할 때는 유용하지만, Nginx 웹 서버나 MySQL 데이터베이스처럼 <strong>24시간 365일 쉬지 않고 백그라운드에서 실행되어야 하는 상용 프로덕션 서비스</strong>에는 적합하지 않습니다. 만약 터미널 창을 닫거나 컴퓨터 세션이 끊기는 순간 대화형 컨테이너는 즉시 종료되기 때문입니다.</p>
+
+<p><img src="./img/01_intro_overview.png" alt="백그라운드 데몬 실행과 네트워크 포트 바인딩 도입 개요" />
+<strong>그림 01-10-1</strong> 터미널을 점유하지 않고 백그라운드에서 상시 구동되며 외부 트래픽을 처리하는 데몬 모드 아키텍처</p>
+
+<p>이 문제를 해결하기 위해 도커는 컨테이너를 시스템 백그라운드 프로세스로 띄우는 <strong>데몬 모드(<code class="language-plaintext highlighter-rouge">-d</code>, Detached Mode)</strong>를 제공합니다. 또한 외부 인터넷이나 호스트 브라우저의 접속 요청을 격리된 컨테이너 내부로 정확히 전달하기 위해 <strong>네트워크 포트 포워딩(<code class="language-plaintext highlighter-rouge">-p host_port:container_port</code>)</strong>이라는 마법 같은 라우팅 관문을 구축합니다.</p>
+
+<hr />
+
+<h3 id="0091-데몬-모드-d의-본질-콘솔-해방과-컨테이너-id-반환">009.1 데몬 모드(<code class="language-plaintext highlighter-rouge">-d</code>)의 본질: 콘솔 해방과 컨테이너 ID 반환</h3>
+
+<p><code class="language-plaintext highlighter-rouge">-d</code> (<code class="language-plaintext highlighter-rouge">--detach</code>) 플래그를 붙여 컨테이너를 실행하면, 도커는 터미널 화면을 장악하지 않고 즉시 <strong>64자리의 고유한 16진수 컨테이너 해시 ID</strong>만을 화면에 출력한 뒤 프롬프트를 사용자에게 돌려줍니다:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container run <span class="nt">-d</span> <span class="nt">--name</span> my-web nginx:alpine
+<span class="c"># 출력: 8a4c1f2e9b0d3a5c7e8f1b2d4a6c8e0f... (즉시 백그라운드 가동)</span>
+</code></pre></div></div>
+
+<p>컨테이너의 표준 출력(stdout)과 표준 에러(stderr)는 터미널에 흩뿌려지지 않고, 도커 데몬의 내부 JSON 파일 로깅 드라이버로 안전하게 격리 수집됩니다. 우리는 언제든지 <code class="language-plaintext highlighter-rouge">docker logs my-web</code> 명령어로 백그라운드에서 일어난 웹 서버의 접속 로그를 들여다볼 수 있습니다.</p>
+
+<p><img src="./img/02_misconception_truth.png" alt="백그라운드 실행 프로세스와 로그 수집 스트림 구조" />
+<strong>그림 01-10-2</strong> 콘솔을 점유하지 않고 백그라운드에서 동작하며 로그를 JSON 로거에 누적하는 데몬 모드</p>
+
+<hr />
+
+<h3 id="0092-네트워크-포트-포워딩-p과-natnetwork-address-translation의-원리">009.2 네트워크 포트 포워딩(<code class="language-plaintext highlighter-rouge">-p</code>)과 NAT(Network Address Translation)의 원리</h3>
+
+<p>컨테이너는 자신만의 독립된 네트워크 네임스페이스와 프라이빗 가상 IP(예: <code class="language-plaintext highlighter-rouge">172.17.0.2</code>)를 가집니다. 이 IP 주소는 호스트 컴퓨터 내부의 브리지 네트워크 안에서만 통하는 사설 주소이므로, 외부 인터넷이나 스마트폰, 심지어 호스트 OS의 웹 브라우저에서도 기본적으로 직접 접속할 수 없습니다.</p>
+
+<p><img src="./img/03_core_architecture.png" alt="호스트 포트와 컨테이너 포트를 연결하는 포트 포워딩 터널" />
+<strong>그림 01-10-3</strong> 호스트의 물리 포트(8080)로 들어온 TCP 패킷을 도커 프록시와 iptables를 통해 컨테이너 포트(80)로 배달하는 NAT 구조</p>
+
+<p>도커는 <strong>포트 포워딩(<code class="language-plaintext highlighter-rouge">-p &lt;호스트포트&gt;:&lt;컨테이너포트&gt;</code>)</strong>을 통해 이 고립된 섬에 완벽한 출입구를 개설합니다:</p>
+<ul>
+  <li>예: <code class="language-plaintext highlighter-rouge">-p 8080:80</code>
+    <ul>
+      <li>호스트 머신의 <code class="language-plaintext highlighter-rouge">8080</code> 포트를 열고 대기합니다.</li>
+      <li>외부에서 <code class="language-plaintext highlighter-rouge">http://localhost:8080</code>으로 웹 요청이 들어오면,</li>
+      <li>도커의 라우터(<code class="language-plaintext highlighter-rouge">docker-proxy</code> 및 리눅스 커널 <code class="language-plaintext highlighter-rouge">iptables</code> NAT 테이블)가 이 패킷을 가로채어 컨테이너 내부의 <code class="language-plaintext highlighter-rouge">80</code> 포트로 투명하게 전달(Forwarding)합니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="-포트-포워딩-설정-패턴-및-주의점-분석">📊 포트 포워딩 설정 패턴 및 주의점 분석</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">포트 매핑 문법</th>
+      <th style="text-align: left">동작 메커니즘</th>
+      <th style="text-align: left">실무 적용 시나리오 및 주의점</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">-p 80:80</code></strong></td>
+      <td style="text-align: left">호스트의 표준 웹 80 포트를 컨테이너 80에 1:1 직결</td>
+      <td style="text-align: left">호스트에서 이미 다른 웹 서버(Apache 등)가 80을 쓰고 있다면 <strong>포트 충돌 오류(Bind Error)</strong> 발생</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">-p 8080:80</code></strong></td>
+      <td style="text-align: left">호스트의 8080 포트를 컨테이너 내부의 80 포트로 변환</td>
+      <td style="text-align: left">포트 충돌을 피하고 개발 테스트 시 가장 널리 쓰이는 표준 패턴</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">-p 127.0.0.1:3306:3306</code></strong></td>
+      <td style="text-align: left">호스트의 루프백 로컬 인터페이스에만 포트를 바인딩</td>
+      <td style="text-align: left">외부 공인 인터넷에서 DB 포트로 직접 접근하지 못하도록 하는 <strong>강력한 보안 모범 사례</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">-P</code> (대문자 P)</strong></td>
+      <td style="text-align: left">Dockerfile의 <code class="language-plaintext highlighter-rouge">EXPOSE</code> 포트를 호스트의 임의의 고포트(32768~)에 자동 매핑</td>
+      <td style="text-align: left">다수의 컨테이너를 포트 충돌 없이 무작위로 빠르게 띄울 때 사용</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="0093-선언적-실습-및-아키텍처-다이어그램">009.3 선언적 실습 및 아키텍처 다이어그램</h3>
+
+<p>Nginx 경량 웹 서버 컨테이너를 백그라운드로 띄우고, 포트 포워딩을 통해 호스트에서 웹 페이지를 호출해 봅시다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># [실습 009-1] Nginx 웹 서버를 백그라운드(-d) 및 포트 포워딩(-p 8080:80)으로 실행</span>
+docker container run <span class="nt">-d</span> <span class="nt">--name</span> web-server <span class="nt">-p</span> 8080:80 nginx:alpine
+
+<span class="c"># [실습 009-2] 실행 중인 컨테이너와 포트 매핑 상태 확인 (0.0.0.0:8080-&gt;80/tcp 확인)</span>
+docker container <span class="nb">ls</span>
+
+<span class="c"># [실습 009-3] curl 명령어로 웹 서버 정상 응답(HTTP 200 OK) 수신 검증</span>
+curl <span class="nt">-I</span> http://localhost:8080
+
+<span class="c"># [실습 009-4] 백그라운드 컨테이너의 실시간 접속 로그 확인</span>
+docker container logs <span class="nt">--tail</span> 10 web-server
+
+<span class="c"># [실습 009-5] 실습 종료 후 컨테이너 강제 중지 및 삭제</span>
+docker container <span class="nb">rm</span> <span class="nt">-f</span> web-server
+</code></pre></div></div>
+
+<h4 id="-포트-포워딩-패킷-라우팅-흐름도-mermaid-diagram">🔍 포트 포워딩 패킷 라우팅 흐름도 (Mermaid Diagram)</h4>
+
+<pre><code class="language-mermaid">flowchart LR
+    Client["🌐 브라우저 (http://localhost:8080)"] --&gt; HostPort["🖥️ 호스트 OS Port 8080"]
+    HostPort --&gt; Proxy["⚡ Docker Proxy / iptables NAT"]
+    Proxy --&gt; Bridge["🌉 docker0 Bridge (172.17.0.1)"]
+    Bridge --&gt; ContainerIP["🐳 컨테이너 가상 IP (172.17.0.2:80)"]
+    ContainerIP --&gt; Nginx["📦 Nginx 웹 데몬 프로세스"]
+</code></pre>
+
+<p><img src="./img/04_hands_on_practice.png" alt="선언적 실습과 웹 호스팅 검증" />
+<strong>그림 01-10-4</strong> 포트 포워딩을 통해 curl 요청이 Nginx 컨테이너로 전달되어 200 OK를 응답하는 검증</p>
+
+<hr />
+
+<!-- BIBLE_INTEGRATION_book6_trouble_port_collision -->
+<hr />
+
+<h3 id="009b--도커-바이블-심화-트러블슈팅-포트-바인딩-충돌bind-address-already-in-use과-time_wait-소켓-진단">009.B 📚 도커 바이블 심화: 트러블슈팅: 포트 바인딩 충돌(bind: address already in use)과 TIME_WAIT 소켓 진단</h3>
+<p><em>출처 도서: 『트러블 슈팅 도커』 핵심 분석</em></p>
+
+<p><code class="language-plaintext highlighter-rouge">docker run -p 8080:80</code>을 실행했을 때 다음과 같은 에러가 발생하는 것은 실무에서 가장 흔한 장애 중 하나입니다:
+<code class="language-plaintext highlighter-rouge">docker: Error response from daemon: driver failed programming external connectivity ... bind: address already in use.</code></p>
+
+<h4 id="단계별-긴급-진단-및-해결-3단계">단계별 긴급 진단 및 해결 3단계:</h4>
+<ol>
+  <li><strong>점유 프로세스 식별</strong>:
+    <ul>
+      <li>호스트 OS에서 어떤 프로세스가 8080 포트를 점유하고 있는지 확인합니다: <code class="language-plaintext highlighter-rouge">sudo lsof -i :8080</code> 또는 <code class="language-plaintext highlighter-rouge">sudo ss -tulpn | grep 8080</code></li>
+    </ul>
+  </li>
+  <li><strong>숨어있는 도커 컨테이너 검사</strong>:
+    <ul>
+      <li>다른 개발자나 배치 스크립트가 띄워놓은 기존 컨테이너가 포트를 잡고 있는지 확인: <code class="language-plaintext highlighter-rouge">docker container ls --filter "publish=8080"</code></li>
+    </ul>
+  </li>
+  <li><strong>TIME_WAIT 소켓 대기</strong>:
+    <ul>
+      <li>프로세스가 방금 종료되었더라도 TCP 커널 상태가 <code class="language-plaintext highlighter-rouge">TIME_WAIT</code>(기본 60초)에 머물러 있어 바인딩이 일시 차단될 수 있습니다. 필요 시 호스트 포트를 <code class="language-plaintext highlighter-rouge">8081</code> 등으로 즉시 변경하여 우회합니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="./img/bible_b06_trouble_port_collision.png" alt="동일한 포트 문지기 자리를 두고 충돌하는 두 컨테이너와 진단 도구로 교통정리하는 모습" />
+<strong>그림 009-B-1</strong> 동일한 포트 문지기 자리를 두고 충돌하는 두 컨테이너와 진단 도구로 교통정리하는 모습</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># [실습] 포트 충돌 진단 및 강제 정리 워크플로</span>
+<span class="c"># 1. 8080 포트를 점유 중인 프로세스 PID 확인</span>
+<span class="nb">sudo </span>lsof <span class="nt">-ti</span> :8080
+
+<span class="c"># 2. 해당 포트를 점유한 컨테이너가 있다면 강제 종료 및 삭제</span>
+docker container <span class="nb">rm</span> <span class="nt">-f</span> <span class="si">$(</span>docker container ps <span class="nt">-q</span> <span class="nt">--filter</span> <span class="s2">"publish=8080"</span><span class="si">)</span> 2&gt;/dev/null
+
+<span class="c"># 3. 만약 호스트 일반 프로세스가 물고 있다면 안전하게 종료</span>
+<span class="c"># sudo kill -15 $(sudo lsof -ti :8080)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>👨‍🏫 <strong>이호진 교수님의 바이블 멘토링 노트</strong>:
+“포트 충돌이 났을 때 무작정 서버를 재부팅하지 마세요. lsof나 ss로 범인을 정확히 찾아내고, 개발 환경에서는 포트를 <code class="language-plaintext highlighter-rouge">-p 8080</code>처럼 생략하여 도커가 호스트의 빈 포트를 자동 매핑(에페머럴 포트)하게 하는 것도 현명한 방법입니다.”</p>
+
+  <p>👧 <strong>도로시의 깨달음</strong>:
+“출입문 번호가 겹쳐서 문 앞에서 쾅 부딪힌 셈이네요! 다른 빈 문(8081)으로 돌려주면 바로 해결되겠어요!”</p>
+
+  <p>🐱 <strong>조교 지니의 아키텍처 체크포인트</strong>:
+“개발 서버에서는 <code class="language-plaintext highlighter-rouge">docker run -P</code>를 쓰면 Dockerfile의 EXPOSE 포트들을 호스트의 32768~60999 사이 빈 포트에 충돌 없이 랜덤으로 매핑해 줍니다.”</p>
+</blockquote>
+
+<!-- BIBLE_INTEGRATION_book9_docker0_iptables_forwarding -->
+<hr />
+
+<h3 id="009b--도커-바이블-심화-docker0-가상-브리지와-veth-쌍pair-생성-및-리눅스-iptables-nat-prerouting-포트포워딩-패킷-흐름">009.B 📚 도커 바이블 심화: docker0 가상 브리지와 veth 쌍(Pair) 생성 및 리눅스 iptables NAT PREROUTING 포트포워딩 패킷 흐름</h3>
+<p><em>출처 도서: 『시작하세요! 도커/쿠버네티스』 핵심 분석</em></p>
+
+<p>터미널에서 <code class="language-plaintext highlighter-rouge">docker run -p 8080:80</code>을 입력했을 때, 호스트 리눅스 커널 내부에서는 다음과 같은 정밀한 가상 네트워크 배선 공사가 0.1초 만에 완성됩니다:</p>
+
+<ol>
+  <li><strong>가상 이더넷 쌍 (<code class="language-plaintext highlighter-rouge">veth pair</code>) 생성</strong>:
+    <ul>
+      <li>리눅스 커널은 가상 랜선의 양 끝 역할을 하는 <code class="language-plaintext highlighter-rouge">veth</code> 쌍(예: <code class="language-plaintext highlighter-rouge">vethxxxx</code>와 <code class="language-plaintext highlighter-rouge">eth0</code>)을 만듭니다.</li>
+      <li>한쪽 끝은 호스트의 가상 소프트웨어 스위치인 <code class="language-plaintext highlighter-rouge">docker0</code> 브리지에 꽂히고, 다른 쪽 끝은 컨테이너의 네트워크 네임스페이스 안으로 들어가 컨테이너의 <code class="language-plaintext highlighter-rouge">eth0</code> 인터페이스가 됩니다.</li>
+    </ul>
+  </li>
+  <li><strong>iptables NAT 포트 포워딩 (DNAT)</strong>:
+    <ul>
+      <li>외부 클라이언트가 <code class="language-plaintext highlighter-rouge">호스트IP:8080</code>으로 패킷을 전송하면, 리눅스 커널의 넷필터(Netfilter) <code class="language-plaintext highlighter-rouge">PREROUTING</code> 체인이 발동합니다.</li>
+      <li><code class="language-plaintext highlighter-rouge">DOCKER</code> 체인 규칙에 따라 목적지 주소를 컨테이너의 내부 사설 IP(예: <code class="language-plaintext highlighter-rouge">172.17.0.2:80</code>)로 목적지 NAT(DNAT) 처리하여 <code class="language-plaintext highlighter-rouge">docker0</code> 브리지를 통해 컨테이너로 전달합니다.</li>
+    </ul>
+  </li>
+  <li><strong>마스커레이딩 (MASQUERADE, SNAT)</strong>:
+    <ul>
+      <li>컨테이너 내부에서 외부 인터넷으로 나가는 패킷은 <code class="language-plaintext highlighter-rouge">POSTROUTING</code> 체인을 통과하며 호스트의 공인 물리 IP로 출발지 NAT(SNAT/Masquerade)되어 나갑니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="./img/bible_b09_docker0_iptables_forwarding.png" alt="외부 패킷이 iptables PREROUTING과 docker0 veth 쌍을 거쳐 컨테이너 내부로 진입하는 패킷 경로도" />
+<strong>그림 009-B-1</strong> 외부 패킷이 iptables PREROUTING과 docker0 veth 쌍을 거쳐 컨테이너 내부로 진입하는 패킷 경로도</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># [실습] 리눅스 커널 iptables의 도커 포트포워딩 NAT 테이블 직접 확인</span>
+<span class="c"># 1. 8080 포트를 매핑한 테스트 웹 서버 실행</span>
+docker container run <span class="nt">-d</span> <span class="nt">--name</span> nat-demo <span class="nt">-p</span> 8080:80 nginx:alpine
+
+<span class="c"># 2. 리눅스 호스트의 iptables NAT 테이블 DOCKER 체인 규칙 확인</span>
+<span class="nb">sudo </span>iptables <span class="nt">-t</span> nat <span class="nt">-L</span> DOCKER <span class="nt">-n</span> <span class="nt">-v</span>
+
+<span class="c"># 3. 호스트 veth 인터페이스와 docker0 브리지 바인딩 상태 확인</span>
+ip <span class="nb">link </span>show master docker0 2&gt;/dev/null <span class="o">||</span> brctl show docker0 2&gt;/dev/null
+</code></pre></div></div>
+
+<blockquote>
+  <p>👨‍🏫 <strong>이호진 교수님의 바이블 멘토링 노트</strong>:
+“도커의 포트포워딩은 별도의 중계 프록시 프로세스가 매번 패킷을 복사하는 것이 아니라, 리눅스 커널 넷필터의 초고속 iptables C 레벨 라우팅에 의해 직접 처리됩니다. 따라서 오버헤드가 거의 없습니다.”</p>
+
+  <p>👧 <strong>도로시의 깨달음</strong>:
+“호스트에 가상의 미니 스위치(docker0)가 들어있고, 가상의 랜선(veth pair)을 양쪽으로 꽂아서 연결해 주는 거였군요!”</p>
+
+  <p>🐱 <strong>조교 지니의 아키텍처 체크포인트</strong>:
+“만약 컨테이너가 외부와 통신이 안 된다면 <code class="language-plaintext highlighter-rouge">sysctl net.ipv4.ip_forward</code> 값이 <code class="language-plaintext highlighter-rouge">1</code>로 활성화되어 있는지 가장 먼저 점검해야 합니다.”</p>
+</blockquote>
+
+<!-- BIBLE_INTEGRATION_book2_deep_009 -->
+<hr />
+
+<h3 id="009c--도커-바이블-심화-컨테이너-4대-재시작-정책restart-policies과-호스트-장애-복원력">009.C 📚 도커 바이블 심화: 컨테이너 4대 재시작 정책(Restart Policies)과 호스트 장애 복원력</h3>
+<p><em>출처 도서: 『Docker Up and Running』 핵심 분석 (Docker Up and Running 제5장 (컨테이너 생성하기 &amp; 기본 설정))</em></p>
+
+<p>실무 프로덕션 환경에서 백그라운드(<code class="language-plaintext highlighter-rouge">-d</code>) 컨테이너를 구동할 때 가장 치명적인 실수는 <code class="language-plaintext highlighter-rouge">--restart</code> 정책을 생략하는 것입니다. 아무런 재시작 옵션을 지정하지 않으면 호스트 서버가 재부팅되거나 도커 데몬이 재시작되었을 때 컨테이너는 자동으로 살아나지 않고 영원히 꺼져 있게 됩니다.</p>
+
+<h4 id="도커의-4대-재시작-정책-비교-분석">도커의 4대 재시작 정책 비교 분석:</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">재시작 정책 플래그</th>
+      <th style="text-align: center">프로세스 비정상 종료 (Exit != 0)</th>
+      <th style="text-align: center">프로세스 정상 종료 (Exit == 0)</th>
+      <th style="text-align: center">도커 데몬 / 호스트 OS 재부팅</th>
+      <th style="text-align: left">실무 적용 시점 및 권장 사항</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">--restart no</code> (기본값)</strong></td>
+      <td style="text-align: center">재시작 안 함</td>
+      <td style="text-align: center">재시작 안 함</td>
+      <td style="text-align: center">재시작 안 함</td>
+      <td style="text-align: left">일회성 배치 스크립트, 디버깅 목적의 임시 컨테이너</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">--restart on-failure[:max]</code></strong></td>
+      <td style="text-align: center"><strong>자동 재시작</strong> (최대 N회)</td>
+      <td style="text-align: center">재시작 안 함</td>
+      <td style="text-align: center">데몬 기동 시 비정상 종료 상태였다면 재시작</td>
+      <td style="text-align: left">오류 발생 시에만 재시도를 원하는 데이터베이스 마이그레이션 도구</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">--restart always</code></strong></td>
+      <td style="text-align: center"><strong>자동 재시작</strong></td>
+      <td style="text-align: center"><strong>자동 재시작</strong></td>
+      <td style="text-align: center"><strong>자동 재시작</strong></td>
+      <td style="text-align: left">사용자가 수동으로 끄기 전까지 무조건 살아있어야 하는 핵심 웹/API 서버</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">--restart unless-stopped</code></strong></td>
+      <td style="text-align: center"><strong>자동 재시작</strong></td>
+      <td style="text-align: center"><strong>자동 재시작</strong></td>
+      <td style="text-align: center"><strong>종료 상태였다면 재기동 안 함</strong></td>
+      <td style="text-align: left">호스트 재부팅 전 관리자가 명시적으로 <code class="language-plaintext highlighter-rouge">docker stop</code>해둔 컨테이너를 존중하는 프로덕션 표준</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>특히 <code class="language-plaintext highlighter-rouge">--restart always</code>와 <code class="language-plaintext highlighter-rouge">--restart unless-stopped</code>의 차이는 <strong>“호스트 재부팅 직전에 관리자가 수동으로 꺼둔 컨테이너를 다시 살릴 것인가”</strong>에 있습니다. 점검을 위해 잠시 꺼둔 컨테이너가 서버 리부팅 후 제멋대로 다시 켜지는 사고를 방지하려면 <strong><code class="language-plaintext highlighter-rouge">unless-stopped</code></strong>를 프로덕션 기본값으로 채택하는 것이 업계 모범 사례입니다.</p>
+
+<p><img src="./img/bible_b02_restart_policies.png" alt="도커의 4대 재시작 정책(no, on-failure, always, unless-stopped)의 상태 분기 흐름도" />
+<strong>그림 009-B-2</strong> 도커의 4대 재시작 정책(no, on-failure, always, unless-stopped)의 상태 분기 흐름도</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># [실습] 4대 재시작 정책 동작 검증 및 데몬 재기동 테스트</span>
+<span class="c"># 1. 3회까지만 재시도하는 on-failure 컨테이너</span>
+docker container run <span class="nt">-d</span> <span class="nt">--name</span> retry-test <span class="nt">--restart</span> on-failure:3 alpine <span class="se">\</span>
+  sh <span class="nt">-c</span> <span class="s1">'sleep 2; exit 1'</span>
+
+<span class="c"># 2. 관리자가 끄지 않는 한 항상 유지되는 프로덕션 표준 웹 서버</span>
+docker container run <span class="nt">-d</span> <span class="nt">--name</span> prod-web <span class="nt">--restart</span> unless-stopped <span class="nt">-p</span> 8080:80 nginx:alpine
+
+<span class="c"># 3. 컨테이너 재시작 횟수 및 상태 점검</span>
+docker container inspect retry-test <span class="nt">--format</span> <span class="s1">'RestartCount: {{.RestartCount}}, Status: {{.State.Status}}'</span>
+docker container inspect prod-web <span class="nt">--format</span> <span class="s1">'RestartPolicy: {{.HostConfig.RestartPolicy.Name}}'</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>👨‍🏫 <strong>이호진 교수님의 바이블 멘토링 노트</strong>:
+“프로덕션에 배포하는 모든 상주형 컨테이너(웹서버, DB, 캐시)는 예외 없이 <code class="language-plaintext highlighter-rouge">--restart unless-stopped</code>를 달아야 합니다. 새벽에 호스트 커널 보안 패치로 리부팅이 일어났을 때 서비스가 자동으로 복구되는 기본 안전장치입니다.”</p>
+
+  <p>👧 <strong>도로시의 깨달음</strong>:
+“넘어져도 스스로 일어나는 오뚝이처럼, 컨테이너가 에러로 꺼지거나 컴퓨터가 다시 켜져도 알아서 살아나게 만드는 마법의 주문이었네요!”</p>
+
+  <p>🐱 <strong>조교 지니의 아키텍처 체크포인트</strong>:
+“<code class="language-plaintext highlighter-rouge">on-failure</code>를 쓸 때는 반드시 <code class="language-plaintext highlighter-rouge">:5</code>처럼 최대 재시도 횟수를 붙이세요. 무한 재시작 루프에 빠지면 호스트의 CPU와 디스크 로그가 폭발합니다.”</p>
+</blockquote>
+
+<h3 id="0094-핵심-정리-캐릭터-대화와-3대-교훈">009.4 핵심 정리: 캐릭터 대화와 3대 교훈</h3>
+
+<blockquote>
+  <p>👧 <strong>도로시</strong>: “와! <code class="language-plaintext highlighter-rouge">-d</code>를 붙이니까 터미널이 멈추지 않고 바로 자유로워지고, <code class="language-plaintext highlighter-rouge">-p 8080:80</code>을 거니까 내 컴퓨터 브라우저에서 컨테이너 속 웹사이트가 환하게 열려요!”</p>
+
+  <p>🐱 <strong>조교 지니</strong>: “야옹~ 호스트 포트와 컨테이너 포트의 순서(<code class="language-plaintext highlighter-rouge">&lt;호스트&gt;:&lt;컨테이너&gt;</code>)를 절대 헷갈리지 마세요! 바깥 문의 번호가 앞이고 안쪽 방 번호가 뒤랍니다!”</p>
+
+  <p>🐶 <strong>토토</strong>: “멍멍! 화면에 로그가 안 보여도 <code class="language-plaintext highlighter-rouge">docker logs</code> 명령어를 치면 컨테이너가 뭘 했는지 다 적혀 있대요!”</p>
+
+  <p>👨‍🏫 <strong>이호진 교수님</strong>: “훌륭하구나. 백그라운드 데몬 구동과 포트 포워딩은 웹 서비스, 데이터베이스, API 서버 등 클라우드의 모든 상용 서비스를 떠받치는 가장 핵심적인 기둥이란다.”</p>
+</blockquote>
+
+<p><img src="./img/05_character_takeaways.png" alt="핵심 교훈 총정리" />
+<strong>그림 01-10-5</strong> 백그라운드 웹 호스팅을 완성하는 3대 핵심 엔지니어링 교훈</p>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">-d</code> 플래그를 통한 상시 데몬화</strong>:
+    <ul>
+      <li>세션 종료와 무관하게 24시간 가동되는 독립적인 백그라운드 런타임을 확보합니다.</li>
+    </ul>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">-p</code> 포트 포워딩의 네트워크 관문 구축</strong>:
+    <ul>
+      <li>격리된 컨테이너 사설 네트워크와 호스트 공인 네트워크 사이의 안전한 포트 매핑 경로를 개설합니다.</li>
+    </ul>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">docker logs</code>를 통한 원격 관제</strong>:
+    <ul>
+      <li>표준 출력 스트림으로 수집되는 애플리케이션 로그를 추적하여 장애를 신속하게 진단합니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="0095-랩노트-피날레와-다음-강의-예고">009.5 랩노트 피날레와 다음 강의 예고</h3>
+
+<p><img src="./img/06_lab_finale_preview.png" alt="랩노트 피날레와 다음 강의 예고" />
+<strong>그림 01-10-6</strong> 컨테이너가 태어나서 죽기까지의 5대 생애주기를 예고하는 교수님과 연구팀</p>
+
+<blockquote>
+  <p>💡 <strong>다음 강의 안내</strong>:
+<a href="../010_컨테이너_생애주기_관리와_상태모니터링/">010. 컨테이너 생애주기: Created, Running, Paused, Stopped, Dead 상태 전이와 모니터링</a>에서는 컨테이너가 탄생(<code class="language-plaintext highlighter-rouge">create</code>)하여 달리고(<code class="language-plaintext highlighter-rouge">start</code>), 잠시 얼어붙었다가(<code class="language-plaintext highlighter-rouge">pause</code>), 정지하고(<code class="language-plaintext highlighter-rouge">stop</code>), 죽음에 이르는(<code class="language-plaintext highlighter-rouge">rm</code>) 5대 상태 전이도와 SIGTERM/SIGKILL 시그널의 정밀한 라이프사이클을 배웁니다!</p>
+</blockquote>
+
+<hr />
+
+<h2 id="-강의-네비게이션">🧭 강의 네비게이션</h2>
+<ul>
+  <li><a href="../008_대화형컨테이너_원격컴퓨터처럼_쉘접속하기/">◀️ 이전 강의: 008_대화형컨테이너_원격컴퓨터처럼_쉘접속하기</a></li>
+  <li><a href="../">📋 Part 01. 컨테이너 혁명과 도커 엔진 기본기 마스터 (000 ~ 014) 목차로 돌아가기</a></li>
+  <li><a href="../010_컨테이너_생애주기_관리와_상태모니터링/">▶️ 다음 강의: 010_컨테이너_생애주기_관리와_상태모니터링</a></li>
+</ul>
+
+
+            <!-- 구글 애드센스 출력 -->
+            <div class="mt-5">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
+    crossorigin="anonymous"></script>
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
+    data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+        </div>
+
+        <div class="bd-toc mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 text-body-secondary">
+
+  <button class="btn btn-link p-md-0 mb-2 mb-md-0 text-decoration-none bd-toc-toggle d-md-none" type="button"
+    data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
+    서브목차
+    <svg class="bi d-md-none ms-2" aria-hidden="true">
+      <use xlink:href="#chevron-expand"></use>
+    </svg>
+  </button>
+
+  <strong class="d-none d-md-block h6 my-2">서브목차</strong>
+
+  <div class="collapse bd-toc-collapse" id="tocContents">
+    <nav id="TableOfContents">
+      <!--
+      <ul>
+        <li><a href="#quick-start">Quick start</a></li>
+        <li><a href="#cdn-links">CDN links</a></li>
+        <li><a href="#next-steps">Next steps</a></li>
+        <li><a href="#js-components">JS components</a></li>
+        <li><a href="#important-globals">Important globals</a>
+          <ul>
+            <li><a href="#html5-doctype">HTML5 doctype</a></li>
+            <li><a href="#responsive-meta-tag">Responsive meta tag</a></li>
+            <li><a href="#box-sizing">Box-sizing</a></li>
+            <li><a href="#reboot">Reboot</a></li>
+          </ul>
+        </li>
+        <li><a href="#community">Community</a></li>
+      </ul>
+      -->
+    </nav>
+  </div>
+</div>
+    </main>
+</div>
+
+<!-- 공용 대화 오디오 플레이어 컨트롤러 스크립트 -->
+<script src="/assets/js/audio.js" defer></script>
+
+  <footer class="bd-footer py-4 py-md-5 mt-5 bg-light border-top">
+  <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+    <div class="row">
+      <div class="col-lg-4 mb-3">
+        <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/" aria-label="Docker Master">
+          <span class="fs-4 me-2">🐳</span>
+          <span class="fs-5 fw-bold">도커 & 클라우드 네이티브 마스터 클래스</span>
+        </a>
+        <ul class="list-unstyled small">
+          <li class="mb-2">이호진 교수님, 도로시, 조교 지니, 토토와 함께 떠나는 도커 & 클라우드 네이티브 완전 정복 대장정!</li>
+          <li class="mb-2">국내외 9대 대표 도커 바이블 도서 통합 교육 과정.</li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3 offset-lg-1 mb-3">
+        <h5>학습 바로가기</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/" class="text-decoration-none">000강 오리엔테이션</a></li>
+          <li class="mb-2"><a href="/Part02_도커이미지빌드와_멀티스테이지_레지스트리/016_Dockerfile_기초문법_FROM_ENV_WORKDIR_COPY_CMD/" class="text-decoration-none">Dockerfile 기본기</a></li>
+          <li class="mb-2"><a href="/Part04_도커컴포즈와_신뢰성_헬스체크_모니터링/042_도커컴포즈_소개와_compose_yaml_선언적구조/" class="text-decoration-none">도커 컴포즈 분산 앱</a></li>
+          <li class="mb-2"><a href="/Part06_컨테이너오케스트레이션_도커스웜과_쿠버네티스/077_도커스웜_클러스터구축_매니저노드와_워커노드/" class="text-decoration-none">도커 스웜 & 쿠버네티스</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3 mb-3">
+        <h5>관련 링크</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="https://docs.docker.com/" target="_blank" rel="noopener" class="text-decoration-none">Docker 공식 문서</a></li>
+          <li class="mb-2"><a href="https://kubernetes.io/ko/docs/" target="_blank" rel="noopener" class="text-decoration-none">Kubernetes 공식 문서</a></li>
+          <li class="mb-2"><a href="https://github.com" target="_blank" rel="noopener" class="text-decoration-none">GitHub 저장소</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    window.addEventListener('load', async function () {
+      mermaid.initialize({ startOnLoad: false });
+
+      const mermaidCodes = document.querySelectorAll('pre code.language-mermaid');
+      const mermaidDivs = [];
+
+      mermaidCodes.forEach(codeBlock => {
+        const mermaidDefinition = codeBlock.textContent.trim();
+        const container = codeBlock.closest('div.highlighter-rouge');
+
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = mermaidDefinition;
+
+        if (container) {
+          container.replaceWith(mermaidDiv);
+        } else {
+          const pre = codeBlock.parentElement;
+          if (pre) pre.replaceWith(mermaidDiv);
+        }
+        mermaidDivs.push(mermaidDiv);
+      });
+
+      if (mermaidDivs.length > 0) {
+        await mermaid.run({ nodes: mermaidDivs });
+      }
+    });
+  </script>
+  <script src="/assets/js/toc.js"></script>
+
+</body>
+
+</html>

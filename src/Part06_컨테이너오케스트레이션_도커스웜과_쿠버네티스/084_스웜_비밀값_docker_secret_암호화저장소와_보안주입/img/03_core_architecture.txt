@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '스웜 비밀값 docker secret 암호화저장소와 보안주입'.
+System Structure & Data Flow:
+- 3중 보안 아키텍처: 1) 매니저 Raft 로그에 암호화 저장(At-Rest), 2) 워커 노드로 mTLS 암호화 전송(In-Transit), 3) 워커 노드의 디스
+- 표준 입력(-)을 통한 시크릿 생성: 디스크에 비밀번호 텍스트 파일을 남기지 않고 echo "암호"
+- 컴포즈 스택과의 완벽한 호환: Part 05에서 로컬 파일로 테스트했던 /run/secrets/<이름> 경로와 100% 동일하므로, 운영 스택 YAML에서는 external:
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

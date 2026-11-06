@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating Docker embedded DNS 127.0.0.11 and the DNS TTL caching trap:
+Left side: An application container labeled 'Java JVM Client' holding a frozen clipboard showing 'Cached IP: 172.20.0.3 (TTL = Infinite)'.
+A red dashed arrow from the client points toward a tombstones labeled 'Dead Old Container' resulting in a red 'Connection Refused' alert.
+Right side: The fix showing a fresh clock icon labeled 'TTL = 2s' where the client queries 'Docker DNS (127.0.0.11)' and receives dynamic live green arrows distributing traffic evenly across three active backend container boxes.
+NO human characters, isolated clean technical diagram cutout.

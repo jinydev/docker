@@ -1,0 +1,16 @@
+# Docker & Cloud Native Master Course - Lesson 123 16:9 Wide Cover Prompt
+# File: 123_비동기메시징2_클라우드네이티브_메시지큐_NATS와_이벤트발행.png (16:9 ratio)
+
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Grand 16:9 wide YouTube and course cover illustration for Docker Chapter 123 '123. 비동기메시징2 클라우드네이티브 메시지큐 NATS와 이벤트발행'.
+Featuring prominent, bold, elegant Korean title typography displayed clearly:
+- Main Title: '123. 비동기메시징2 클라우드네이티브 메시지큐 NATS와 이벤트발행'
+- Subtitle: '클라우드 네이티브 핵심 원리'
+
+Scene & Characters (Strict consistency with reference hojin_character_sheet.jpg and Dorothy team):
+- Dorothy (strictly matching reference: cheerful 9-year-old girl, 4.5 heads tall anime proportions, chestnut brown twin pigtails with colorful beads, blue denim overalls with circular 'STEM HERO' patch, orange-and-white striped t-shirt, red canvas sneakers) standing excitedly, presenting the topic with wonder.
+- Professor Hojin (strictly matching reference: youthful early 40s Korean male engineering professor, smooth youthful skin without wrinkles, clean-shaven, 7:3 parted dark charcoal black hair with soft bangs and subtle silver-grey salt-and-pepper streaks around temples, thin minimalist round silver metal wire-rim glasses, kind gentle brown eyes, warm encouraging smile, wearing a plain solid dark charcoal navy polo shirt and blue denim jeans) smiling warmly, holding a slender wooden wand that emits glowing cyan-blue magical particles forming a clean, translucent glowing blue Docker container box floating above a wooden blueprint desk.
+- Jiny the lab assistant cat (strictly matching reference: chubby black-and-white tuxedo cat, miniature round glasses, red collar with golden bell) sitting on the desk examining the architectural blueprint and Docker container.
+- Toto the cream-white puppy (strictly matching reference: #FBF6EB solid cream fur, no spots, black button nose, sky-blue bandana) happily wagging his tail with a joyful open puppy smile.
+
+Pure solid clean white background (#FFFFFF), centered balanced 16:9 wide composition, subtle soft contact shadows under feet and desk legs, no 3D photorealism, no dark background, no Japanese text.

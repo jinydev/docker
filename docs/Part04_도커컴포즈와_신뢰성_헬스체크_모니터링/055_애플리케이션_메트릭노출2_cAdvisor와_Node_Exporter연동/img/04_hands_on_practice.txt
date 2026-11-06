@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram showing hands-on practice pipeline for deploying cAdvisor and Node Exporter.
+Step 1 (Top Left): Configuration card showing '/etc/docker/daemon.json' with '{"metrics-addr": "0.0.0.0:9323"}' and daemon reload command.
+Step 2 (Top Right): Container launch card showing 'docker run -d --name=cadvisor' with read-only bind mounts to '/sys:ro' and '/var/lib/docker:ro' on port 8080.
+Step 3 (Bottom Left): Node exporter launch card showing 'docker run -d --name=node-exporter' with host PID/network mode on port 9100.
+Step 4 (Bottom Right): Terminal curl verification card showing simultaneous healthy HTTP 200 responses from ports 9323, 8080, and 9100.
+Clean directional flow arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

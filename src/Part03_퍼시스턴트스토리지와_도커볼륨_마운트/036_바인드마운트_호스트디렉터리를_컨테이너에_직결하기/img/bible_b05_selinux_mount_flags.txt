@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating Linux SELinux bind mount security contexts:
+Left side: Lowercase ':z flag (Shared Container Storage)' showing two friendly container boxes accessing the same directory block labeled 'container_file_t' under a shared green shield.
+Right side: Uppercase ':Z flag (Exclusive Private Storage)' showing a single container box locked tightly with a private purple padlock and unique MCS category tag 'container_file_t:c1,c2', warding off unauthorized containers.
+Bottom warning banner: A red crossed-out sign over '/etc' and '/' labeled 'NEVER relabel host root directories!'.
+NO human characters, isolated clean technical diagram cutout.

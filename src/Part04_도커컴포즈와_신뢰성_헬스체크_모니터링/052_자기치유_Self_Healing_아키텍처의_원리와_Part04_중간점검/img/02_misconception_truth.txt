@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Self-Healing Architecture myth vs reality.
+Left Side ('오해 (Myth) - Rigid Startup Sequence'): A brittle, fragile glass chain showing containers linked in strict order; when one node stumbles, the whole chain shatters with red warning sirens. Dorothy looks overwhelmed and anxious.
+Right Side ('진실 (Truth) - Startup Independence & Eventual Consistency'): A resilient, flexible organic mesh network where containers independently retry, self-check, and converge into a robust healthy state, glowing in soothing mint-green and golden light. Professor Hojin smiles calmly giving an approving gesture.
+Genie the cute metallic droid floats between them projecting green stability shields.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

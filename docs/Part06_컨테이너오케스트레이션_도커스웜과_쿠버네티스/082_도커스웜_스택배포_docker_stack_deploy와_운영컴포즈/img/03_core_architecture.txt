@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커스웜 스택배포 docker stack deploy와 운영컴포즈'.
+System Structure & Data Flow:
+- 스웜 스택 (Stack): 여러 개의 스웜 서비스, 오버레이 네트워크, 볼륨, 컨피그, 시크릿을 하나의 논리적 애플리케이션 단위로 묶은 그룹
+- resources.limits vs reservations: limits는 컨테이너가 절대 넘을 수 없는 최대 CPU/메모리 상한선(cgroups 강제) / reservations는 스케줄러가 노드를 고를
+- docker stack deploy의 주의점: 스웜 스택 배포는 오직 이미 빌드되어 레지스트리에 올라가 있는 이미지(image:)만 실행하며 build: 섹션은 무시함!
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

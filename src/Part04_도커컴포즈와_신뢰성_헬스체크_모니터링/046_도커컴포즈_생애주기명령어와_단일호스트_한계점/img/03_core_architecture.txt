@@ -1,0 +1,11 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical architecture state-machine diagram illustrating Docker Compose container lifecycle and single-host boundaries.
+In the center: A clear state machine transition graph showing the 4 container states:
+1. 'compose.yaml Defined' -> (via 'up -d') -> 2. 'Running (Active PID 1)'
+2. 'Running' -> (via 'stop') -> 3. 'Stopped / Exited (Preserved Storage)'
+3. 'Stopped' -> (via 'start') -> 'Running'
+4. 'Stopped' or 'Running' -> (via 'down') -> 4. 'Removed / Cleaned Up'.
+On the right side: A contrasting structural limitation diagram showing a single physical server box marked 'Single Host Constraint':
+- Warning badge: 'No continuous background control loop'.
+- An arrow indicating that if the physical host crashes, Docker Compose cannot reschedule containers to another node, pointing forward to 'Requires Swarm / K8s Orchestration'.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, clear legible English technical labels, no Japanese text.

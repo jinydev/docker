@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'docker manifest로 다중아키텍처 매니페스트리스트 조립하기'.
+System Structure & Data Flow:
+- 매니페스트 리스트 (Fat Manifest): 실제 파일 레이어를 직접 담는 대신, 각 아키텍처별 이미지들의 다이제스트 해시 목록을 담고 있는 얇은 목차 인덱스 파일
+- docker manifest create 문법: docker manifest create 대표태그 변종태그1 변종태그2
+- 현대적 통합 도구: 수동으로 매니페스트를 만들 필요 없이 다음 강의의 Docker Buildx를 쓰면 빌드부터 매니페스트 생성 및 푸시까지 단 한 줄로 끝남!
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

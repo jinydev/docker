@@ -1,0 +1,56 @@
+title: "지니와 도로시가 함께 학습하는 도커와 컨테이너"
+description: "이호진 교수님과 함께하는 130강 도커 & 클라우드 네이티브 마스터 클래스"
+author: "Hojin"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-gist
+
+# Navigation
+nav_sort: 'priorities'
+
+# Build Settings
+destination: docs
+source: src
+url: "https://docker.jiny.dev"
+baseurl: ""
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "docs"
+
+# Sass 설정
+sass:
+  load_paths:
+    - _sass
+
+# GitHub Pages 호환성을 위한 설정
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .github/
+  - .git/
+  - README.md
+  - CURRICULUM_15WEEKS.md
+  - CURRICULUM_REORGANIZED_12PARTS.md
+  - IMPLEMENTATION_PLAN.md
+  - PROGRESS.json
+  - BIBLE_INTEGRATION_PROGRESS.json
+  - lectures_map.json
+  - "*.py"
+  - "__pycache__"
+  - "slides.md"
+  - "youtube.md"
+  - "*/slides.md"

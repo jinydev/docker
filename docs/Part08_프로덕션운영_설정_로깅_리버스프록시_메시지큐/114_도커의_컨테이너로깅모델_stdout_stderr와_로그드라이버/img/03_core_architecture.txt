@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커의 컨테이너로깅모델 stdout stderr와 로그드라이버'.
+System Structure & Data Flow:
+- 컨테이너 로깅의 제1원칙: 컨테이너 내부의 파일(/app/app.log)에 로그를 쓰면 안 됨! 파일시스템이 불필요하게 커지고 컨테이너 삭제 시 로그가 유실됨
+- 로그 로테이션 (max-size & max-file): 로그 파일 크기가 10m에 도달하면 압축 백업하고, 오래된 파일이 max-file: 3개를 넘으면 가장 오래된 것부터 자동 삭제
+- 전역 설정 (/etc/docker/daemon.json): 개별 컨테이너마다 설정할 필요 없이 daemon.json에 log-driver와 log-opts를 전역 등록하면 새로 뜨는 모든 컨테이너에 자동
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

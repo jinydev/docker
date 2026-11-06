@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커이미지 최적화1 dockerignore와 불필요한파일제거'.
+System Structure & Data Flow:
+- 빌드 컨텍스트 전송 시간 단축: 네트워크/소켓으로 수백 MB를 보내는 지연 시간을 0.1초로 단축
+- 레이어 캐시 보호: 소스 코드와 무관한 .git/logs나 로컬 임시 파일이 바뀌었다고 해서 COPY . . 줄의 캐시가 깨지는 참사를 예방!
+- 보안 민감 정보 유출 차단: 로컬 테스트용 .env 파일, AWS 자격 증명 키, 개인키 파일이 실수로 이미지 레이어에 복사되어 도커 허브에 퍼지는 보안 사고 원천 차단
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

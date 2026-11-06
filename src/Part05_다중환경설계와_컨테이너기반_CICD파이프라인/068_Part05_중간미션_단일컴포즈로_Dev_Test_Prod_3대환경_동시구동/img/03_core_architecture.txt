@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'Part05 중간미션 단일컴포즈로 Dev Test Prod 3대환경 동시구동'.
+System Structure & Data Flow:
+- 완벽한 네임스페이스 격리: oz-dev의 web 컨테이너와 oz-prod의 web 컨테이너는 서로 다른 브리지 네트워크(oz-dev_default vs oz-prod_de
+- 설정 일관성 보장: 핵심 서비스 토폴로지는 compose.yaml 한 곳에서만 관리되므로 '개발 환경엔 추가했는데 운영 설정엔 빼먹는' 휴먼 에러 원천 방지
+- CI/CD로의 자연스러운 연결: 이렇게 환경별 컴포즈 파일이 준비되면 자동화 서버(Jenkins/GitHub Actions)는 단지 명령어 한 줄만 실행하면 됨!
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

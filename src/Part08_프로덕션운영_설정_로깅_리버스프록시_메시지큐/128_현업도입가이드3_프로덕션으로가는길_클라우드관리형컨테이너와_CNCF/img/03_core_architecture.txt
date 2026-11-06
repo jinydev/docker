@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '현업도입가이드3 프로덕션으로가는길 클라우드관리형컨테이너와 CNCF'.
+System Structure & Data Flow:
+- 서버리스 컨테이너의 시대: 우리가 빌드한 도커 이미지를 그대로 구글 클라우드 런(Cloud Run)이나 AWS App Runner에 올리면, 서버 인프라 관리 없이 자동 
+- 쿠버네티스를 도입해야 할 때: 서비스 컴포넌트가 30개 이상으로 늘어나고, 팀이 여러 개로 나뉘며, 복잡한 서비스 메시(Istio)나 카나리 배포가 필요할 때 도입
+- CNCF 생태계 지도의 중심: 우리가 이 책에서 배운 Docker, containerd, Prometheus, Fluentd, NATS, Traefik은 모두 CNCF의 핵심
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

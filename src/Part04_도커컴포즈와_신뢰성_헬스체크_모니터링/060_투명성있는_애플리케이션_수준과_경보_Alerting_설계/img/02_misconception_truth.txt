@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Alerting Design myth vs reality.
+Left Side ('오해 (Myth) - Alert Fatigue & Boy Who Cried Wolf'): A smartphone overflowing with 500 unmuted red notification sirens for every 1-second CPU spike, causing developers to completely mute and ignore real outages. Dorothy covers her ears in exhaustion and confusion.
+Right Side ('진실 (Truth) - High-Signal Alerts with "for: 1m" Duration'): A serene, calm operations channel where only verified, critical service degradations lasting over 1 minute trigger a structured, actionable Slack message with triage runbooks, glowing in soft mint-green. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy wags his tail cheerfully beside the calm green channel.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

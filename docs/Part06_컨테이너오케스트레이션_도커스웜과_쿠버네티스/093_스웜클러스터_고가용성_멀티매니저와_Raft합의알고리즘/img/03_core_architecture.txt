@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '스웜클러스터 고가용성 멀티매니저와 Raft합의알고리즘'.
+System Structure & Data Flow:
+- 왜 매니저는 반드시 '홀수(3대 또는 5대)'여야 할까?: 매니저 3대(정족수 2대)와 매니저 4대(정족수 3대)는 둘 다 최대 1대의 장애만 허용함! 짝수(2대, 4대)로 구성하면 동기화 트래픽만 늘어
+- 스플릿 브레인(Split-Brain) 방지: 네트워크 단절로 클러스터가 두 동강 났을 때, 과반수 정족수(Quorum)를 확보한 쪽만 새 리더를 뽑아 클러스터를 계속 운영하고 소수파 쪽은 
+- 매니저 노드를 워크로드에서 보호하기: 대규모 클러스터에서는 매니저 노드가 오직 클러스터 관리에만 집중하도록 매니저 노드들을 --availability drain으로 설정해 일반 앱 
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

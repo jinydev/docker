@@ -1,0 +1,10 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical architecture diagram comparing Health Check with Dependency Check and detailing the Fail-Fast restart loop.
+Top section (Conceptual Comparison):
+- Left Box (Health Check): A continuous circular heartbeat loop monitoring internal PID 1 health periodically during runtime.
+- Right Box (Dependency Check): A one-time front-gate probe testing whether dependent external services (e.g. database:5432) are ready before main process start.
+Bottom section (Fail-Fast Loop Mechanism):
+1. 'Container Starts' -> 2. 'Run Probe: test connection to api-server:80' ->
+3. If NOT ready -> 'Exit 1 immediately (Fail-Fast)' -> 'Docker restarts container in 3 seconds' -> Loop back.
+4. If READY -> 'exec main server process (HTTP 200 OK)'.
+Pure solid clean white background (#FFFFFF), centered balanced diagram layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, clear legible English technical labels, no Japanese text.

@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'SSH기반 원격도커엔진 보안접속과 최소권한설정'.
+System Structure & Data Flow:
+- SSH 도커 엔드포인트 (ssh://): 도커 18.09+부터 지원하는 공식 기능으로, 별도 포트 개방 없이 기존 SSH(22번 포트) 보안 터널을 통해 도커 소켓 연결
+- SSH 에이전트 포워딩 연동: ssh-agent 및 ssh-add로 개인키를 등록해 두면 암호 입력 없이 원격 도커 명령을 안전하게 실행
+- 최소 권한 운영 계정: root 계정 대신 docker 그룹에 속한 전용 배포 사용자(예: deployer)를 생성하고 SSH 접속 제한
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

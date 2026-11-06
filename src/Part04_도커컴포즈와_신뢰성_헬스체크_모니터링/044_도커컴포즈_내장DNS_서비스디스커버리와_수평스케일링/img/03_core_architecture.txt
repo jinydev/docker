@@ -1,0 +1,12 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical architecture diagram illustrating Docker Compose Embedded DNS Service Discovery (127.0.0.11) and Round-Robin Load Balancing with horizontal scaling.
+At the top: A client container sending DNS query for service name 'backend-api'.
+In the middle: The Docker Embedded DNS Resolver mechanism (127.0.0.11) holding an active discovery table:
+- Domain: 'backend-api' -> IPs: [172.20.0.2, 172.20.0.3, 172.20.0.4].
+- A circular rotating gear or arrow indicating round-robin cyclic response ordering.
+At the bottom: Inside the user-defined bridge network, three identical pastel-colored backend containers side-by-side:
+- 'backend-api-1' (IP 172.20.0.2)
+- 'backend-api-2' (IP 172.20.0.3)
+- 'backend-api-3' (IP 172.20.0.4)
+Three alternating colored dashed arrows distributing incoming traffic evenly across the three replicas.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, clear legible English technical labels, no Japanese text.

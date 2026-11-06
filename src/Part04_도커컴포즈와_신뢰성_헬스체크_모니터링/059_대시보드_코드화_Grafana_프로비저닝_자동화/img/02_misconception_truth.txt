@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Grafana Provisioning myth vs reality.
+Left Side ('오해 (Myth) - Tedious Manual Re-clicking'): An exhausted engineer frantically trying to manually recreate lost panels, re-type PromQL queries, and reconnect data sources one by one after a container restart, surrounded by question marks. Dorothy looks deeply fatigued.
+Right Side ('진실 (Truth) - Zero-Touch Automated Provisioning'): A declarative provisioning pipeline where '/etc/grafana/provisioning/' mounts instantaneously restore all data sources and complex dashboards on fresh container boot in 1 second, glowing with emerald green checkmarks. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy wags his tail cheerfully beside the auto-provisioned green dashboard.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

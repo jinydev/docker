@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Introduction to Docker Chapter 061 'Part04 실전미션 헬스체크와 그라파나관제가 결합된 마이크로서비스'.
+Professor Hojin (youthful early 40s Korean male engineering professor, smooth youthful skin without wrinkles, clean-shaven, 7:3 parted dark charcoal black hair with soft bangs and subtle silver-grey salt-and-pepper streaks around temples, thin minimalist round silver metal wire-rim glasses, kind gentle brown eyes, warm encouraging smile, wearing a plain solid dark charcoal navy polo shirt and blue denim jeans) stands proudly with Dorothy (cheerful 9-year-old girl in denim overalls with 'STEM HERO' patch).
+In front of them floats a grand glowing master blueprint combining all elements of Part 04: Docker Compose multi-container services, conditional healthcheck locks, Prometheus telemetry engines, and Grafana visual control towers into a unified resilient fortress.
+Dorothy beams with bright excitement and confidence, holding her digital tablet that displays the unified mission status.
+Beside them, Toto the cream puppy wags his tail joyfully.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

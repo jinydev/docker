@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '불량배포 자동감지와 자동롤백 failure action rollback'.
+System Structure & Data Flow:
+- failure_action 3가지 옵션: 1) pause(기본값: 추가 배포를 멈추고 사람 대기), 2) continue(무시하고 강행), 3) rollback(즉시 업데이트를 취소하고
+- 헬스 체크(HEALTHCHECK)와의 필수 결합: 스웜이 새 버전의 성공/실패를 판단하는 기준은 monitor 시간 동안 컨테이너가 살아있는가와 HEALTHCHECK가 healthy를 유지하는가
+- 빠른 롤백 (rollback_config): 업데이트할 때는 신중하게 1개씩(parallelism: 1, monitor: 15s) 올리더라도, 장애가 나서 롤백할 때는 이미 검증된 이전 버
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성 | 지니와 도로시가 함께 학습하는 도커와 컨테이너</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성" />
+<meta name="author" content="Hojin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스" />
+<meta name="twitter:description" property="og:description" content="이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스" />
+<link rel="canonical" href="https://docker.jiny.dev/Part08_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98%EC%9A%B4%EC%98%81_%EC%84%A4%EC%A0%95_%EB%A1%9C%EA%B9%85_%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%94%84%EB%A1%9D%EC%8B%9C_%EB%A9%94%EC%8B%9C%EC%A7%80%ED%81%90/120_%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%94%84%EB%A1%9D%EC%8B%9C3_%EB%A1%9C%EC%BB%AC%EC%BA%90%EC%8B%B1_proxy_cache%EA%B3%BC_Stale%EC%9D%91%EB%8B%B5_%EA%B3%A0%EA%B0%80%EC%9A%A9%EC%84%B1/" />
+<meta property="og:url" content="https://docker.jiny.dev/Part08_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98%EC%9A%B4%EC%98%81_%EC%84%A4%EC%A0%95_%EB%A1%9C%EA%B9%85_%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%94%84%EB%A1%9D%EC%8B%9C_%EB%A9%94%EC%8B%9C%EC%A7%80%ED%81%90/120_%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%94%84%EB%A1%9D%EC%8B%9C3_%EB%A1%9C%EC%BB%AC%EC%BA%90%EC%8B%B1_proxy_cache%EA%B3%BC_Stale%EC%9D%91%EB%8B%B5_%EA%B3%A0%EA%B0%80%EC%9A%A9%EC%84%B1/" />
+<meta property="og:site_name" content="지니와 도로시가 함께 학습하는 도커와 컨테이너" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스","headline":"리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성","url":"https://docker.jiny.dev/Part08_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98%EC%9A%B4%EC%98%81_%EC%84%A4%EC%A0%95_%EB%A1%9C%EA%B9%85_%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%94%84%EB%A1%9D%EC%8B%9C_%EB%A9%94%EC%8B%9C%EC%A7%80%ED%81%90/120_%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%94%84%EB%A1%9D%EC%8B%9C3_%EB%A1%9C%EC%BB%AC%EC%BA%90%EC%8B%B1_proxy_cache%EA%B3%BC_Stale%EC%9D%91%EB%8B%B5_%EA%B3%A0%EA%B0%80%EC%9A%A9%EC%84%B1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/assets/css/docs.css?v=1793957445" rel="stylesheet" />
+  <link href="/assets/css/highlight.css" rel="stylesheet" />
+
+  <style>
+    /* Table Styling: 회색 실선 테두리 및 가독성 최적화 */
+    .bd-content table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 2rem !important;
+      font-size: 0.95rem !important;
+      border: 1px solid #cbd5e1 !important;
+      border-spacing: 0 !important;
+      background-color: #ffffff !important;
+    }
+
+    .bd-content table thead th {
+      background-color: #f1f5f9 !important;
+      color: #1e293b !important;
+      font-weight: 700 !important;
+      border: 1px solid #cbd5e1 !important;
+      padding: 0.75rem 1rem !important;
+      vertical-align: middle !important;
+      text-align: left !important;
+    }
+
+    .bd-content table tbody td {
+      border: 1px solid #cbd5e1 !important;
+      padding: 0.75rem 1rem !important;
+      color: #334155 !important;
+      vertical-align: top !important;
+      background-color: #ffffff !important;
+    }
+
+    .bd-content table tbody tr:nth-of-type(even) td {
+      background-color: #f8fafc !important;
+    }
+
+    .bd-content table tbody tr:hover td {
+      background-color: #f1f5f9 !important;
+    }
+
+    @media (max-width: 768px) {
+      .bd-content table {
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+    }
+  </style>
+
+  <style>
+    blockquote {
+      border-left: solid 5px #dee2e6;
+      padding: 5px 10px;
+      background-color: #f8f9fa;
+    }
+  </style>
+
+  <style>
+    h1 a {
+      text-decoration: none;
+    }
+
+    h2 a {
+      text-decoration: none;
+    }
+
+    h3 a {
+      text-decoration: none;
+    }
+
+    h4 a {
+      text-decoration: none;
+    }
+
+    h5 a {
+      text-decoration: none;
+    }
+
+    h6 a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: top
+    }
+
+    strong a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 스크롤바 커스텀 */
+    /* 임의의 영역 생성 */
+    .scrollBar {}
+
+    /* 아래의 모든 코드는 영역::코드로 사용 */
+    .scrollBar::-webkit-scrollbar {
+      width: 7px;
+      /* 스크롤바의 너비 */
+    }
+
+    .scrollBar::-webkit-scrollbar-thumb {
+      height: 30%;
+      /* 스크롤바의 길이 */
+      background: #cccccc;
+      /* 스크롤바의 색상 */
+
+      border-radius: 5px;
+    }
+
+    .scrollBar::-webkit-scrollbar-track {
+      background: rgba(33, 122, 244, .1);
+      /*스크롤바 뒷 배경 색상*/
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4VBPCT3CR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-R4VBPCT3CR');
+  </script>
+
+  <!-- MathJax for LaTeX Rendering -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+
+</head>
+
+<body>
+  <header class="navbar navbar-expand-lg bd-navbar sticky-top">
+    <nav class="container bd-gutter flex-wrap flex-lg-nowrap position-relative" aria-label="Main navigation">
+
+      <!-- Mobile: Left Toggle (Browse) -->
+      <div class="bd-navbar-toggle d-lg-none">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar"
+          aria-controls="bdSidebar" aria-label="Toggle docs navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+            </path>
+          </svg>
+          <span class="d-none fs-6 pe-1">Browse</span>
+        </button>
+      </div>
+
+      <!-- Brand: Desktop (Static), Mobile (Absolute Center) -->
+      <a class="navbar-brand p-0 me-0 me-lg-2 ms-lg-0 d-none d-lg-inline-block" href="/" aria-label="jinydev">
+        <svg width="32" height="26" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24.2746 5.33377C25.8486 7.33981 25.1183 11.1792 24.3961 13.0177C24.4028 13.0199 24.4094 13.0221 24.4161 13.0243L24.4013 13.0248L22.649 12.9082C22.649 12.9053 22.6488 12.9013 22.649 12.8993C22.9902 8.93373 22.5975 7.34575 22.2147 7.07677C17.6316 10.3896 13.5379 9.33658 12.2725 9.01111C11.928 8.9225 11.7932 8.88781 11.9152 9.00988C12.2872 9.38185 13.1336 9.82821 13.7371 10.1465H13.7372L13.7376 10.1467C13.8743 10.2188 13.9985 10.2843 14.1019 10.3409C9.12673 10.3984 7.12659 8.00279 6.53855 7.29846C6.47859 7.22664 6.4333 7.1724 6.40105 7.14015C6.11408 6.85318 4.49961 5.87252 3.99256 7.74227C3.50142 9.55335 3.81246 11.6775 3.97665 12.7988C3.99089 12.896 3.99257 12.8981 3.99257 12.9298L2.37635 13.0248L2.37213 13.0247C0.223493 8.05534 1.83854 5.26971 3.29536 4.2246C3.29536 1.78444 6.27428 -0.592359 10.0455 0.263262C14.8768 1.64043 16.3468 1.18409 18.0759 0.647278C18.774 0.430562 19.5143 0.200726 20.5351 0.073124C25.2219 -0.512739 26.7993 2.56612 27 4.16122C26.2141 3.70487 24.8556 4.73165 24.2746 5.33377ZM12.3374 1.5872C11.1225 1.16466 7.99257 0.717209 6.3478 2.41116C5.98397 2.78587 5.55554 3.48864 5.55554 3.48864C5.55554 3.48864 4.82665 4.81961 4.25622 4.24919C3.68579 3.67878 5.0168 1.96749 6.06259 1.46044C7.10838 0.953388 9.70703 0.0660505 12.3374 1.5872Z"
+            fill="currentColor" />
+          <path
+            d="M10.078 13.5002H3.10601C2.2309 13.5002 1.52148 14.2097 1.52148 15.0848V18.3172C1.52148 19.1923 2.2309 19.9018 3.10601 19.9018H10.078C10.9531 19.9018 11.6625 19.1923 11.6625 18.3172V15.0848C11.6625 14.2097 10.9531 13.5002 10.078 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M0.823513 14.6094H0.379847C0.187322 14.6094 0.03125 14.7654 0.03125 14.958V15.9721C0.03125 16.1646 0.187322 16.3207 0.379847 16.3207H0.823513C1.01604 16.3207 1.17211 16.1646 1.17211 15.9721V14.958C1.17211 14.7654 1.01604 14.6094 0.823513 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M16.7326 13.5002H23.7045C24.5796 13.5002 25.2891 14.2097 25.2891 15.0848V18.3172C25.2891 19.1923 24.5796 19.9018 23.7045 19.9018H16.7326C15.8575 19.9018 15.1481 19.1923 15.1481 18.3172V15.0848C15.1481 14.2097 15.8575 13.5002 16.7326 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M25.9861 14.6094H26.4297C26.6222 14.6094 26.7783 14.7654 26.7783 14.958V15.9721C26.7783 16.1646 26.6222 16.3207 26.4297 16.3207H25.9861C25.7935 16.3207 25.6375 16.1646 25.6375 15.9721V14.958C25.6375 14.7654 25.7935 14.6094 25.9861 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M12.2954 15.5601H14.5137C14.7062 15.5601 14.8623 15.7161 14.8623 15.9087V16.9228C14.8623 17.1153 14.7062 17.2713 14.5137 17.2713H12.2954C12.1028 17.2713 11.9468 17.1153 11.9468 16.9228V15.9087C11.9468 15.7161 12.1028 15.5601 12.2954 15.5601Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M9.93343 16.3937C9.93343 16.7087 9.76317 16.9641 9.55314 16.9641C9.34311 16.9641 9.17285 16.7087 9.17285 16.3937C9.17285 16.0786 9.34311 15.8232 9.55314 15.8232C9.76317 15.8232 9.93343 16.0786 9.93343 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M16.9688 16.3937C16.9688 16.7087 17.139 16.9641 17.3491 16.9641C17.5591 16.9641 17.7293 16.7087 17.7293 16.3937C17.7293 16.0786 17.5591 15.8232 17.3491 15.8232C17.139 15.8232 16.9688 16.0786 16.9688 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M14.2758 20.1016C13.642 20.6086 12.7863 20.3551 12.5645 20.1016C12.6278 20.4185 12.8687 20.8622 13.4518 20.8622C14.0349 20.8622 14.2441 20.3551 14.2758 20.1016Z"
+            fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1312 22.411C12.1575 22.2914 12.2759 22.2157 12.3956 22.2421L14.6347 22.735C14.7544 22.7614 14.83 22.8797 14.8036 22.9994C14.7773 23.119 14.659 23.1947 14.5393 23.1683L12.3002 22.6753C12.1805 22.649 12.1049 22.5307 12.1312 22.411Z"
+            fill="currentColor" />
+          <path
+            d="M13.4203 27.6754C9.00897 27.7261 5.77228 23.6613 4.70536 21.6225C4.54691 21.3197 4.42016 21.2739 4.32509 21.3373C4.17297 21.4387 4.28282 21.6437 4.32507 21.7493C4.85747 22.9916 5.58213 24.0416 5.87791 24.4113C4.83846 26.1353 4.49409 27.855 4.45183 28.4994C6.1758 26.8008 7.91668 26.8832 8.57162 27.1367C13.7055 29.7987 16.5577 27.929 18.1739 27.1367C19.4669 26.5029 21.4803 27.7388 22.3254 28.436C22.224 26.8642 21.3747 25.1402 20.9627 24.4747C21.6282 23.5873 22.1669 22.5099 22.4522 21.9711C22.6803 21.5401 22.6106 21.369 22.5472 21.3373C22.3951 21.2613 22.2092 21.4958 22.1353 21.6225C21.6599 22.4148 18.9345 27.6121 13.4203 27.6754Z"
+            fill="currentColor" />
+        </svg>
+      </a>
+      <a class="navbar-brand p-0 me-0 position-absolute top-50 start-50 translate-middle d-lg-none" href="/"
+        aria-label="jinydev">
+        <svg width="100" height="26" viewBox="0 0 112 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24.2746 5.33377C25.8486 7.33981 25.1183 11.1792 24.3961 13.0177C24.4028 13.0199 24.4094 13.0221 24.4161 13.0243L24.4013 13.0248L22.649 12.9082C22.649 12.9053 22.6488 12.9013 22.649 12.8993C22.9902 8.93373 22.5975 7.34575 22.2147 7.07677C17.6316 10.3896 13.5379 9.33658 12.2725 9.01111C11.928 8.9225 11.7932 8.88781 11.9152 9.00988C12.2872 9.38185 13.1336 9.82821 13.7371 10.1465H13.7372L13.7376 10.1467C13.8743 10.2188 13.9985 10.2843 14.1019 10.3409C9.12673 10.3984 7.12659 8.00279 6.53855 7.29846C6.47859 7.22664 6.4333 7.1724 6.40105 7.14015C6.11408 6.85318 4.49961 5.87252 3.99256 7.74227C3.50142 9.55335 3.81246 11.6775 3.97665 12.7988C3.99089 12.896 3.99257 12.8981 3.99257 12.9298L2.37635 13.0248L2.37213 13.0247C0.223493 8.05534 1.83854 5.26971 3.29536 4.2246C3.29536 1.78444 6.27428 -0.592359 10.0455 0.263262C14.8768 1.64043 16.3468 1.18409 18.0759 0.647278C18.774 0.430562 19.5143 0.200726 20.5351 0.073124C25.2219 -0.512739 26.7993 2.56612 27 4.16122C26.2141 3.70487 24.8556 4.73165 24.2746 5.33377ZM12.3374 1.5872C11.1225 1.16466 7.99257 0.717209 6.3478 2.41116C5.98397 2.78587 5.55554 3.48864 5.55554 3.48864C5.55554 3.48864 4.82665 4.81961 4.25622 4.24919C3.68579 3.67878 5.0168 1.96749 6.06259 1.46044C7.10838 0.953388 9.70703 0.0660505 12.3374 1.5872Z"
+            fill="currentColor" />
+          <path
+            d="M10.078 13.5002H3.10601C2.2309 13.5002 1.52148 14.2097 1.52148 15.0848V18.3172C1.52148 19.1923 2.2309 19.9018 3.10601 19.9018H10.078C10.9531 19.9018 11.6625 19.1923 11.6625 18.3172V15.0848C11.6625 14.2097 10.9531 13.5002 10.078 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M0.823513 14.6094H0.379847C0.187322 14.6094 0.03125 14.7654 0.03125 14.958V15.9721C0.03125 16.1646 0.187322 16.3207 0.379847 16.3207H0.823513C1.01604 16.3207 1.17211 16.1646 1.17211 15.9721V14.958C1.17211 14.7654 1.01604 14.6094 0.823513 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M16.7326 13.5002H23.7045C24.5796 13.5002 25.2891 14.2097 25.2891 15.0848V18.3172C25.2891 19.1923 24.5796 19.9018 23.7045 19.9018H16.7326C15.8575 19.9018 15.1481 19.1923 15.1481 18.3172V15.0848C15.1481 14.2097 15.8575 13.5002 16.7326 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M25.9861 14.6094H26.4297C26.6222 14.6094 26.7783 14.7654 26.7783 14.958V15.9721C26.7783 16.1646 26.6222 16.3207 26.4297 16.3207H25.9861C25.7935 16.3207 25.6375 16.1646 25.6375 15.9721V14.958C25.6375 14.7654 25.7935 14.6094 25.9861 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M12.2954 15.5601H14.5137C14.7062 15.5601 14.8623 15.7161 14.8623 15.9087V16.9228C14.8623 17.1153 14.7062 17.2713 14.5137 17.2713H12.2954C12.1028 17.2713 11.9468 17.1153 11.9468 16.9228V15.9087C11.9468 15.7161 12.1028 15.5601 12.2954 15.5601Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M9.93343 16.3937C9.93343 16.7087 9.76317 16.9641 9.55314 16.9641C9.34311 16.9641 9.17285 16.7087 9.17285 16.3937C9.17285 16.0786 9.34311 15.8232 9.55314 15.8232C9.76317 15.8232 9.93343 16.0786 9.93343 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M16.9688 16.3937C16.9688 16.7087 17.139 16.9641 17.3491 16.9641C17.5591 16.9641 17.7293 16.7087 17.7293 16.3937C17.7293 16.0786 17.5591 15.8232 17.3491 15.8232C17.139 15.8232 16.9688 16.0786 16.9688 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M14.2758 20.1016C13.642 20.6086 12.7863 20.3551 12.5645 20.1016C12.6278 20.4185 12.8687 20.8622 13.4518 20.8622C14.0349 20.8622 14.2441 20.3551 14.2758 20.1016Z"
+            fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1312 22.411C12.1575 22.2914 12.2759 22.2157 12.3956 22.2421L14.6347 22.735C14.7544 22.7614 14.83 22.8797 14.8036 22.9994C14.7773 23.119 14.659 23.1947 14.5393 23.1683L12.3002 22.6753C12.1805 22.649 12.1049 22.5307 12.1312 22.411Z"
+            fill="currentColor" />
+          <path
+            d="M13.4203 27.6754C9.00897 27.7261 5.77228 23.6613 4.70536 21.6225C4.54691 21.3197 4.42016 21.2739 4.32509 21.3373C4.17297 21.4387 4.28282 21.6437 4.32507 21.7493C4.85747 22.9916 5.58213 24.0416 5.87791 24.4113C4.83846 26.1353 4.49409 27.855 4.45183 28.4994C6.1758 26.8008 7.91668 26.8832 8.57162 27.1367C13.7055 29.7987 16.5577 27.929 18.1739 27.1367C19.4669 26.5029 21.4803 27.7388 22.3254 28.436C22.224 26.8642 21.3747 25.1402 20.9627 24.4747C21.6282 23.5873 22.1669 22.5099 22.4522 21.9711C22.6803 21.5401 22.6106 21.369 22.5472 21.3373C22.3951 21.2613 22.2092 21.4958 22.1353 21.6225C21.6599 22.4148 18.9345 27.6121 13.4203 27.6754Z"
+            fill="currentColor" />
+          <text x="32" y="21" font-family="Arial, sans-serif" font-weight="bold" font-size="22"
+            fill="currentColor">Jiny</text>
+        </svg>
+      </a>
+
+      <!-- Mobile: Right Toggle (Menu) -->
+      <div class="d-flex d-lg-none ms-auto">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar"
+          aria-controls="bdNavbar" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid"
+            viewBox="0 0 16 16">
+            <path
+              d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- OffCanvas -->
+      <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="bdNavbar"
+        aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
+        <!-- OffCanver Header -->
+        <div class="offcanvas-header px-4 pb-0">
+          <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">Jiny</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"
+            data-bs-target="#bdNavbar">
+          </button>
+        </div>
+
+        <!-- OffCanver Body -->
+        <div class="offcanvas-body p-4 pt-0 p-lg-0">
+          <hr class="d-lg-none text-white-50">
+
+          <ul class="navbar-nav flex-column flex-lg-row bd-navbar-nav">
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/">소개하기</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part01_컨테이너기초와_도커엔진아키텍처/001_컨테이너가_IT세상을_점령한_이유1_클라우드이주와_레거시현대화/">컨테이너기초</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part02_도커이미지빌드와_멀티스테이지_레지스트리/015_도커허브_이미지활용과_런타임환경변수_주입/">이미지빌드</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part03_퍼시스턴트스토리지와_도커볼륨_마운트/032_컨테이너속_데이터가_사라지는이유_기록가능레이어와_CoW/">스토리지</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part04_도커컴포즈와_신뢰성_헬스체크_모니터링/042_도커컴포즈_소개와_compose_yaml_선언적구조/">컴포즈</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part05_다중환경설계와_컨테이너기반_CICD파이프라인/062_단일호스트에_여러애플리케이션_격리배포하기_프로젝트이름/">CI/CD</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part06_컨테이너오케스트레이션_도커스웜과_쿠버네티스/076_컨테이너_오케스트레이션이란_왜_클러스터가_필요한가/">스웜&K8s</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part07_보안원격접근_다중아키텍처_이미지최적화/096_도커엔진_API엔드포인트와_비보안TCP포워딩의_치명적위험/">보안&최적화</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 active"
+                href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/112_프로덕션_다단설정아키텍처_내장기본값_환경파일_런타임오버라이드/">운영&캡스톤</a>
+            </li>
+            
+          </ul>
+
+          <hr class="d-lg-none text-white-50">
+
+          <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <li class="nav-item col-6 col-lg-auto">
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev" target="_blank"
+                rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                  viewBox="0 0 512 499.36" role="img">
+                  <title>GitHub</title>
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z">
+                  </path>
+                </svg>
+                <small class="d-lg-none ms-2">GitHub</small>
+              </a>
+            </li>
+
+            <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none my-2 text-white-50">
+            </li>
+
+            <li class="nav-item col-6 col-lg-auto">
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://jiny.dev" aria-label="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                  viewBox="0 0 16 16" role="img">
+                  <title>Home</title>
+                  <path fill="currentColor"
+                    d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
+                </svg>
+                <small class="d-lg-none ms-2">Home</small>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container bd-gutter mt-3 my-md-4 bd-layout">
+    <aside class="bd-sidebar scrollBar">
+        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="bdSidebar"
+            aria-labelledby="bdSidebarOffcanvasLabel">
+            <div class="offcanvas-header border-bottom">
+                <h5 class="offcanvas-title" id="bdSidebarOffcanvasLabel">학습목차</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                    data-bs-target="#bdSidebar"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <!-- 네비게이션 -->
+                <nav class="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
+  <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
+    <li class="bd-links-group py-2">
+      
+      
+
+      
+      
+      
+
+      
+
+      <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold text-primary mb-3 pb-2 border-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-seam me-2 flex-shrink-0" viewBox="0 0 16 16">
+          <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+        </svg>
+        <span class="text-truncate">Part 08. 프로덕션 운영과 엔드투엔드 캡스톤</span>
+      </strong>
+
+      <ul class="list-unstyled fw-normal pb-2 small">
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/112_프로덕션_다단설정아키텍처_내장기본값_환경파일_런타임오버라이드/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              112. 프로덕션 다단설정아키텍처 내장기본값 환경파일 런타임오버라이드
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/113_레거시애플리케이션에_클라우드네이티브_설정전략_적용하기/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              113. 레거시애플리케이션에 클라우드네이티브 설정전략 적용하기
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/114_도커의_컨테이너로깅모델_stdout_stderr와_로그드라이버/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              114. 도커의 컨테이너로깅모델 stdout stderr와 로그드라이버
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/115_숨어있는_파일로그를_표준출력_stdout으로_끌어내기/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              115. 숨어있는 파일로그를 표준출력 stdout으로 끌어내기
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/116_중앙집중식_로그수집파이프라인_Fluentd와_로깅드라이버/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              116. 중앙집중식 로그수집파이프라인 Fluentd와 로깅드라이버
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/117_로그저장소와_시각화스택_OpenSearch_Loki_통합로그검색/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              117. 로그저장소와 시각화스택 OpenSearch Loki 통합로그검색
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/118_리버스프록시1_Nginx컨테이너로_가상호스트와_경로라우팅/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              118. 리버스프록시1 Nginx컨테이너로 가상호스트와 경로라우팅
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/119_리버스프록시2_SSL_TLS_HTTPS적용과_업스트림_로드밸런싱/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              119. 리버스프록시2 SSL TLS HTTPS적용과 업스트림 로드밸런싱
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/120_리버스프록시3_로컬캐싱_proxy_cache과_Stale응답_고가용성/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none active fw-bold text-primary bg-light border-start border-primary border-3"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              120. 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/121_클라우드네이티브_리버스프록시_Traefik_자동서비스디스커버리/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              121. 클라우드네이티브 리버스프록시 Traefik 자동서비스디스커버리
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/122_비동기메시징1_동기HTTP의_한계와_Redis_Pub_Sub_기초/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              122. 비동기메시징1 동기HTTP의 한계와 Redis Pub Sub 기초
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/123_비동기메시징2_클라우드네이티브_메시지큐_NATS와_이벤트발행/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              123. 비동기메시징2 클라우드네이티브 메시지큐 NATS와 이벤트발행
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/124_비동기메시징3_메시지핸들러_워커와_큐그룹_수평스케일링/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              124. 비동기메시징3 메시지핸들러 워커와 큐그룹 수평스케일링
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/125_비동기메시징4_코드수정없는_기능확장_팬아웃과_감사로그핸들러/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              125. 비동기메시징4 코드수정없는 기능확장 팬아웃과 감사로그핸들러
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/126_현업도입가이드1_우리조직의_애플리케이션으로_PoC성공시키기/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              126. 현업도입가이드1 우리조직의 애플리케이션으로 PoC성공시키기
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/127_현업도입가이드2_개발_보안_운영팀_설득과_비즈니스ROI입증/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              127. 현업도입가이드2 개발 보안 운영팀 설득과 비즈니스ROI입증
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/128_현업도입가이드3_프로덕션으로가는길_클라우드관리형컨테이너와_CNCF/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              128. 현업도입가이드3 프로덕션으로가는길 클라우드관리형컨테이너와 CNCF
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/129_최종캡스톤_도로시와_지니의_풀스택_클라우드네이티브_플랫폼완성/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              129. 최종캡스톤 도로시와 지니의 풀스택 클라우드네이티브 플랫폼완성
+            </a>
+          
+        </li>
+        
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+            </div>
+        </div>
+    </aside>
+
+    <main class="bd-main order-1">
+        <nav aria-label="breadcrumb" class="mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item"><a href="/Part08_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98%EC%9A%B4%EC%98%81_%EC%84%A4%EC%A0%95_%EB%A1%9C%EA%B9%85_%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%94%84%EB%A1%9D%EC%8B%9C_%EB%A9%94%EC%8B%9C%EC%A7%80%ED%81%90/">Part08 프로덕션운영 설정 로깅 리버스프록시 메시지큐</a></li>
+        
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item active" aria-current="page">120. 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성</li>
+        
+        
+        
+    </ol>
+</nav>
+
+        <div class="bd-content ps-lg-4">
+            <h1 id="120-리버스프록시3-로컬캐싱-proxy-cache과-stale응답-고가용성">120. 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성</h1>
+
+<p>동일한 이미지 갤러리나 인기 상품 목록 요청이 1초에 1만 번 들어올 때, 백엔드 서버를 매번 치지 않고 프록시 디스크 캐시에서 0.001초 만에 즉시 응답하는 <strong><code class="language-plaintext highlighter-rouge">proxy_cache</code></strong>를 구성합니다.</p>
+
+<p><img src="./img/01_intro_overview.png" alt="리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성 도입 개요" />
+<strong>그림 08-9-1</strong> 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성의 필요성과 현대 클라우드 아키텍처 관점의 개요</p>
+
+<hr />
+
+<h3 id="1201-왜-리버스프록시3-로컬캐싱-proxy-cache과-stale응답-고가용성이가-필요한가-문제-정의와-현실적-배경">120.1 왜 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성이(가) 필요한가? (문제 정의와 현실적 배경)</h3>
+
+<p>소프트웨어 시스템이 복잡해질수록 설정을 다루는 방식은 전체 인프라의 신뢰성을 결정짓는 핵심 척도가 됩니다. <strong>리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성</strong>이(가) 부재하거나 잘못 다루어질 때 현장에서는 다음과 같은 대표적인 병목과 장애가 발생합니다:</p>
+
+<ol>
+  <li><strong>하드코딩된 설정과 환경 불일치로 인한 유연성 상실</strong>: 환경이 바뀔 때마다 코드를 다시 빌드해야 하므로 배포 주기가 지연되고 이미지 수가 기하급수적으로 폭증합니다.</li>
+  <li><strong>보안 민감 데이터의 무분별한 노출</strong>: 비밀번호, 데이터베이스 토큰, 암호화 키가 이미지 레이어에 영구 박제되어 형상관리 시스템이나 외부에 유출될 위험이 커집니다.</li>
+  <li><strong>재현 불가능한 구성 드리프트</strong>: 스테이징 환경과 프로덕션 환경의 미세한 설정 차이가 예기치 못한 서비스 중단 사고로 직결됩니다.</li>
+</ol>
+
+<p><img src="./img/02_misconception_truth.png" alt="실무적 오해와 진실: 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성" />
+<strong>그림 08-9-2</strong> 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성에 대한 대표적인 오해와 실제 프로덕션 현장의 엔지니어링 진실</p>
+
+<hr />
+
+<h3 id="1202-핵심-아키텍처와-엔지니어링-메커니즘">120.2 핵심 아키텍처와 엔지니어링 메커니즘</h3>
+
+<p>나아가 백엔드 API 컨테이너가 점검 중이거나 일시적으로 모두 죽었을 때(<code class="language-plaintext highlighter-rouge">error</code>, <code class="language-plaintext highlighter-rouge">timeout</code>, <code class="language-plaintext highlighter-rouge">http_500</code>), 캐시되어 있던 이전 응답을 사용자에게 대신 반환하여 장애를 감추는 놀라운 <strong>Stale 응답 서빙 기법</strong>을 실습합니다!</p>
+
+<p><img src="./img/03_core_architecture.png" alt="핵심 아키텍처 다이어그램: 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성" />
+<strong>그림 08-9-3</strong> 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성의 내부 아키텍처 및 데이터 흐름</p>
+
+<h4 id="-핵심-비교-및-엔지니어링-표준-분석">📊 핵심 비교 및 엔지니어링 표준 분석</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">구분 / 핵심 원리</th>
+      <th style="text-align: left">상세 설명 및 동작 메커니즘</th>
+      <th style="text-align: left">실무 적용 시 주의점 및 베스트 프랙티스</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">proxy_cache_valid 200 10m</code></strong></td>
+      <td style="text-align: left">백엔드의 정상 응답(HTTP 200)을 10분간 프록시 로컬 스토리지에 캐싱</td>
+      <td style="text-align: left">백엔드 CPU와 데이터베이스 쿼리 부하를 95% 이상 경감</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">proxy_cache_use_stale</code>의 마법</strong></td>
+      <td style="text-align: left">백엔드가 500 에러를 뱉거나 타임아웃이 나면 만료된 옛날 캐시(Stale Data)라도 사용자에게 친절하게 제공</td>
+      <td style="text-align: left">넷플릭스, 아마존 등 대규모 글로벌 서비스들이 사용하는 대표적인 우아한 기능 저하(Graceful Degradation) 패턴!</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Part 03 도커 볼륨과의 결합</strong></td>
+      <td style="text-align: left">프록시 캐시 경로(<code class="language-plaintext highlighter-rouge">/var/cache/nginx</code>)를 도커 볼륨으로 연결해 두면 프록시 컨테이너가 재시작되어도 고속 캐시 데이터가 그대로 유지됨</td>
+      <td style="text-align: left">인프라 컴포넌트 간의 완벽한 융합</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="1203-선언적-실습-및-아키텍처-다이어그램">120.3 선언적 실습 및 아키텍처 다이어그램</h3>
+
+<p>본 실습은 외부 비공개 패키지에 의존하지 않고, 공식 표준 이미지를 기반으로 즉시 재현 가능한 살아있는 코드로 구성되어 있습니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Nginx proxy_cache 설정 및 백엔드 장애 시 캐시 응답 서빙(proxy_cache_use_stale) 설정</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="sh">'</span><span class="no">EOF</span><span class="sh">'
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=my_cache:10m max_size=1g inactive=60m;
+server {
+    location /api/products {
+        proxy_cache my_cache;
+        proxy_cache_valid 200 10m;
+        proxy_cache_use_stale error timeout updating http_500 http_502 http_503;
+        proxy_pass http://backend-api:8080;
+    }
+}
+</span><span class="no">EOF
+</span></code></pre></div></div>
+
+<h4 id="-아키텍처-흐름도-mermaid-diagram">🔍 아키텍처 흐름도 (Mermaid Diagram)</h4>
+
+<pre><code class="language-mermaid">flowchart LR
+    Host["Docker Host"] --&gt; Daemon["Docker Engine (dockerd)"]
+    Daemon --&gt; Target["Isolated Service\n(리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성)"]
+    Target --&gt; Resource["Managed Infrastructure / Volumes / Net"]
+</code></pre>
+
+<p><img src="./img/04_hands_on_practice.png" alt="선언적 실습 환경 구축: 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성" />
+<strong>그림 08-9-4</strong> 선언적 인프라 명세를 통한 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성 검증 파이프라인</p>
+
+<hr />
+
+<h3 id="1204-핵심-정리-캐릭터-대화와-3대-교훈">120.4 핵심 정리: 캐릭터 대화와 3대 교훈</h3>
+
+<blockquote>
+  <p>👧 <strong>도로시</strong>: “교수님! <strong>리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성</strong>의 원리를 배우니까, 복잡하게 얽혀 있던 인프라 설정이 레고 블록처럼 질서정연하게 제자리를 찾는 게 보여요!”</p>
+
+  <p>🐱 <strong>조교 지니</strong>: “야옹~ 맞습니다! 특히 런타임 환경과 불변 인프라의 경계를 명확히 지키는 것이 대규모 클라우드 운영의 제1원칙이랍니다!”</p>
+
+  <p>🐶 <strong>토토</strong>: “멍멍! 선언적 코드로 한 번 적어두면 언제든 똑같이 복원되니까 정말 든든해요!”</p>
+
+  <p>👨‍🏫 <strong>이호진 교수님</strong>: “훌륭하구나. 원리를 깊이 이해하고 실습을 통해 손에 익히는 것이 훌륭한 클라우드 엔지니어로 성장하는 가장 빠른 지름길이란다.”</p>
+</blockquote>
+
+<p><img src="./img/05_character_takeaways.png" alt="핵심 교훈 총정리: 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성" />
+<strong>그림 08-9-5</strong> 리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성 마스터를 위한 3대 핵심 교훈</p>
+
+<ol>
+  <li><strong>설정과 실행의 명확한 분리</strong>:
+    <ul>
+      <li>애플리케이션 코드는 불변으로 유지하고, 가변적인 설정값은 외부에서 주입하여 이식성을 극대화합니다.</li>
+    </ul>
+  </li>
+  <li><strong>선언적 재현성 확보</strong>:
+    <ul>
+      <li>사람이 수작업으로 변경하지 않고 코드 명세를 통해 언제 어디서나 100% 동일한 실행 결과를 보장합니다.</li>
+    </ul>
+  </li>
+  <li><strong>최소 권한 및 보안 모범 사례 준수</strong>:
+    <ul>
+      <li>불필요한 권한과 포트 노출을 최소화하고 민감 데이터를 암호화하여 프로덕션 안정성을 담보합니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="1205-랩노트-피날레와-다음-강의-예고">120.5 랩노트 피날레와 다음 강의 예고</h3>
+
+<p><img src="./img/06_lab_finale_preview.png" alt="랩노트 피날레와 다음 강의 예고" />
+<strong>그림 08-9-6</strong> 연구실에서 다음 마일스톤인 [클라우드네이티브 리버스프록시 Traefik 자동서비스디스커버리] 실습을 예고하는 교수님과 토토</p>
+
+<blockquote>
+  <p>💡 <strong>다음 강의 안내</strong>:
+<a href="../121_클라우드네이티브_리버스프록시_Traefik_자동서비스디스커버리/">클라우드네이티브 리버스프록시 Traefik 자동서비스디스커버리</a>에서는 더욱 심화된 실전 엔지니어링 실습과 아키텍처를 다룹니다!</p>
+</blockquote>
+
+<hr />
+
+<h2 id="-강의-네비게이션">🧭 강의 네비게이션</h2>
+<ul>
+  <li><a href="../119_리버스프록시2_SSL_TLS_HTTPS적용과_업스트림_로드밸런싱/">◀️ 이전 강의: 119_리버스프록시2_SSL_TLS_HTTPS적용과_업스트림_로드밸런싱</a></li>
+  <li><a href="../">📋 Part 08. 프로덕션 운영 마스터: 설정 관리, 중앙 로깅(Fluentd), 리버스 프록시(Nginx/Traefik), 비동기 메시지 큐(Redis/NATS) &amp; 최종 캡스톤 (112 ~ 129) 목차로 돌아가기</a></li>
+  <li><a href="../121_클라우드네이티브_리버스프록시_Traefik_자동서비스디스커버리/">▶️ 다음 강의: 121_클라우드네이티브_리버스프록시_Traefik_자동서비스디스커버리</a></li>
+</ul>
+
+
+            <!-- 구글 애드센스 출력 -->
+            <div class="mt-5">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
+    crossorigin="anonymous"></script>
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
+    data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+        </div>
+
+        <div class="bd-toc mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 text-body-secondary">
+
+  <button class="btn btn-link p-md-0 mb-2 mb-md-0 text-decoration-none bd-toc-toggle d-md-none" type="button"
+    data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
+    서브목차
+    <svg class="bi d-md-none ms-2" aria-hidden="true">
+      <use xlink:href="#chevron-expand"></use>
+    </svg>
+  </button>
+
+  <strong class="d-none d-md-block h6 my-2">서브목차</strong>
+
+  <div class="collapse bd-toc-collapse" id="tocContents">
+    <nav id="TableOfContents">
+      <!--
+      <ul>
+        <li><a href="#quick-start">Quick start</a></li>
+        <li><a href="#cdn-links">CDN links</a></li>
+        <li><a href="#next-steps">Next steps</a></li>
+        <li><a href="#js-components">JS components</a></li>
+        <li><a href="#important-globals">Important globals</a>
+          <ul>
+            <li><a href="#html5-doctype">HTML5 doctype</a></li>
+            <li><a href="#responsive-meta-tag">Responsive meta tag</a></li>
+            <li><a href="#box-sizing">Box-sizing</a></li>
+            <li><a href="#reboot">Reboot</a></li>
+          </ul>
+        </li>
+        <li><a href="#community">Community</a></li>
+      </ul>
+      -->
+    </nav>
+  </div>
+</div>
+    </main>
+</div>
+
+<!-- 공용 대화 오디오 플레이어 컨트롤러 스크립트 -->
+<script src="/assets/js/audio.js" defer></script>
+
+  <footer class="bd-footer py-4 py-md-5 mt-5 bg-light border-top">
+  <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+    <div class="row">
+      <div class="col-lg-4 mb-3">
+        <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/" aria-label="Docker Master">
+          <span class="fs-4 me-2">🐳</span>
+          <span class="fs-5 fw-bold">도커 & 클라우드 네이티브 마스터 클래스</span>
+        </a>
+        <ul class="list-unstyled small">
+          <li class="mb-2">이호진 교수님, 도로시, 조교 지니, 토토와 함께 떠나는 도커 & 클라우드 네이티브 완전 정복 대장정!</li>
+          <li class="mb-2">국내외 9대 대표 도커 바이블 도서 통합 교육 과정.</li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3 offset-lg-1 mb-3">
+        <h5>학습 바로가기</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/" class="text-decoration-none">000강 오리엔테이션</a></li>
+          <li class="mb-2"><a href="/Part02_도커이미지빌드와_멀티스테이지_레지스트리/016_Dockerfile_기초문법_FROM_ENV_WORKDIR_COPY_CMD/" class="text-decoration-none">Dockerfile 기본기</a></li>
+          <li class="mb-2"><a href="/Part04_도커컴포즈와_신뢰성_헬스체크_모니터링/042_도커컴포즈_소개와_compose_yaml_선언적구조/" class="text-decoration-none">도커 컴포즈 분산 앱</a></li>
+          <li class="mb-2"><a href="/Part06_컨테이너오케스트레이션_도커스웜과_쿠버네티스/077_도커스웜_클러스터구축_매니저노드와_워커노드/" class="text-decoration-none">도커 스웜 & 쿠버네티스</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3 mb-3">
+        <h5>관련 링크</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="https://docs.docker.com/" target="_blank" rel="noopener" class="text-decoration-none">Docker 공식 문서</a></li>
+          <li class="mb-2"><a href="https://kubernetes.io/ko/docs/" target="_blank" rel="noopener" class="text-decoration-none">Kubernetes 공식 문서</a></li>
+          <li class="mb-2"><a href="https://github.com" target="_blank" rel="noopener" class="text-decoration-none">GitHub 저장소</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    window.addEventListener('load', async function () {
+      mermaid.initialize({ startOnLoad: false });
+
+      const mermaidCodes = document.querySelectorAll('pre code.language-mermaid');
+      const mermaidDivs = [];
+
+      mermaidCodes.forEach(codeBlock => {
+        const mermaidDefinition = codeBlock.textContent.trim();
+        const container = codeBlock.closest('div.highlighter-rouge');
+
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = mermaidDefinition;
+
+        if (container) {
+          container.replaceWith(mermaidDiv);
+        } else {
+          const pre = codeBlock.parentElement;
+          if (pre) pre.replaceWith(mermaidDiv);
+        }
+        mermaidDivs.push(mermaidDiv);
+      });
+
+      if (mermaidDivs.length > 0) {
+        await mermaid.run({ nodes: mermaidDivs });
+      }
+    });
+  </script>
+  <script src="/assets/js/toc.js"></script>
+
+</body>
+
+</html>

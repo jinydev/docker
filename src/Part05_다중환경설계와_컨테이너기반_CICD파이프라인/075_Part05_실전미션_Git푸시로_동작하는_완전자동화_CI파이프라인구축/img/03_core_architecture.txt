@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'Part05 실전미션 Git푸시로 동작하는 완전자동화 CI파이프라인구축'.
+System Structure & Data Flow:
+- 원스톱 CI 아티팩트 검증: 단위 테스트([ $((2+2)) -eq 4 ]) 통과 ➔ 커밋 해시(commit-998877) 레이블 각인 ➔ 레지스트리 푸시 ➔ 태그 목록 확
+- Part 05 핵심 요약: 오버라이드 파일과 .env·secrets로 다중 환경을 설계하고, 도커 컴포즈 기반 CI 파이프라인으로 빌드·테스트를 완전 자동화함
+- 클러스터 시대로의 전환: CI가 레지스트리에 올려놓은 검증된 이미지를, 이제 수십 대의 운영 클러스터 노드가 받아 무중단으로 실행할 차례입니다!
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure declarative workflow diagram demonstrating intentional failure injection and inspect diagnosis.
+Step 1 (Top Left): CLI card 'docker run -d --name health-demo ...' starting nginx with health checks.
+Step 2 (Top Right): Initial check 'docker inspect' showing State.Health.Status: healthy.
+Step 3 (Bottom Left): Intentional fault injection card 'docker exec health-demo rm index.html' triggering HTTP 404 responses.
+Step 4 (Bottom Right): Terminal diagnostic card running 'docker inspect' showing:
+'Status: unhealthy, FailingStreak: 2, Log: [ExitCode 1: 404 Not Found]'.
+Clean sequential arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

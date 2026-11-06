@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '클라우드네이티브 리버스프록시 Traefik 자동서비스디스커버리'.
+System Structure & Data Flow:
+- 자동 서비스 디스커버리: 도커 엔진 이벤트 스트림을 감시하다가 새 컨테이너가 뜨면 0.1초 만에 라우터에 등록하고, 죽으면 즉시 라우터에서 제거
+- Traefik 웹 대시보드 (:8080): 현재 연결된 모든 도커 컨테이너의 라우터, 서비스, 미들웨어 상태와 트래픽 흐름을 시각적으로 한눈에 확인 가능
+- Let's Encrypt 무료 SSL 자동 갱신: 도메인 이름만 지정해 두면 Traefik이 Let's Encrypt CA와 통신해 무료 SSL 인증서를 자동 발급받고 갱신까지 전자동 처리
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

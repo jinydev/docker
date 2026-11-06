@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '왜 이미지최적화가 보안 속도 클라우드비용을 결정하는가'.
+System Structure & Data Flow:
+- 오토스케일링 성공의 열쇠: 서버가 트래픽 급증을 감지하고 새 노드를 띄웠을 때, 1GB짜리 이미지를 받느라 2분을 허비하면 그사이 웹 서버는 타임아웃으로 다운됨!
+- 공격 표면(Attack Surface) 최소화: 이미지 안에 bash, ssh, curl, gcc, sudo 같은 불필요한 패키지가 아예 없으면 해커가 웹 취약점을 뚫고 들어와도 2차 공격 도
+- 지속적인 이미지 다이어트: CI 파이프라인에 이미지 크기 상한선 검증(docker image inspect)을 추가해 용량이 기준치를 넘으면 빌드를 실패시키는 거버넌스 도
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

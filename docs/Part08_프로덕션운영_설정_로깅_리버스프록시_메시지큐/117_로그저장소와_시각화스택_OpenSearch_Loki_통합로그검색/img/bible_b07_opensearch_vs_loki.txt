@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram comparing OpenSearch and Grafana Loki storage architectures:
+Left side: 'OpenSearch (Full Inverted Index)' showing a towering, massive library cabinet overflowing with millions of detailed word index cards, weighing heavily on a glowing server rack labeled 'High RAM & Heavy Storage'.
+Right side: 'Grafana Loki (Stream Labels Only)' showing a sleek, minimalist modern filing system where logs are compressed into neat glowing glass cubes stored directly in cloud object storage (S3), indexed only by bright metadata tags {app="payment", env="prod"} labeled 'Ultra-low Memory & Cost Efficient'.
+NO human characters, isolated clean technical diagram cutout.

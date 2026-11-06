@@ -1,0 +1,17 @@
+title: 🎯 라라벨 & MSA 실전 실습
+url: /practice/
+main:
+- title: '실습 개요: 도커 원정대 웹사이트'
+  url: /practice/
+- title: Lab 01. PHP 8.5 라라벨 보안 Dockerfile
+  url: /practice/01_dockerfile_and_php85/
+- title: Lab 02. Nginx + PHP + pgsql 3-Tier 컴포즈
+  url: /practice/02_compose_nginx_pgsql/
+- title: Lab 03. PostgreSQL 연동 CRUD 웹앱 완성
+  url: /practice/03_crud_and_database/
+- title: Lab 04. Redis 캐시 & 비동기 큐 워커 분리
+  url: /practice/04_redis_queue_worker/
+- title: Lab 05. Nginx 부하분산 & WAS 5대 스케일아웃
+  url: /practice/05_scale_out_load_balancing/
+- title: Lab 06. 모놀리스에서 MSA 분리 & 프로덕션 배포
+  url: /practice/06_msa_and_production/

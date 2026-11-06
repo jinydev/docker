@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '비동기메시징1 동기HTTP의 한계와 Redis Pub Sub 기초'.
+System Structure & Data Flow:
+- 동기(Sync) vs 비동기(Async) 아키텍처: 동기: 웹 요청 ➔ DB 저장(1초) ➔ 이메일 발송(3초) ➔ 응답(총 4초 대기) / 비동기: 웹 요청 ➔ 큐에 이벤트 발행(0.01초) ➔
+- 장애 격리 (Fault Isolation): 이메일 발송 서버가 장애로 죽어있더라도 고객의 주문 접수 자체는 전혀 멈추지 않고 큐에 안전하게 쌓임
+- Redis Pub/Sub의 특징: 초경량·초고속 인메모리 브로커로 실시간 채팅이나 단순 알림 브로드캐스트에 적합 / 주의: 수신자가 없을 때 메시지가 큐에 영구 보존되지 않는 한
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

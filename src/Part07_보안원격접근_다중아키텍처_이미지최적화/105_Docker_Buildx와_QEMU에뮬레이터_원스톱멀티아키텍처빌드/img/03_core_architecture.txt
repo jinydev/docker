@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'Docker Buildx와 QEMU에뮬레이터 원스톱멀티아키텍처빌드'.
+System Structure & Data Flow:
+- Buildx의 QEMU 에뮬레이션: 내 PC가 인텔 CPU여도 QEMU를 통해 내부적으로 ARM64 명령어를 가상 실행하여 바이너리 빌드 및 패키지 설치 가능
+- --driver docker-container: 도커 데몬의 기본 빌더 대신 독립된 BuildKit 컨테이너 인스턴스를 띄워 고급 캐싱과 멀티 플랫폼 병렬 빌드를 수행
+- --push 플래그의 이유: 로컬 도커 엔진의 기본 이미지 저장소는 단일 아키텍처만 보관할 수 있으므로, 다중 플랫폼 빌드 결과는 직접 레지스트리로 바로 --push하거나 
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

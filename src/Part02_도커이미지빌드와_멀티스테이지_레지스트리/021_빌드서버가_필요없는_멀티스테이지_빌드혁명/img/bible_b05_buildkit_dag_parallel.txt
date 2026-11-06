@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical architecture diagram showing BuildKit DAG parallel multi-stage building:
+Two upper parallel conveyor tracks: Track 1 labeled 'Stage 1: Frontend Builder (Node.js)' compiling web assets, and Track 2 running simultaneously labeled 'Stage 2: Backend Builder (Golang)' compiling Go binaries.
+Soft pastel cyan and amber arrows merging downward from both tracks into a single clean minimal final conveyor belt labeled 'Final Minimal Runtime Stage (Alpine/Distroless)' holding only the compiled binary and static assets, discarding all heavy build tools into a neat recycling bin.
+NO human characters, isolated clean technical diagram cutout.

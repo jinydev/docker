@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '리버스프록시1 Nginx컨테이너로 가상호스트와 경로라우팅'.
+System Structure & Data Flow:
+- 포워드 프록시 vs 리버스 프록시: 포워드 프록시는 사내 PC들이 외부 인터넷에 나갈 때 통하는 관문 / 리버스 프록시는 외부 고객들이 내부 백엔드 서버들에 접속할 때 앞단을 지켜
+- proxy_set_header 필수 설정: 프록시를 거치면 백엔드 서버 입장에서는 접속자 IP가 '프록시 IP'로 보임! 실제 고객의 IP와 원본 도메인을 전달하기 위해 X-Real-IP
+- 보안 캡슐화: 내부 백엔드 API와 DB 컨테이너는 호스트 포트를 아예 개방(ports:)하지 않고 내부 도커 네트워크에만 격리
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

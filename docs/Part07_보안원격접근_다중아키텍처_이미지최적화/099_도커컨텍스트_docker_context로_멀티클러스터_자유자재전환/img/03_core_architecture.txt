@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커컨텍스트 docker context로 멀티클러스터 자유자재전환'.
+System Structure & Data Flow:
+- docker context create: 로컬 소켓, 원격 TLS, 원격 SSH 연결 정보를 이름(Name)을 가진 독립된 컨텍스트 객체로 영구 저장
+- 안전한 전환: DOCKER_CONTEXT 환경 변수: docker context use는 전체 시스템 기본값을 바꾸므로 다른 터미널 창에도 영향을 줌! 실무에서는 export DOCKER_CONTE
+- 클러스터와 스택의 결합: 컨텍스트를 바꾼 뒤 docker stack deploy를 치면 해당 원격 클러스터로 스택이 즉시 배포됨!
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

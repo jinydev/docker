@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Misconception vs Truth comparison for Lesson 043: Manual individual 'docker run' commands vs declarative 'docker compose up -d' automation.
+On the left (Misconception/Pain): Dorothy (cheerful 9-year-old girl in denim overalls) looking overwhelmed in front of a messy blackboard full of scattered, mismatched terminal commands, tangled ethernet cables, and confused order of execution.
+On the right (Truth/Harmony): Jiny the lab assistant cat (chubby black-and-white tuxedo cat with scholar glasses and red bell collar) sitting proudly next to a single, neat scroll labeled 'compose.yaml', showing three orderly pastel container blocks aligning themselves smoothly in sequence.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

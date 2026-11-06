@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'Part06 실전미션 무중단롤링업데이트와 자동롤백 클러스터완성'.
+System Structure & Data Flow:
+- 완벽한 무중단 업그레이드 달성: order: start-first 덕분에 기존 1.26-alpine 컨테이너 2개가 모두 살아있는 상태에서 새 1.27-alpine 컨테이너가 
+- Part 06 핵심 요약: 도커 스웜과 쿠버네티스로 다중 노드 클러스터를 구축하고, 컨피그/시크릿/노드제약/롤링업데이트/자동롤백으로 24/365 무중단 운영 달성!
+- 클라우드 네이티브 아키텍트의 길: 클러스터를 다룰 줄 알게 된 여러분은 이제 단일 서버 개발자를 넘어 인프라 전체를 지휘하는 아키텍트입니다
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

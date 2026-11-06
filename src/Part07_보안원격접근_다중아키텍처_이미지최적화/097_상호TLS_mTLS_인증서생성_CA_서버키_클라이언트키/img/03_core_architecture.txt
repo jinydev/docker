@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '상호TLS mTLS 인증서생성 CA 서버키 클라이언트키'.
+System Structure & Data Flow:
+- 상호 인증(Mutual TLS)의 원리: 클라이언트가 서버의 인증서를 검증할 뿐만 아니라, 서버도 접속해 온 클라이언트가 CA가 서명한 유효한 키를 가졌는지 검증
+- 데몬 보안 설정 (daemon.json): tlsverify: true, tlscacert: /certs/ca.pem, tlscert: /certs/server-cert.pem, tlsk
+- 클라이언트 보안 플래그: docker --tlsverify --tlscacert=ca.pem --tlscert=cert.pem --tlskey=key.pem -H=rem
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

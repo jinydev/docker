@@ -1,0 +1,120 @@
+<nav class="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
+  <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
+    <li class="bd-links-group py-2">
+      {% assign url_parts = page.url | split: '/' %}
+      {% assign top_dir = url_parts[1] %}
+
+      {% assign part_data = site.data.navigation.main %}
+      {% assign part_title = "도커 마스터 클래스 목차" %}
+      {% assign part_url = "/" %}
+
+      {% if page.url contains "/000_" or page.url contains "character" or page.url contains "cheatsheet" %}
+        {% assign part_data = site.data.intro.main %}
+        {% assign part_title = site.data.intro.title | default: "🧭 강의 소개 & 오리엔테이션" %}
+        {% assign part_url = site.data.intro.url %}
+      {% elsif top_dir contains "Part01" or top_dir contains "part01" or top_dir contains "part1" or page.url contains "Part01" %}
+        {% assign part_data = site.data.part01.main %}
+        {% assign part_title = site.data.part01.title | default: "Part 01. 컨테이너 기초와 도커 엔진 아키텍처" %}
+        {% assign part_url = site.data.part01.url %}
+      {% elsif top_dir contains "Part02" or top_dir contains "part02" or top_dir contains "part2" or page.url contains "Part02" %}
+        {% assign part_data = site.data.part02.main %}
+        {% assign part_title = site.data.part02.title | default: "Part 02. 도커 이미지 빌드와 멀티스테이지" %}
+        {% assign part_url = site.data.part02.url %}
+      {% elsif top_dir contains "Part03" or top_dir contains "part03" or top_dir contains "part3" or page.url contains "Part03" %}
+        {% assign part_data = site.data.part03.main %}
+        {% assign part_title = site.data.part03.title | default: "Part 03. 퍼시스턴트 스토리지와 도커 볼륨" %}
+        {% assign part_url = site.data.part03.url %}
+      {% elsif top_dir contains "Part04" or top_dir contains "part04" or top_dir contains "part4" or page.url contains "Part04" %}
+        {% assign part_data = site.data.part04.main %}
+        {% assign part_title = site.data.part04.title | default: "Part 04. 도커 컴포즈와 모니터링 관제" %}
+        {% assign part_url = site.data.part04.url %}
+      {% elsif top_dir contains "Part05" or top_dir contains "part05" or top_dir contains "part5" or page.url contains "Part05" %}
+        {% assign part_data = site.data.part05.main %}
+        {% assign part_title = site.data.part05.title | default: "Part 05. 다중 환경 설계와 CI/CD 파이프라인" %}
+        {% assign part_url = site.data.part05.url %}
+      {% elsif top_dir contains "Part06" or top_dir contains "part06" or top_dir contains "part6" or page.url contains "Part06" %}
+        {% assign part_data = site.data.part06.main %}
+        {% assign part_title = site.data.part06.title | default: "Part 06. 컨테이너 오케스트레이션과 도커 스웜" %}
+        {% assign part_url = site.data.part06.url %}
+      {% elsif top_dir contains "Part07" or top_dir contains "part07" or top_dir contains "part7" or page.url contains "Part07" %}
+        {% assign part_data = site.data.part07.main %}
+        {% assign part_title = site.data.part07.title | default: "Part 07. 보안 원격 접근과 다중 아키텍처" %}
+        {% assign part_url = site.data.part07.url %}
+      {% elsif top_dir contains "Part08" or top_dir contains "part08" or top_dir contains "part8" or page.url contains "Part08" %}
+        {% assign part_data = site.data.part08.main %}
+        {% assign part_title = site.data.part08.title | default: "Part 08. 프로덕션 운영과 엔드투엔드 캡스톤" %}
+        {% assign part_url = site.data.part08.url %}
+      {% elsif top_dir contains "practice" or page.url contains "practice" %}
+        {% assign part_data = site.data.practice.main %}
+        {% assign part_title = site.data.practice.title | default: "🎯 라라벨 & MSA 실전 실습" %}
+        {% assign part_url = site.data.practice.url %}
+      {% elsif top_dir contains "curriculum" or page.url contains "curriculum" %}
+        {% assign part_data = site.data.curriculum.main | default: site.data.navigation.main %}
+        {% assign part_title = site.data.curriculum.title | default: "2학기 (28주) 정규 커리큘럼" %}
+        {% assign part_url = "/curriculum/" %}
+      {% endif %}
+
+      <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold text-primary mb-3 pb-2 border-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-seam me-2 flex-shrink-0" viewBox="0 0 16 16">
+          <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+        </svg>
+        <span class="text-truncate">{{ part_title }}</span>
+      </strong>
+
+      <ul class="list-unstyled fw-normal pb-2 small">
+        {% for item in part_data %}
+        {% assign item_url_escaped = item.url | uri_escape %}
+        {% assign is_current_page = false %}
+        {% if page.url == item.url or page.url == item_url_escaped %}
+          {% assign is_current_page = true %}
+        {% endif %}
+        <li class="mb-1">
+          {% if item.subitems %}
+            {% assign is_active_group = false %}
+            {% for subitem in item.subitems %}
+              {% assign sub_escaped = subitem.url | uri_escape %}
+              {% if page.url == subitem.url or page.url == sub_escaped %}
+                {% assign is_active_group = true %}
+              {% endif %}
+            {% endfor %}
+            <button
+              class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 {% unless is_active_group %}collapsed{% endunless %} w-100 text-start py-1 px-2"
+              data-bs-toggle="collapse" data-bs-target="#collapse-{{ forloop.index }}"
+              aria-expanded="{{ is_active_group }}"
+              style="font-size: 0.88rem; font-weight: 500;">
+              <span class="flex-grow-1 text-truncate pe-1">{{ item.title }}</span>
+              <svg class="bi ms-auto flex-shrink-0" width="0.85em" height="0.85em" viewBox="0 0 16 16" fill="currentColor">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+              </svg>
+            </button>
+            <div class="collapse {% if is_active_group %}show{% endif %}" id="collapse-{{ forloop.index }}">
+              <ul class="list-unstyled fw-normal pb-1 small ms-2 border-start ps-2 my-1">
+                {% for subitem in item.subitems %}
+                {% assign sub_escaped = subitem.url | uri_escape %}
+                {% assign is_sub_active = false %}
+                {% if page.url == subitem.url or page.url == sub_escaped %}
+                  {% assign is_sub_active = true %}
+                {% endif %}
+                <li>
+                  <a href="{{ site.baseurl }}{{ subitem.url }}"
+                    class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none {% if is_sub_active %}active fw-bold text-primary bg-light border-start border-primary border-3{% else %}text-secondary{% endif %}"
+                    style="font-size: 0.82rem; line-height: 1.35;">
+                    {{ subitem.title }}
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% else %}
+            <a href="{{ site.baseurl }}{{ item.url }}"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none {% if is_current_page %}active fw-bold text-primary bg-light border-start border-primary border-3{% else %}text-dark{% endif %}"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              {{ item.title }}
+            </a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+  </ul>
+</nav>

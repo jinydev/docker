@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '컨테이너 오케스트레이션이란 왜 클러스터가 필요한가'.
+System Structure & Data Flow:
+- 컨트롤 플레인 (매니저 노드): 클러스터의 두뇌 역할! 클러스터 데이터베이스(원하는 상태)를 유지하고, 컨테이너를 어느 노드에 띄울지 스케줄링하며 상태를 24시간 감시
+- 데이터 플레인 (워커 노드): 클러스터의 근육 역할! 매니저가 배정한 컨테이너(태스크)를 실제로 내려받아 실행하고 상태와 헬스 체크 결과를 매니저에게 보고
+- 선언적 상태 유지 (Control Loop): 사용자가 '웹 컨테이너 6개를 유지해 줘'라고 선언하면, 워커 노드 1대가 불타서 2개가 죽더라도 매니저가 즉시 남은 노드에 2개를 새로 띄워 
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

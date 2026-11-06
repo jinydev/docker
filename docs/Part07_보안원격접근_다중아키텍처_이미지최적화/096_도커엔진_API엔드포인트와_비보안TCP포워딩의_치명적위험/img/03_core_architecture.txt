@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커엔진 API엔드포인트와 비보안TCP포워딩의 치명적위험'.
+System Structure & Data Flow:
+- 유닉스 소켓 vs TCP 포트: 기본 유닉스 소켓은 호스트 OS 파일 권한(docker 그룹)으로 안전하게 보호됨 / TCP 포트는 네트워크를 타므로 인증 없이는 누구나 API
+- 호스트 루트 탈취 시나리오: 공격자가 docker -H victim:2375 run -v /:/host alpine chroot /host 명령으로 호스트 OS 파일 전체를
+- 안전한 원격 관리 대안: 1) mTLS 인증서 기반 2376 포트, 2) SSH 키 기반 접속, 3) 도커 컨텍스트(docker context)
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

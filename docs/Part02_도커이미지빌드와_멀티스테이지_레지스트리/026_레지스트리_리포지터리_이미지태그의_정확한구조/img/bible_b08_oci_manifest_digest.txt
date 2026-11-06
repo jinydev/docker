@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating OCI Image Manifest v2 and Content-Addressable Storage:
+Top section: A golden glowing JSON document labeled 'OCI Image Manifest v2' showing root config descriptor and layer descriptors.
+A cryptographic magnifying glass focusing on the SHA-256 Digest stamp 'sha256:7cc0576...'.
+Down below: Left branch shows a mutable paper sticker labeled 'Tag :latest' fluttering in the wind (unstable), while Right branch shows a heavy solid bronze padlock labeled 'Digest Pinning @sha256:...' bolted securely to a metal container block (immutable and tamper-proof).
+NO human characters, isolated clean technical diagram cutout.

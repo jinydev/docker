@@ -1,0 +1,1 @@
+Sitemap: https://docker.jiny.dev/sitemap.xml

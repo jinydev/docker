@@ -1,0 +1,10 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Chapter 071 Character Takeaways celebration for '호스트의존성 제로 Docker out of Docker 소켓마운트'.
+Professor Hojin (youthful early 40s Korean male, smooth youthful skin, clean-shaven, 7:3 parted salt-and-pepper hair, thin round glasses, dark navy polo shirt, blue jeans) stands warmly guiding Dorothy.
+Above them, three luminous golden banners highlight the 3 Golden Lessons:
+1. '설정과 실행의 명확한 분리' (애플리케이션 코드는 불변으로 유지하고, 가변적인 설정값은 외부에서 주입하)
+2. '선언적 재현성 확보' (사람이 수작업으로 변경하지 않고 코드 명세를 통해 언제 어디서나 100%)
+3. '최소 권한 및 보안 모범 사례 준수' (불필요한 권한과 포트 노출을 최소화하고 민감 데이터를 암호화하여 프로덕션)
+Dorothy (cheerful 9yo girl, chestnut twin pigtails, denim overalls, STEM HERO patch) cheers enthusiastically raising her stylus in triumph.
+Beside them, Toto the fluffy cream puppy (solid milk-white coat #FBF6EB, no spots, black button nose, sky-blue bandana) wags his tail cheerfully, and Jiny the smart tuxedo cat with round spectacles nods approvingly.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

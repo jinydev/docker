@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Grafana Data Source Connection myth vs reality.
+Left Side ('오해 (Myth) - Using http://localhost:9090'): An engineer entering 'localhost:9090' into Grafana; the container looks inside its own empty isolated room and fails with a red 'Connection Refused (ECONNREFUSED)' error block. Dorothy looks stressed with a broken cable icon.
+Right Side ('진실 (Truth) - Docker Internal Service DNS http://prometheus:9090'): Grafana resolving the Docker bridge network service name 'prometheus:9090', establishing a seamless emerald green glowing link with a triumphant 'Data source is working!' banner. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy wags his tail cheerfully beside the connected data source card.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure technical architecture diagram illustrating Docker Compose multi-container execution and dependency ordering.
+At the top: a clean parchment file box labeled 'compose.yaml' with code sections 'services: access-log, iotd-api, image-gallery (depends_on: access-log, iotd-api)'.
+In the middle: a glowing brass and cyan-blue mechanism labeled 'Docker Compose Engine' parsing the dependencies and issuing ordered startup events.
+At the bottom: an enclosed green boundary box representing the isolated bridge network 'app_default', containing:
+- Two lower containers starting first in parallel: a mint-green box labeled 'access-log (alpine)' and a sky-blue box labeled 'iotd-api (nginx:80)'.
+- An upper container starting second: a warm coral-orange box labeled 'image-gallery (nginx:8092:80)' with golden dependency arrows pointing down to access-log and iotd-api.
+- Clean bi-directional yellow data flow arrows between the services inside the shared network.
+Pure solid clean white background (#FFFFFF), perfectly centered diagram layout, isolated presentation graphic cutout, subtle soft shadow underneath diagram, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, clear legible English technical labels, no Japanese text.

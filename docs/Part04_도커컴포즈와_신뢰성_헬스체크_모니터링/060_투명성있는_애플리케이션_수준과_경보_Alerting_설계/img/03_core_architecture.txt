@@ -1,0 +1,13 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the 3-Tier Alerting Pipeline & Observability Pillars.
+Upper Banner: The Three Pillars of Observability:
+- '1. Metrics (Prometheus)' -> What is broken?
+- '2. Logs (Loki / Fluentd)' -> Why did it fail?
+- '3. Traces (OpenTelemetry)' -> Where is the latency bottleneck?
+Lower Flow Pipeline (Alerting Engine):
+- Step 1: Prometheus Evaluation Engine evaluating 'alert_rules.yml' with rule `expr: error_rate > 0.05, for: 1m`.
+- Step 2: Transition states: `Inactive` -> `Pending (for 1m)` -> `Firing` with clean state progression badges.
+- Step 3: Alertmanager performing deduplication, grouping, and silencing.
+- Step 4: Dispatch receivers: Slack Webhook card, PagerDuty, and Ops Email with clear payload metadata.
+Clean directional flow arrows connecting Step 1 -> Step 2 -> Step 3 -> Step 4.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, clean ink lines in dark espresso #26211E, watercolor texture fills, flat clean pure white background #FFFFFF, 1:1 aspect ratio.
+A technical schematic diagram illustrating secure Daemonless container building with Google Kaniko:
+Left side: Dangerous socket mount showing a red skull alert over '/var/run/docker.sock' where an untrusted runner gains unauthorized master keys to the entire host OS.
+Right side: Secure daemonless container building showing a protected unprivileged box labeled 'Kaniko Pod (No dockerd, No root)'. Inside, userspace snapshot tools assemble application layers cleanly and push directly through an encrypted TLS pipe to an enterprise container registry.
+NO human characters, isolated clean technical diagram cutout.

@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '다중아키텍처 Multi Arch 이미지가 필수인 이유'.
+System Structure & Data Flow:
+- exec format error의 정체: 컴파일된 기계어 바이너리가 현재 호스트 CPU의 명령어 셋(x86 vs ARM)과 맞지 않아 운영체제 커널이 프로세스를 깨우지 못하는 치명적 에
+- ARM64 서버의 대세화: AWS Graviton, Google Tau T2A, Azure Ampere, 라즈베리 파이 5 등 클라우드 시장에서 가성비와 전력 효율이 뛰어
+- 다중 아키텍처의 마법: 사용자는 아키텍처를 고민할 필요 없이 docker run my-app:1.0만 치면 도커 엔진이 자신의 CPU에 맞는 변종 이미지를 알아서 선택
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

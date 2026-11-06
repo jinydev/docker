@@ -1,0 +1,9 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side conceptual comparison for '중앙집중식 로그수집파이프라인 Fluentd와 로깅드라이버'.
+Left Side (The Painful Misconception):
+- Red warning aura, tangled wires, fragile infrastructure, error banners.
+- Dorothy (cheerful 9yo girl, chestnut pigtails, denim overalls) looking overwhelmed, scratching her head in confusion.
+Right Side (The Production Truth & Best Practice):
+- Emerald green verification glow, clean modular architecture of Fluentd 통합 수집기, fluentd 로깅 드라이버, 태그 기반 동적 라우팅 (tag: oz.web.{{.Name}}).
+- Professor Hojin (youthful early 40s Korean male, round glasses, dark navy polo) gesturing with an encouraging thumbs-up, accompanied by happy Toto with sky-blue bandana and Jiny the tuxedo cat with glasses.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadow at feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

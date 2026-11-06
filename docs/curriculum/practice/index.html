@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>라라벨(PHP 8.5) &amp; Nginx &amp; PostgreSQL 실전 프로젝트: 모놀리스에서 MSA &amp; 스케일아웃까지 | 지니와 도로시가 함께 학습하는 도커와 컨테이너</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="라라벨(PHP 8.5) &amp; Nginx &amp; PostgreSQL 실전 프로젝트: 모놀리스에서 MSA &amp; 스케일아웃까지" />
+<meta name="author" content="Hojin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스" />
+<meta name="twitter:description" property="og:description" content="이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스" />
+<link rel="canonical" href="https://docker.jiny.dev/curriculum/practice/" />
+<meta property="og:url" content="https://docker.jiny.dev/curriculum/practice/" />
+<meta property="og:site_name" content="지니와 도로시가 함께 학습하는 도커와 컨테이너" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="라라벨(PHP 8.5) &amp; Nginx &amp; PostgreSQL 실전 프로젝트: 모놀리스에서 MSA &amp; 스케일아웃까지" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"이호진 교수님과 함께하는 130강 도커 &amp; 클라우드 네이티브 마스터 클래스","headline":"라라벨(PHP 8.5) &amp; Nginx &amp; PostgreSQL 실전 프로젝트: 모놀리스에서 MSA &amp; 스케일아웃까지","url":"https://docker.jiny.dev/curriculum/practice/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/assets/css/docs.css?v=1793957445" rel="stylesheet" />
+  <link href="/assets/css/highlight.css" rel="stylesheet" />
+
+  <style>
+    /* Table Styling: 회색 실선 테두리 및 가독성 최적화 */
+    .bd-content table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 2rem !important;
+      font-size: 0.95rem !important;
+      border: 1px solid #cbd5e1 !important;
+      border-spacing: 0 !important;
+      background-color: #ffffff !important;
+    }
+
+    .bd-content table thead th {
+      background-color: #f1f5f9 !important;
+      color: #1e293b !important;
+      font-weight: 700 !important;
+      border: 1px solid #cbd5e1 !important;
+      padding: 0.75rem 1rem !important;
+      vertical-align: middle !important;
+      text-align: left !important;
+    }
+
+    .bd-content table tbody td {
+      border: 1px solid #cbd5e1 !important;
+      padding: 0.75rem 1rem !important;
+      color: #334155 !important;
+      vertical-align: top !important;
+      background-color: #ffffff !important;
+    }
+
+    .bd-content table tbody tr:nth-of-type(even) td {
+      background-color: #f8fafc !important;
+    }
+
+    .bd-content table tbody tr:hover td {
+      background-color: #f1f5f9 !important;
+    }
+
+    @media (max-width: 768px) {
+      .bd-content table {
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+    }
+  </style>
+
+  <style>
+    blockquote {
+      border-left: solid 5px #dee2e6;
+      padding: 5px 10px;
+      background-color: #f8f9fa;
+    }
+  </style>
+
+  <style>
+    h1 a {
+      text-decoration: none;
+    }
+
+    h2 a {
+      text-decoration: none;
+    }
+
+    h3 a {
+      text-decoration: none;
+    }
+
+    h4 a {
+      text-decoration: none;
+    }
+
+    h5 a {
+      text-decoration: none;
+    }
+
+    h6 a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: top
+    }
+
+    strong a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 스크롤바 커스텀 */
+    /* 임의의 영역 생성 */
+    .scrollBar {}
+
+    /* 아래의 모든 코드는 영역::코드로 사용 */
+    .scrollBar::-webkit-scrollbar {
+      width: 7px;
+      /* 스크롤바의 너비 */
+    }
+
+    .scrollBar::-webkit-scrollbar-thumb {
+      height: 30%;
+      /* 스크롤바의 길이 */
+      background: #cccccc;
+      /* 스크롤바의 색상 */
+
+      border-radius: 5px;
+    }
+
+    .scrollBar::-webkit-scrollbar-track {
+      background: rgba(33, 122, 244, .1);
+      /*스크롤바 뒷 배경 색상*/
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4VBPCT3CR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-R4VBPCT3CR');
+  </script>
+
+  <!-- MathJax for LaTeX Rendering -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+
+</head>
+
+<body>
+  <header class="navbar navbar-expand-lg bd-navbar sticky-top">
+    <nav class="container bd-gutter flex-wrap flex-lg-nowrap position-relative" aria-label="Main navigation">
+
+      <!-- Mobile: Left Toggle (Browse) -->
+      <div class="bd-navbar-toggle d-lg-none">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar"
+          aria-controls="bdSidebar" aria-label="Toggle docs navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+            </path>
+          </svg>
+          <span class="d-none fs-6 pe-1">Browse</span>
+        </button>
+      </div>
+
+      <!-- Brand: Desktop (Static), Mobile (Absolute Center) -->
+      <a class="navbar-brand p-0 me-0 me-lg-2 ms-lg-0 d-none d-lg-inline-block" href="/" aria-label="jinydev">
+        <svg width="32" height="26" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24.2746 5.33377C25.8486 7.33981 25.1183 11.1792 24.3961 13.0177C24.4028 13.0199 24.4094 13.0221 24.4161 13.0243L24.4013 13.0248L22.649 12.9082C22.649 12.9053 22.6488 12.9013 22.649 12.8993C22.9902 8.93373 22.5975 7.34575 22.2147 7.07677C17.6316 10.3896 13.5379 9.33658 12.2725 9.01111C11.928 8.9225 11.7932 8.88781 11.9152 9.00988C12.2872 9.38185 13.1336 9.82821 13.7371 10.1465H13.7372L13.7376 10.1467C13.8743 10.2188 13.9985 10.2843 14.1019 10.3409C9.12673 10.3984 7.12659 8.00279 6.53855 7.29846C6.47859 7.22664 6.4333 7.1724 6.40105 7.14015C6.11408 6.85318 4.49961 5.87252 3.99256 7.74227C3.50142 9.55335 3.81246 11.6775 3.97665 12.7988C3.99089 12.896 3.99257 12.8981 3.99257 12.9298L2.37635 13.0248L2.37213 13.0247C0.223493 8.05534 1.83854 5.26971 3.29536 4.2246C3.29536 1.78444 6.27428 -0.592359 10.0455 0.263262C14.8768 1.64043 16.3468 1.18409 18.0759 0.647278C18.774 0.430562 19.5143 0.200726 20.5351 0.073124C25.2219 -0.512739 26.7993 2.56612 27 4.16122C26.2141 3.70487 24.8556 4.73165 24.2746 5.33377ZM12.3374 1.5872C11.1225 1.16466 7.99257 0.717209 6.3478 2.41116C5.98397 2.78587 5.55554 3.48864 5.55554 3.48864C5.55554 3.48864 4.82665 4.81961 4.25622 4.24919C3.68579 3.67878 5.0168 1.96749 6.06259 1.46044C7.10838 0.953388 9.70703 0.0660505 12.3374 1.5872Z"
+            fill="currentColor" />
+          <path
+            d="M10.078 13.5002H3.10601C2.2309 13.5002 1.52148 14.2097 1.52148 15.0848V18.3172C1.52148 19.1923 2.2309 19.9018 3.10601 19.9018H10.078C10.9531 19.9018 11.6625 19.1923 11.6625 18.3172V15.0848C11.6625 14.2097 10.9531 13.5002 10.078 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M0.823513 14.6094H0.379847C0.187322 14.6094 0.03125 14.7654 0.03125 14.958V15.9721C0.03125 16.1646 0.187322 16.3207 0.379847 16.3207H0.823513C1.01604 16.3207 1.17211 16.1646 1.17211 15.9721V14.958C1.17211 14.7654 1.01604 14.6094 0.823513 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M16.7326 13.5002H23.7045C24.5796 13.5002 25.2891 14.2097 25.2891 15.0848V18.3172C25.2891 19.1923 24.5796 19.9018 23.7045 19.9018H16.7326C15.8575 19.9018 15.1481 19.1923 15.1481 18.3172V15.0848C15.1481 14.2097 15.8575 13.5002 16.7326 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M25.9861 14.6094H26.4297C26.6222 14.6094 26.7783 14.7654 26.7783 14.958V15.9721C26.7783 16.1646 26.6222 16.3207 26.4297 16.3207H25.9861C25.7935 16.3207 25.6375 16.1646 25.6375 15.9721V14.958C25.6375 14.7654 25.7935 14.6094 25.9861 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M12.2954 15.5601H14.5137C14.7062 15.5601 14.8623 15.7161 14.8623 15.9087V16.9228C14.8623 17.1153 14.7062 17.2713 14.5137 17.2713H12.2954C12.1028 17.2713 11.9468 17.1153 11.9468 16.9228V15.9087C11.9468 15.7161 12.1028 15.5601 12.2954 15.5601Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M9.93343 16.3937C9.93343 16.7087 9.76317 16.9641 9.55314 16.9641C9.34311 16.9641 9.17285 16.7087 9.17285 16.3937C9.17285 16.0786 9.34311 15.8232 9.55314 15.8232C9.76317 15.8232 9.93343 16.0786 9.93343 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M16.9688 16.3937C16.9688 16.7087 17.139 16.9641 17.3491 16.9641C17.5591 16.9641 17.7293 16.7087 17.7293 16.3937C17.7293 16.0786 17.5591 15.8232 17.3491 15.8232C17.139 15.8232 16.9688 16.0786 16.9688 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M14.2758 20.1016C13.642 20.6086 12.7863 20.3551 12.5645 20.1016C12.6278 20.4185 12.8687 20.8622 13.4518 20.8622C14.0349 20.8622 14.2441 20.3551 14.2758 20.1016Z"
+            fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1312 22.411C12.1575 22.2914 12.2759 22.2157 12.3956 22.2421L14.6347 22.735C14.7544 22.7614 14.83 22.8797 14.8036 22.9994C14.7773 23.119 14.659 23.1947 14.5393 23.1683L12.3002 22.6753C12.1805 22.649 12.1049 22.5307 12.1312 22.411Z"
+            fill="currentColor" />
+          <path
+            d="M13.4203 27.6754C9.00897 27.7261 5.77228 23.6613 4.70536 21.6225C4.54691 21.3197 4.42016 21.2739 4.32509 21.3373C4.17297 21.4387 4.28282 21.6437 4.32507 21.7493C4.85747 22.9916 5.58213 24.0416 5.87791 24.4113C4.83846 26.1353 4.49409 27.855 4.45183 28.4994C6.1758 26.8008 7.91668 26.8832 8.57162 27.1367C13.7055 29.7987 16.5577 27.929 18.1739 27.1367C19.4669 26.5029 21.4803 27.7388 22.3254 28.436C22.224 26.8642 21.3747 25.1402 20.9627 24.4747C21.6282 23.5873 22.1669 22.5099 22.4522 21.9711C22.6803 21.5401 22.6106 21.369 22.5472 21.3373C22.3951 21.2613 22.2092 21.4958 22.1353 21.6225C21.6599 22.4148 18.9345 27.6121 13.4203 27.6754Z"
+            fill="currentColor" />
+        </svg>
+      </a>
+      <a class="navbar-brand p-0 me-0 position-absolute top-50 start-50 translate-middle d-lg-none" href="/"
+        aria-label="jinydev">
+        <svg width="100" height="26" viewBox="0 0 112 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24.2746 5.33377C25.8486 7.33981 25.1183 11.1792 24.3961 13.0177C24.4028 13.0199 24.4094 13.0221 24.4161 13.0243L24.4013 13.0248L22.649 12.9082C22.649 12.9053 22.6488 12.9013 22.649 12.8993C22.9902 8.93373 22.5975 7.34575 22.2147 7.07677C17.6316 10.3896 13.5379 9.33658 12.2725 9.01111C11.928 8.9225 11.7932 8.88781 11.9152 9.00988C12.2872 9.38185 13.1336 9.82821 13.7371 10.1465H13.7372L13.7376 10.1467C13.8743 10.2188 13.9985 10.2843 14.1019 10.3409C9.12673 10.3984 7.12659 8.00279 6.53855 7.29846C6.47859 7.22664 6.4333 7.1724 6.40105 7.14015C6.11408 6.85318 4.49961 5.87252 3.99256 7.74227C3.50142 9.55335 3.81246 11.6775 3.97665 12.7988C3.99089 12.896 3.99257 12.8981 3.99257 12.9298L2.37635 13.0248L2.37213 13.0247C0.223493 8.05534 1.83854 5.26971 3.29536 4.2246C3.29536 1.78444 6.27428 -0.592359 10.0455 0.263262C14.8768 1.64043 16.3468 1.18409 18.0759 0.647278C18.774 0.430562 19.5143 0.200726 20.5351 0.073124C25.2219 -0.512739 26.7993 2.56612 27 4.16122C26.2141 3.70487 24.8556 4.73165 24.2746 5.33377ZM12.3374 1.5872C11.1225 1.16466 7.99257 0.717209 6.3478 2.41116C5.98397 2.78587 5.55554 3.48864 5.55554 3.48864C5.55554 3.48864 4.82665 4.81961 4.25622 4.24919C3.68579 3.67878 5.0168 1.96749 6.06259 1.46044C7.10838 0.953388 9.70703 0.0660505 12.3374 1.5872Z"
+            fill="currentColor" />
+          <path
+            d="M10.078 13.5002H3.10601C2.2309 13.5002 1.52148 14.2097 1.52148 15.0848V18.3172C1.52148 19.1923 2.2309 19.9018 3.10601 19.9018H10.078C10.9531 19.9018 11.6625 19.1923 11.6625 18.3172V15.0848C11.6625 14.2097 10.9531 13.5002 10.078 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M0.823513 14.6094H0.379847C0.187322 14.6094 0.03125 14.7654 0.03125 14.958V15.9721C0.03125 16.1646 0.187322 16.3207 0.379847 16.3207H0.823513C1.01604 16.3207 1.17211 16.1646 1.17211 15.9721V14.958C1.17211 14.7654 1.01604 14.6094 0.823513 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M16.7326 13.5002H23.7045C24.5796 13.5002 25.2891 14.2097 25.2891 15.0848V18.3172C25.2891 19.1923 24.5796 19.9018 23.7045 19.9018H16.7326C15.8575 19.9018 15.1481 19.1923 15.1481 18.3172V15.0848C15.1481 14.2097 15.8575 13.5002 16.7326 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M25.9861 14.6094H26.4297C26.6222 14.6094 26.7783 14.7654 26.7783 14.958V15.9721C26.7783 16.1646 26.6222 16.3207 26.4297 16.3207H25.9861C25.7935 16.3207 25.6375 16.1646 25.6375 15.9721V14.958C25.6375 14.7654 25.7935 14.6094 25.9861 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M12.2954 15.5601H14.5137C14.7062 15.5601 14.8623 15.7161 14.8623 15.9087V16.9228C14.8623 17.1153 14.7062 17.2713 14.5137 17.2713H12.2954C12.1028 17.2713 11.9468 17.1153 11.9468 16.9228V15.9087C11.9468 15.7161 12.1028 15.5601 12.2954 15.5601Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M9.93343 16.3937C9.93343 16.7087 9.76317 16.9641 9.55314 16.9641C9.34311 16.9641 9.17285 16.7087 9.17285 16.3937C9.17285 16.0786 9.34311 15.8232 9.55314 15.8232C9.76317 15.8232 9.93343 16.0786 9.93343 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M16.9688 16.3937C16.9688 16.7087 17.139 16.9641 17.3491 16.9641C17.5591 16.9641 17.7293 16.7087 17.7293 16.3937C17.7293 16.0786 17.5591 15.8232 17.3491 15.8232C17.139 15.8232 16.9688 16.0786 16.9688 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M14.2758 20.1016C13.642 20.6086 12.7863 20.3551 12.5645 20.1016C12.6278 20.4185 12.8687 20.8622 13.4518 20.8622C14.0349 20.8622 14.2441 20.3551 14.2758 20.1016Z"
+            fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1312 22.411C12.1575 22.2914 12.2759 22.2157 12.3956 22.2421L14.6347 22.735C14.7544 22.7614 14.83 22.8797 14.8036 22.9994C14.7773 23.119 14.659 23.1947 14.5393 23.1683L12.3002 22.6753C12.1805 22.649 12.1049 22.5307 12.1312 22.411Z"
+            fill="currentColor" />
+          <path
+            d="M13.4203 27.6754C9.00897 27.7261 5.77228 23.6613 4.70536 21.6225C4.54691 21.3197 4.42016 21.2739 4.32509 21.3373C4.17297 21.4387 4.28282 21.6437 4.32507 21.7493C4.85747 22.9916 5.58213 24.0416 5.87791 24.4113C4.83846 26.1353 4.49409 27.855 4.45183 28.4994C6.1758 26.8008 7.91668 26.8832 8.57162 27.1367C13.7055 29.7987 16.5577 27.929 18.1739 27.1367C19.4669 26.5029 21.4803 27.7388 22.3254 28.436C22.224 26.8642 21.3747 25.1402 20.9627 24.4747C21.6282 23.5873 22.1669 22.5099 22.4522 21.9711C22.6803 21.5401 22.6106 21.369 22.5472 21.3373C22.3951 21.2613 22.2092 21.4958 22.1353 21.6225C21.6599 22.4148 18.9345 27.6121 13.4203 27.6754Z"
+            fill="currentColor" />
+          <text x="32" y="21" font-family="Arial, sans-serif" font-weight="bold" font-size="22"
+            fill="currentColor">Jiny</text>
+        </svg>
+      </a>
+
+      <!-- Mobile: Right Toggle (Menu) -->
+      <div class="d-flex d-lg-none ms-auto">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar"
+          aria-controls="bdNavbar" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid"
+            viewBox="0 0 16 16">
+            <path
+              d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- OffCanvas -->
+      <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="bdNavbar"
+        aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
+        <!-- OffCanver Header -->
+        <div class="offcanvas-header px-4 pb-0">
+          <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">Jiny</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"
+            data-bs-target="#bdNavbar">
+          </button>
+        </div>
+
+        <!-- OffCanver Body -->
+        <div class="offcanvas-body p-4 pt-0 p-lg-0">
+          <hr class="d-lg-none text-white-50">
+
+          <ul class="navbar-nav flex-column flex-lg-row bd-navbar-nav">
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/">소개하기</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part01_컨테이너기초와_도커엔진아키텍처/001_컨테이너가_IT세상을_점령한_이유1_클라우드이주와_레거시현대화/">컨테이너기초</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part02_도커이미지빌드와_멀티스테이지_레지스트리/015_도커허브_이미지활용과_런타임환경변수_주입/">이미지빌드</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part03_퍼시스턴트스토리지와_도커볼륨_마운트/032_컨테이너속_데이터가_사라지는이유_기록가능레이어와_CoW/">스토리지</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part04_도커컴포즈와_신뢰성_헬스체크_모니터링/042_도커컴포즈_소개와_compose_yaml_선언적구조/">컴포즈</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part05_다중환경설계와_컨테이너기반_CICD파이프라인/062_단일호스트에_여러애플리케이션_격리배포하기_프로젝트이름/">CI/CD</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part06_컨테이너오케스트레이션_도커스웜과_쿠버네티스/076_컨테이너_오케스트레이션이란_왜_클러스터가_필요한가/">스웜&K8s</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part07_보안원격접근_다중아키텍처_이미지최적화/096_도커엔진_API엔드포인트와_비보안TCP포워딩의_치명적위험/">보안&최적화</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/Part08_프로덕션운영_설정_로깅_리버스프록시_메시지큐/112_프로덕션_다단설정아키텍처_내장기본값_환경파일_런타임오버라이드/">운영&캡스톤</a>
+            </li>
+            
+          </ul>
+
+          <hr class="d-lg-none text-white-50">
+
+          <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <li class="nav-item col-6 col-lg-auto">
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev" target="_blank"
+                rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                  viewBox="0 0 512 499.36" role="img">
+                  <title>GitHub</title>
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z">
+                  </path>
+                </svg>
+                <small class="d-lg-none ms-2">GitHub</small>
+              </a>
+            </li>
+
+            <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none my-2 text-white-50">
+            </li>
+
+            <li class="nav-item col-6 col-lg-auto">
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://jiny.dev" aria-label="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                  viewBox="0 0 16 16" role="img">
+                  <title>Home</title>
+                  <path fill="currentColor"
+                    d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
+                </svg>
+                <small class="d-lg-none ms-2">Home</small>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container bd-gutter mt-3 my-md-4 bd-layout">
+    <aside class="bd-sidebar scrollBar">
+        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="bdSidebar"
+            aria-labelledby="bdSidebarOffcanvasLabel">
+            <div class="offcanvas-header border-bottom">
+                <h5 class="offcanvas-title" id="bdSidebarOffcanvasLabel">학습목차</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                    data-bs-target="#bdSidebar"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <!-- 네비게이션 -->
+                <nav class="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
+  <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
+    <li class="bd-links-group py-2">
+      
+      
+
+      
+      
+      
+
+      
+
+      <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold text-primary mb-3 pb-2 border-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-seam me-2 flex-shrink-0" viewBox="0 0 16 16">
+          <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+        </svg>
+        <span class="text-truncate">🎯 라라벨 & MSA 실전 실습</span>
+      </strong>
+
+      <ul class="list-unstyled fw-normal pb-2 small">
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/practice/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              실습 개요: 도커 원정대 웹사이트
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/practice/01_dockerfile_and_php85/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              Lab 01. PHP 8.5 라라벨 보안 Dockerfile
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/practice/02_compose_nginx_pgsql/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              Lab 02. Nginx + PHP + pgsql 3-Tier 컴포즈
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/practice/03_crud_and_database/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              Lab 03. PostgreSQL 연동 CRUD 웹앱 완성
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/practice/04_redis_queue_worker/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              Lab 04. Redis 캐시 & 비동기 큐 워커 분리
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/practice/05_scale_out_load_balancing/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              Lab 05. Nginx 부하분산 & WAS 5대 스케일아웃
+            </a>
+          
+        </li>
+        
+        
+        
+        
+        <li class="mb-1">
+          
+            <a href="/practice/06_msa_and_production/"
+              class="bd-links-link d-inline-block rounded py-1 px-2 text-decoration-none text-dark"
+              style="font-size: 0.88rem; line-height: 1.4;">
+              Lab 06. 모놀리스에서 MSA 분리 & 프로덕션 배포
+            </a>
+          
+        </li>
+        
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+            </div>
+        </div>
+    </aside>
+
+    <main class="bd-main order-1">
+        <nav aria-label="breadcrumb" class="mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item"><a href="/curriculum/">2학기 (28주) 커리큘럼</a></li>
+        
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item active" aria-current="page">라라벨(PHP 8.5) & Nginx & PostgreSQL 실전 프로젝트: 모놀리스에서 MSA & 스케일아웃까지</li>
+        
+        
+        
+    </ol>
+</nav>
+
+        <div class="bd-content ps-lg-4">
+            <h1 id="-실전-프로젝트-최신-php-85-라라벨--nginx--postgresql-마스터">🎯 실전 프로젝트: 최신 PHP 8.5 라라벨 &amp; Nginx &amp; PostgreSQL 마스터</h1>
+<h2 id="모놀리스에서-엔터프라이즈-msa-분산-아키텍처--대규모-스케일아웃까지">모놀리스에서 엔터프라이즈 MSA 분산 아키텍처 &amp; 대규모 스케일아웃까지</h2>
+
+<blockquote>
+  <p><strong>“도커는 단순한 명령어 암기가 아닌, 살아 숨 쉬는 실제 서비스 아키텍처를 직접 구축하고 확장해 볼 때 진정한 힘을 발휘합니다.”</strong><br />
+본 실전 프로젝트 트랙은 최신 보안 표준을 준수한 <strong>PHP 8.5 &amp; 라라벨(Laravel)</strong>을 기반으로, <strong>Nginx 웹서버, PostgreSQL(pgsql) 데이터베이스, Redis 캐시 및 비동기 큐</strong>를 엮어 로컬 3-Tier 모놀리스 개발부터 대규모 트래픽 대응을 위한 <strong>수평 스케일아웃(Scale-Out) 및 마이크로서비스(MSA) 분산 오케스트레이션</strong>까지 단계별로 완주하는 실전형 교육 과정입니다.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="️-실습-프로젝트-핵심-기술-스택">🏛️ 실습 프로젝트 핵심 기술 스택</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   [ Client / Browser / Mobile App ]                    │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ (HTTP/HTTPS :80, :443)
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│             [ L7 Web Server &amp; Reverse Proxy: Nginx Alpine ]            │
+│       • 정적 파일(/public) 초고속 캐싱 &amp; 서빙    • SSL/TLS Termination  │
+│       • FastCGI 프록시 패스                   • Upstream 로드밸런싱     │
+└───────┬───────────────────────────┬────────────────────────────┬───────┘
+        │                           │                            │
+        ▼ (FastCGI :9000)           ▼ (FastCGI :9000)            ▼ (FastCGI :9000)
+┌───────────────┐           ┌───────────────┐            ┌───────────────┐
+│ [WAS Node 01] │           │ [WAS Node 02] │            │ [WAS Node 03] │
+│   PHP 8.5     │           │   PHP 8.5     │   ...      │   PHP 8.5     │
+│   Laravel 11  │           │   Laravel 11  │ (Scale-Out)│   Laravel 11  │
+│ (PHP-FPM WAS) │           │ (PHP-FPM WAS) │            │ (PHP-FPM WAS) │
+└───────┬───────┘           └───────┬───────┘            └───────┬───────┘
+        │                           │                            │
+        └───────────────────┬───────┴────────────────────────────┘
+                            │
+        ┌───────────────────┴───────────────────┐
+        ▼                                       ▼
+┌───────────────────────────────┐   ┌───────────────────────────────┐
+│ [Database: PostgreSQL (pgsql)]│   │ [Cache &amp; Queue Broker: Redis] │
+│ • Named Volume 영속성 마운트   │   │ • 세션 스토리지 &amp; L2 캐시      │
+│ • ACID 트랜잭션 &amp; JSONB 지원   │   │ • 비동기 작업 큐 &amp; 이벤트 버스 │
+│ • Read-Replica 복제 확장 가능 │   └───────────────┬───────────────┘
+└───────────────────────────────┘                   │
+                                                    ▼
+                                    ┌───────────────────────────────┐
+                                    │   [Background Queue Worker]   │
+                                    │   PHP 8.5 Laravel Worker      │
+                                    │ • 이메일/알림 비동기 백그라운드 │
+                                    └───────────────────────────────┘
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">계층</th>
+      <th style="text-align: left">기술 스택</th>
+      <th style="text-align: left">실무 선정 이유 및 도커 격리 전략</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Language &amp; WAS</strong></td>
+      <td style="text-align: left"><strong>PHP 8.5 + Laravel 11/12</strong></td>
+      <td style="text-align: left">• 최신 보안 패치(CGI 취약점 원천 차단), OPcache, JIT 활성화<br />• PHP-FPM(FastCGI Process Manager) 독립 컨테이너화<br />• <code class="language-plaintext highlighter-rouge">non-root</code> 사용자 격리 및 초경량 멀티스테이지 이미지 빌드</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Web Server / Proxy</strong></td>
+      <td style="text-align: left"><strong>Nginx (Alpine)</strong></td>
+      <td style="text-align: left">• 정적 자원(JS, CSS, 이미지) 고속 캐싱 및 직접 서빙<br />• FastCGI 프로토콜을 통한 WAS(PHP-FPM) 연결 및 로드밸런싱<br />• Let’s Encrypt SSL/TLS 종단 처리 및 보안 헤더 적용</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Database</strong></td>
+      <td style="text-align: left"><strong>PostgreSQL 16 (pgsql)</strong></td>
+      <td style="text-align: left">• 고신뢰성 오픈소스 RDBMS, 강력한 ACID 및 동시성 제어<br />• 도커 볼륨(Named Volume)을 통한 무중단 데이터 영속화<br />• 마스터-슬레이브(Read-Replica) 복제 및 커넥션 풀링 확장</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Cache &amp; Message Queue</strong></td>
+      <td style="text-align: left"><strong>Redis &amp; NATS</strong></td>
+      <td style="text-align: left">• 다중 WAS 노드 간 세션 공유(Session Clustering)<br />• Laravel Queue Worker를 위한 비동기 작업 브로커<br />• 마이크로서비스 간 비동기 이벤트 발행/구독(Pub/Sub)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Orchestration</strong></td>
+      <td style="text-align: left"><strong>Docker Compose, Swarm, K8s</strong></td>
+      <td style="text-align: left">• 로컬 개발: <code class="language-plaintext highlighter-rouge">compose.yaml</code> 단 한 줄로 전체 인프라 기동 &amp; 핫리로드<br />• 프로덕션: 다중 노드 수평 확장(<code class="language-plaintext highlighter-rouge">--scale was=5</code>), 자가치유, 롤링 배포</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-6단계-아키텍처-진화-여정-monolith-to-msa--scale-out">🚀 6단계 아키텍처 진화 여정 (Monolith to MSA &amp; Scale-Out)</h2>
+
+<p>학생들은 이 과정을 통해 <strong>“작은 모놀리스 토이 프로젝트”</strong>에서 시작하여 실제 유니콘 기업들이 채택하는 <strong>“대규모 분산 MSA 시스템”</strong>까지 자연스럽게 도커 인프라를 확장해 나가는 법을 배웁니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1단계: 단일 보안 이미지] ──&gt; [2단계: 3-Tier 모놀리스] ──&gt; [3단계: 비동기 워커 분리]
+    PHP 8.5 Dockerfile          Nginx + WAS + pgsql         WAS + Queue Worker + Redis
+                                                                    │
+┌───────────────────────────────────────────────────────────────────┘
+▼
+[4단계: 도메인 기반 MSA 분리] ──&gt; [5단계: 대규모 트래픽 스케일아웃] ──&gt; [6단계: 엔터프라이즈 운영]
+  Auth / Web / Order 서비스       WAS 레플리카 확장 (Scale=5)       CI/CD 무중단 배포 +
+  + 서비스별 독립 DB (pgsql)      Nginx 부하분산 + pgpool            Prometheus/Grafana 관제
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="1단계-초경량--보안-하드닝-dockerfile-제작-php-85">1단계: 초경량 &amp; 보안 하드닝 Dockerfile 제작 (PHP 8.5)</h3>
+<ul>
+  <li><strong>핵심 목표</strong>: 보안 취약점이 없는 최신 PHP 8.5 기반의 프로덕션 수준 도커 이미지를 제작합니다.</li>
+  <li><strong>주요 실습 내용</strong>:
+    <ol>
+      <li><strong>최신 보안 취약점 차단</strong>: 과거 PHP CGI 인젝션(CVE-2024-4577 등)을 원천 차단하기 위해 <code class="language-plaintext highlighter-rouge">cgi.fix_pathinfo=0</code>, <code class="language-plaintext highlighter-rouge">expose_php=Off</code> 설정 적용.</li>
+      <li><strong>루트 권한 박탈 (<code class="language-plaintext highlighter-rouge">non-root</code>)</strong>: 보안 침해 시 호스트 시스템 장악을 막기 위해 전용 <code class="language-plaintext highlighter-rouge">laravel</code> 사용자(UID 1000)로 런타임 격리.</li>
+      <li><strong>멀티스테이지(Multi-stage) 빌드</strong>: Composer 의존성 패키징 단계와 실제 가동 단계를 분리하여 이미지 크기를 800MB에서 <strong>60MB 이하</strong>로 초경량화.</li>
+      <li><strong>필수 확장 모듈 자동 컴파일</strong>: PostgreSQL 드라이버(<code class="language-plaintext highlighter-rouge">pdo_pgsql</code>), Redis(<code class="language-plaintext highlighter-rouge">phpredis</code>), OPcache 컴파일 및 최적화.</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="2단계-3-tier-모놀리식-컨테이너화-nginx--was--pgsql">2단계: 3-Tier 모놀리식 컨테이너화 (Nginx + WAS + pgsql)</h3>
+<ul>
+  <li><strong>핵심 목표</strong>: <code class="language-plaintext highlighter-rouge">compose.yaml</code> 파일 하나로 웹서버, WAS, 데이터베이스를 격리된 내부 네트워크로 연결하고 핫리로드 개발 환경을 구축합니다.</li>
+  <li><strong>주요 실습 내용</strong>:
+    <ol>
+      <li><strong>네트워크 분리 &amp; 서비스 디스커버리</strong>:
+        <ul>
+          <li>Nginx 컨테이너와 PHP-FPM 컨테이너 간 FastCGI 통신(<code class="language-plaintext highlighter-rouge">fastcgi_pass was:9000</code>).</li>
+          <li>IP 주소가 변경되어도 도커 내장 DNS(<code class="language-plaintext highlighter-rouge">was</code>, <code class="language-plaintext highlighter-rouge">pgsql</code>, <code class="language-plaintext highlighter-rouge">redis</code>)를 통해 무중단 통신.</li>
+        </ul>
+      </li>
+      <li><strong>바인드 마운트를 통한 로컬 개발 경험(DX)</strong>:
+        <ul>
+          <li>호스트 PC의 라라벨 소스코드를 컨테이너 내부(<code class="language-plaintext highlighter-rouge">/var/www/html</code>)에 바인드 마운트하여, 코드 저장 즉시 웹 브라우저에 반영되는 무재빌드 개발 환경 완성.</li>
+        </ul>
+      </li>
+      <li><strong>데이터 영속화 (Named Volume)</strong>:
+        <ul>
+          <li>PostgreSQL 컨테이너가 중지되거나 재생성되어도 DB 데이터가 안전하게 보존되는 <code class="language-plaintext highlighter-rouge">pgsql_data</code> 도커 볼륨 연결.</li>
+          <li>컨테이너 기동 즉시 <code class="language-plaintext highlighter-rouge">php artisan migrate --force</code>로 테이블 스키마 자동 프로비저닝.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="3단계-모듈러-모놀리스--비동기-워커-컨테이너-분리">3단계: 모듈러 모놀리스 &amp; 비동기 워커 컨테이너 분리</h3>
+<ul>
+  <li><strong>핵심 목표</strong>: 사용자가 몰릴 때 웹서버가 멈추지 않도록, 시간이 오래 걸리는 작업(이메일 발송, PDF 영수증 생성, 외부 결제 연동)을 비동기 워커로 격리합니다.</li>
+  <li><strong>주요 실습 내용</strong>:
+    <ol>
+      <li><strong>동일 이미지, 다른 역할(Role) 패턴</strong>:
+        <ul>
+          <li>동일한 라라벨 도커 이미지를 공유하면서 하나는 <code class="language-plaintext highlighter-rouge">php-fpm</code>(웹 요청 처리), 다른 하나는 <code class="language-plaintext highlighter-rouge">php artisan queue:work</code>(큐 처리)로 분리 기동.</li>
+        </ul>
+      </li>
+      <li><strong>Redis 기반 작업 브로커</strong>:
+        <ul>
+          <li>WAS에서 발생한 작업을 Redis 큐에 적재(Produce)하고, Background Worker 컨테이너가 이를 비동기 수신(Consume).</li>
+        </ul>
+      </li>
+      <li><strong>서버 다운 없는 작업 보존</strong>:
+        <ul>
+          <li>WAS에 트래픽이 폭주해도 큐에 안전하게 적재되어 백그라운드 워커가 순차 처리하므로 사용자 응답 시간 90% 단축.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="4단계-도메인-기반-마이크로서비스msa-분리">4단계: 도메인 기반 마이크로서비스(MSA) 분리</h3>
+<ul>
+  <li><strong>핵심 목표</strong>: 단일 모놀리스 웹사이트를 기능별 독립 서비스로 쪼개고, 각 서비스가 전용 데이터베이스를 소유하는 Database-per-Service 패턴을 실습합니다.</li>
+  <li><strong>분리 아키텍처</strong>:
+    <ol>
+      <li><strong>Frontend / Web Gateway (Nginx)</strong>: 모든 외부 요청을 단일 진입점(포트 80/443)으로 받아 URL 경로 기반 라우팅.
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">/api/auth/*</code> ➔ <strong>Auth Service</strong></li>
+          <li><code class="language-plaintext highlighter-rouge">/api/orders/*</code> ➔ <strong>Order Service</strong></li>
+          <li><code class="language-plaintext highlighter-rouge">/*</code> ➔ <strong>Web Frontend Service</strong></li>
+        </ul>
+      </li>
+      <li><strong>Auth Service (PHP 8.5 Laravel)</strong>: 사용자 가입, 로그인, JWT 토큰 발급 및 검증 + <code class="language-plaintext highlighter-rouge">pgsql_auth</code> DB.</li>
+      <li><strong>Order Service (PHP 8.5 Laravel)</strong>: 상품 주문, 결제 트랜잭션 처리 + <code class="language-plaintext highlighter-rouge">pgsql_order</code> DB.</li>
+      <li><strong>NATS / Redis Pub/Sub 이벤트 버스</strong>:
+        <ul>
+          <li>주문이 완료되면 Order Service가 <code class="language-plaintext highlighter-rouge">order.created</code> 이벤트를 NATS로 발행하고, Notification Worker가 이를 구독하여 알림 발송.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="5단계-대규모-트래픽-수평-스케일아웃scale-out--고가용성ha">5단계: 대규모 트래픽 수평 스케일아웃(Scale-Out) &amp; 고가용성(HA)</h3>
+<ul>
+  <li><strong>핵심 목표</strong>: 트래픽 폭증 상황에서 서버가 뻗지 않도록 WAS 컨테이너를 복제하고, 무중단 로드밸런싱을 구축합니다.</li>
+  <li><strong>주요 실습 내용</strong>:
+    <ol>
+      <li><strong>WAS 수평 스케일아웃 실습</strong>:
+        <ul>
+          <li>단 한 줄의 명령어로 WAS 복제본을 1개에서 5개로 즉시 증설:
+            <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose up <span class="nt">-d</span> <span class="nt">--scale</span> <span class="nv">was</span><span class="o">=</span>5
+</code></pre></div>            </div>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Nginx Upstream 동적 로드밸런싱</strong>:
+        <ul>
+          <li>Nginx가 활성화된 다수의 PHP-FPM 컨테이너로 요청을 라운드로빈(Round-Robin) 및 최소 연결(Least Connections) 방식으로 균등 분산.</li>
+        </ul>
+      </li>
+      <li><strong>헬스체크 기반 장애 노드 자동 격리</strong>:
+        <ul>
+          <li>WAS 5대 중 특정 컨테이너에 OOM(Out of Memory)이나 데드락이 발생하면, 도커 헬스체크(<code class="language-plaintext highlighter-rouge">HEALTHCHECK</code>)가 불량 상태를 감지하고 Nginx가 해당 노드로의 트래픽을 즉시 차단.</li>
+        </ul>
+      </li>
+      <li><strong>ApacheBench / k6 부하 테스트</strong>:
+        <ul>
+          <li>동시 접속자 1,000명 부하 주입 시, 단일 컨테이너 대비 스케일아웃 클러스터의 초당 처리량(RPS)이 400% 이상 향상됨을 직접 측정 및 검증.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="6단계-엔터프라이즈-운영-cicd-무중단-배포--풀스택-관제">6단계: 엔터프라이즈 운영, CI/CD 무중단 배포 &amp; 풀스택 관제</h3>
+<ul>
+  <li><strong>핵심 목표</strong>: 실제 기업 현업에서 운영되는 수준의 자동화 배포 및 실시간 시스템 관제탑을 완성합니다.</li>
+  <li><strong>주요 실습 내용</strong>:
+    <ol>
+      <li><strong>GitHub Actions ➔ 리눅스 실서버 무중단 롤링 배포</strong>:
+        <ul>
+          <li>코드를 Git <code class="language-plaintext highlighter-rouge">main</code> 브랜치에 푸시하면 Docker Buildx로 이미지를 빌드하여 사설 레지스트리에 저장.</li>
+          <li>운영 서버에서 새로운 버전의 WAS 컨테이너를 순차적으로 교체하는 롤링 배포(Zero-Downtime Deployment) 실행.</li>
+        </ul>
+      </li>
+      <li><strong>시스템 관제탑 (Prometheus &amp; Grafana)</strong>:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">nginx-prometheus-exporter</code>: Nginx 요청 수, 활성 커넥션 수 수집.</li>
+          <li><code class="language-plaintext highlighter-rouge">php-fpm status exporter</code>: 활성 프로세스 수, 큐 대기 상태 실시간 추적.</li>
+          <li><code class="language-plaintext highlighter-rouge">postgres_exporter</code>: DB 쿼리 응답 시간, 트랜잭션 락, 커넥션 풀 사용률 모니터링.</li>
+        </ul>
+      </li>
+      <li><strong>Fluentd 중앙 집중식 로그 수집</strong>:
+        <ul>
+          <li>Nginx 접근/에러 로그, Laravel 예외 로그, PostgreSQL 쿼리 로그를 표준 출력(stdout)으로 모아 중앙 Loki / OpenSearch 대시보드에서 실시간 검색.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="-28주-정규-커리큘럼과의-실습-연계-맵">📅 28주 정규 커리큘럼과의 실습 연계 맵</h2>
+
+<p>본 실전 프로젝트는 1학기와 2학기 총 28주의 주차별 이론 강의와 1:1로 긴밀하게 결합되어 점진적으로 완성됩니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">주차</th>
+      <th style="text-align: left">정규 강의 주제</th>
+      <th style="text-align: left">라라벨 &amp; Nginx &amp; PostgreSQL 실전 프로젝트 수행 과제</th>
+      <th style="text-align: left">산출 마일스톤</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>1학기 3주차</strong></td>
+      <td style="text-align: left">컨테이너 실행과 포트포워딩</td>
+      <td style="text-align: left">Nginx 컨테이너 단독 기동 및 기본 웹페이지 렌더링 확인</td>
+      <td style="text-align: left">첫 웹서버 포트 연결</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>1학기 5주차</strong></td>
+      <td style="text-align: left">Dockerfile 기본 문법</td>
+      <td style="text-align: left">PHP 8.5 런타임 + 필수 pgsql/redis 모듈 설치 베이스 이미지 제작</td>
+      <td style="text-align: left">커스텀 PHP 이미지 완성</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>1학기 6주차</strong></td>
+      <td style="text-align: left">멀티스테이지 초경량화</td>
+      <td style="text-align: left">Composer 빌드 스테이지 분리로 라라벨 60MB 초경량 보안 이미지 제작</td>
+      <td style="text-align: left">초경량 프로덕션 이미지</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>1학기 9주차</strong></td>
+      <td style="text-align: left">퍼시스턴트 스토리지와 볼륨</td>
+      <td style="text-align: left">PostgreSQL 컨테이너 볼륨 마운트 및 라라벨 마이그레이션 실행</td>
+      <td style="text-align: left">DB 데이터 영속화</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>1학기 10주차</strong></td>
+      <td style="text-align: left">바인드 마운트와 개발자 경험</td>
+      <td style="text-align: left">로컬 소스코드 폴더 바인드 마운트로 실시간 핫리로드 개발 환경 구축</td>
+      <td style="text-align: left">무재빌드 라이브 코딩 환경</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>1학기 11~12주차</strong></td>
+      <td style="text-align: left">도커 컴포즈와 서비스 디스커버리</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">compose.yaml</code>로 Nginx + PHP-FPM + PostgreSQL 3-Tier 통합 기동</td>
+      <td style="text-align: left">3-Tier 모놀리스 개발 완성</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>1학기 14주차</strong></td>
+      <td style="text-align: left"><strong>[1학기 기말 캡스톤]</strong></td>
+      <td style="text-align: left"><strong>클라우드 실서버에 도메인 + HTTPS Let’s Encrypt 적용 라라벨 웹사이트 정식 런칭</strong></td>
+      <td style="text-align: left"><strong>실제 운영 웹사이트 오픈</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2학기 1~2주차</strong></td>
+      <td style="text-align: left">헬스체크와 자가치유</td>
+      <td style="text-align: left">PHP-FPM 핑(<code class="language-plaintext highlighter-rouge">ping/pong</code>) 헬스체크 및 프로세스 크래시 시 1초 자동 복구</td>
+      <td style="text-align: left">무인 자가치유 시스템</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2학기 3~4주차</strong></td>
+      <td style="text-align: left">프로메테우스 &amp; 그라파나 관제</td>
+      <td style="text-align: left">Nginx/PHP-FPM/PostgreSQL 전용 익스포터 연동 및 통합 대시보드 코드화</td>
+      <td style="text-align: left">실시간 풀스택 관제탑</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2학기 6주차</strong></td>
+      <td style="text-align: left">컨테이너 CI/CD 파이프라인</td>
+      <td style="text-align: left">GitHub Actions 연동, 라라벨 Pest/PHPUnit 테스트 통과 시 자동 배포</td>
+      <td style="text-align: left">무인 CI/CD 자동화</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2학기 7~8주차</strong></td>
+      <td style="text-align: left">도커 스웜 클러스터 &amp; 무중단 배포</td>
+      <td style="text-align: left">3-노드 클러스터 구축, 라라벨 신버전 롤링 배포 및 버그 감지 시 자동 롤백</td>
+      <td style="text-align: left">무중단 롤링 &amp; 자동 롤백</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2학기 10주차</strong></td>
+      <td style="text-align: left">모놀리스 ➔ MSA 분리 &amp; 쿠버네티스</td>
+      <td style="text-align: left">Auth / Order / Web 서비스 분리, 서비스별 DB 독립화 및 K8s Pod 전환</td>
+      <td style="text-align: left">마이크로서비스(MSA) 전환</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2학기 12~13주차</strong></td>
+      <td style="text-align: left">대규모 스케일아웃 &amp; 중앙 로깅</td>
+      <td style="text-align: left">WAS 복제본 5대 수평 확장, 부하 분산 부하 테스트, Fluentd 로그 통합</td>
+      <td style="text-align: left">대규모 트래픽 스케일아웃</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2학기 14주차</strong></td>
+      <td style="text-align: left"><strong>[2학기 최종 캡스톤]</strong></td>
+      <td style="text-align: left"><strong>대규모 트래픽 부하 주입 및 노드 강제 장애 상황에서도 99.99% 가용성을 입증하는 풀스택 MSA 플랫폼 발표</strong></td>
+      <td style="text-align: left"><strong>최고급 DevOps 포트폴리오</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-수강생이-얻게-되는-핵심-실무-경쟁력">💡 수강생이 얻게 되는 핵심 실무 경쟁력</h2>
+
+<ol>
+  <li><strong>실제 서비스 가능한 백엔드 풀스택 인프라 이해</strong>:
+    <ul>
+      <li>단순히 Nginx나 아파치 하나 띄워보는 수준을 넘어, 실무 기업에서 가장 보편적으로 사용하는 <strong>Web(Nginx) - WAS(PHP-FPM) - DB(PostgreSQL) - Cache(Redis)</strong> 4계층 분리 원리를 뼛속까지 이해하게 됩니다.</li>
+    </ul>
+  </li>
+  <li><strong>보안 사고 걱정 없는 최신 컨테이너 하드닝 역량</strong>:
+    <ul>
+      <li>취약점이 발견된 구버전이나 root 실행 컨테이너가 아닌, 최신 PHP 8.5와 non-root 격리, 보안 헤더, 시크릿 은닉을 적용한 금융권 수준의 보안 이미지를 다룰 수 있습니다.</li>
+    </ul>
+  </li>
+  <li><strong>모놀리스에서 MSA로의 점진적 리팩토링 경험</strong>:
+    <ul>
+      <li>“처음부터 무작정 MSA를 도입해서 실패하는 실수”를 방지하고, 단일 모놀리스에서 트래픽 병목을 비동기 워커로 걷어내고, 도메인별 서비스와 독립 DB로 쪼개나가는 <strong>현업 아키텍처 진화 프로세스</strong>를 직접 체득합니다.</li>
+    </ul>
+  </li>
+  <li><strong>기업 채용 시장에서 독보적인 캡스톤 포트폴리오</strong>:
+    <ul>
+      <li>“도커 기초 명령어를 쓸 줄 압니다”가 아닌, <strong>“대규모 트래픽에 대응하여 WAS를 5~10대로 스케일아웃하고 무중단 배포와 관제탑을 운영해 본 경험”</strong>을 GitHub 저장소와 동작하는 라이브 사이트로 증명할 수 있습니다.</li>
+    </ul>
+  </li>
+</ol>
+
+
+
+            <!-- 구글 애드센스 출력 -->
+            <div class="mt-5">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
+    crossorigin="anonymous"></script>
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
+    data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+        </div>
+
+        <div class="bd-toc mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 text-body-secondary">
+
+  <button class="btn btn-link p-md-0 mb-2 mb-md-0 text-decoration-none bd-toc-toggle d-md-none" type="button"
+    data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
+    서브목차
+    <svg class="bi d-md-none ms-2" aria-hidden="true">
+      <use xlink:href="#chevron-expand"></use>
+    </svg>
+  </button>
+
+  <strong class="d-none d-md-block h6 my-2">서브목차</strong>
+
+  <div class="collapse bd-toc-collapse" id="tocContents">
+    <nav id="TableOfContents">
+      <!--
+      <ul>
+        <li><a href="#quick-start">Quick start</a></li>
+        <li><a href="#cdn-links">CDN links</a></li>
+        <li><a href="#next-steps">Next steps</a></li>
+        <li><a href="#js-components">JS components</a></li>
+        <li><a href="#important-globals">Important globals</a>
+          <ul>
+            <li><a href="#html5-doctype">HTML5 doctype</a></li>
+            <li><a href="#responsive-meta-tag">Responsive meta tag</a></li>
+            <li><a href="#box-sizing">Box-sizing</a></li>
+            <li><a href="#reboot">Reboot</a></li>
+          </ul>
+        </li>
+        <li><a href="#community">Community</a></li>
+      </ul>
+      -->
+    </nav>
+  </div>
+</div>
+    </main>
+</div>
+
+<!-- 공용 대화 오디오 플레이어 컨트롤러 스크립트 -->
+<script src="/assets/js/audio.js" defer></script>
+
+  <footer class="bd-footer py-4 py-md-5 mt-5 bg-light border-top">
+  <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+    <div class="row">
+      <div class="col-lg-4 mb-3">
+        <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/" aria-label="Docker Master">
+          <span class="fs-4 me-2">🐳</span>
+          <span class="fs-5 fw-bold">도커 & 클라우드 네이티브 마스터 클래스</span>
+        </a>
+        <ul class="list-unstyled small">
+          <li class="mb-2">이호진 교수님, 도로시, 조교 지니, 토토와 함께 떠나는 도커 & 클라우드 네이티브 완전 정복 대장정!</li>
+          <li class="mb-2">국내외 9대 대표 도커 바이블 도서 통합 교육 과정.</li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3 offset-lg-1 mb-3">
+        <h5>학습 바로가기</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/" class="text-decoration-none">000강 오리엔테이션</a></li>
+          <li class="mb-2"><a href="/Part02_도커이미지빌드와_멀티스테이지_레지스트리/016_Dockerfile_기초문법_FROM_ENV_WORKDIR_COPY_CMD/" class="text-decoration-none">Dockerfile 기본기</a></li>
+          <li class="mb-2"><a href="/Part04_도커컴포즈와_신뢰성_헬스체크_모니터링/042_도커컴포즈_소개와_compose_yaml_선언적구조/" class="text-decoration-none">도커 컴포즈 분산 앱</a></li>
+          <li class="mb-2"><a href="/Part06_컨테이너오케스트레이션_도커스웜과_쿠버네티스/077_도커스웜_클러스터구축_매니저노드와_워커노드/" class="text-decoration-none">도커 스웜 & 쿠버네티스</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3 mb-3">
+        <h5>관련 링크</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="https://docs.docker.com/" target="_blank" rel="noopener" class="text-decoration-none">Docker 공식 문서</a></li>
+          <li class="mb-2"><a href="https://kubernetes.io/ko/docs/" target="_blank" rel="noopener" class="text-decoration-none">Kubernetes 공식 문서</a></li>
+          <li class="mb-2"><a href="https://github.com" target="_blank" rel="noopener" class="text-decoration-none">GitHub 저장소</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    window.addEventListener('load', async function () {
+      mermaid.initialize({ startOnLoad: false });
+
+      const mermaidCodes = document.querySelectorAll('pre code.language-mermaid');
+      const mermaidDivs = [];
+
+      mermaidCodes.forEach(codeBlock => {
+        const mermaidDefinition = codeBlock.textContent.trim();
+        const container = codeBlock.closest('div.highlighter-rouge');
+
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = mermaidDefinition;
+
+        if (container) {
+          container.replaceWith(mermaidDiv);
+        } else {
+          const pre = codeBlock.parentElement;
+          if (pre) pre.replaceWith(mermaidDiv);
+        }
+        mermaidDivs.push(mermaidDiv);
+      });
+
+      if (mermaidDivs.length > 0) {
+        await mermaid.run({ nodes: mermaidDivs });
+      }
+    });
+  </script>
+  <script src="/assets/js/toc.js"></script>
+
+</body>
+
+</html>

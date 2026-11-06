@@ -1,0 +1,7 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+16:9 cinematic widescreen cover illustration for Chapter 074 'CI파이프라인 단계별컨테이너 역할과 품질게이트'.
+In the center, Professor Hojin (youthful early 40s Korean male engineering professor, smooth youthful skin, clean-shaven, 7:3 parted dark hair with subtle salt-and-pepper streaks around temples, round silver wire-rim glasses, dark navy polo shirt, blue denim jeans) stands alongside Dorothy (cheerful 9yo girl, chestnut brown twin pigtails with colorful beads, blue denim overalls with circular 'STEM HERO' patch, orange striped t-shirt) at an automated continuous integration control bridge.
+Floating in the center is an advanced 5-gate pipeline checkpoint tower showing 'Verify -> Build/Test -> Integration -> Security -> Registry Push', demonstrating how automated gates halt defective code while 'trap EXIT' cleans up containers with 100% mathematical certainty.
+Beside them, Toto the fluffy cream puppy wags his tail excitedly, and Jiny the smart tuxedo cat with glasses inspects an automated cleanup log console.
+Prominent Korean title typography in the composition: '074. CI파이프라인 단계별컨테이너 역할과 품질게이트'.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft shadow, 16:9 widescreen aspect ratio, no slide borders, no Japanese text.

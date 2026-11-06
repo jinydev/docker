@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of 'CI파이프라인 단계별컨테이너 역할과 품질게이트'.
+System Structure & Data Flow:
+- set -euo pipefail: 배시 스크립트에서 명령어 하나라도 실패(-e)하거나 미정의 변수(-u), 파이프 중간 에러(pipefail) 발생 시 즉시 스크립트를 중단하고 
+- trap '...' EXIT 정리 보장: 테스트 도중 에러가 나거나 강제 취소되더라도 스크립트 종료 시점에 무조건 docker compose down -v가 실행되어 좀비 컨테이너 방지
+- 레지스트리 카탈로그 최종 확인: docker compose push 후 레지스트리 V2 API(/v2/<repo>/tags/list)를 호출해 새 빌드 번호 태그가 정상 등록되
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

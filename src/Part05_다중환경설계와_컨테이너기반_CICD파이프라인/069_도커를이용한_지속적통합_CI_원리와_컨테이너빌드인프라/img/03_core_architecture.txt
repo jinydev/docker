@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '도커를이용한 지속적통합 CI 원리와 컨테이너빌드인프라'.
+System Structure & Data Flow:
+- 지속적 통합 (CI, Continuous Integration): 개발자가 Git 저장소에 코드를 푸시할 때마다 자동으로 빌드와 테스트를 실행해 코드 결함을 즉시 발견하고 검증된 아티팩트(도커 이미지)를 생성하
+- 빌드 서버 의존성 제로: CI 서버에는 오직 Git CLI와 Docker CLI 단 두 가지만 있으면 모든 언어의 프로젝트를 빌드 및 테스트 가능!
+- 로컬 개발 = CI 빌드 100% 일치: 개발자가 내 노트북에서 실행하는 docker compose build && docker compose run test 명령과 CI 서버가 실행하
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

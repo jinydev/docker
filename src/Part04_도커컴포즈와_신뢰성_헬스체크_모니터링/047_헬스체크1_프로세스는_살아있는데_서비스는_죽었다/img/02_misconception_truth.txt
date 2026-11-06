@@ -1,0 +1,5 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Misconception vs Truth comparison for Lesson 047: The illusion of 'Up (running)' status vs real application health.
+On the left (Misconception/Deception): Dorothy (cheerful 9-year-old girl in denim overalls) smiling naively looking at a terminal showing 'STATUS: Up 3 hours', completely unaware that the web service behind it is frozen in an infinite deadlock throwing HTTP 500 errors to unhappy users.
+On the right (Truth/Diagnosis): Jiny the lab assistant cat (chubby black-and-white tuxedo cat with scholar glasses and red bell collar) wearing a tiny doctor reflector mirror, pointing a red flag at 'STATUS: Up (unhealthy)', successfully catching the silent failure through an automated HEALTHCHECK command.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

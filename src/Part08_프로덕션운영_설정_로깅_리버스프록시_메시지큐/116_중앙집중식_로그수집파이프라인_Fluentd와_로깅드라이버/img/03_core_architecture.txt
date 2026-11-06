@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '중앙집중식 로그수집파이프라인 Fluentd와 로깅드라이버'.
+System Structure & Data Flow:
+- Fluentd 통합 수집기: 로그의 수집(Input) ➔ 가공 및 파싱(Filter) ➔ 저장소 전송(Output)을 플러그인 구조로 유연하게 처리하는 로그 파이프라인의 강
+- fluentd 로깅 드라이버: 도커 엔진이 호스트 디스크에 로그 파일을 남기지 않고 메모리에서 Fluentd TCP 포트(24224)로 직접 스트리밍 전송
+- 태그 기반 동적 라우팅 (tag: oz.web.{{.Name}}): 컨테이너 이름과 서비스명을 태그에 주입하여, Fluentd가 결제 로그는 감사 DB로, 웹 로그는 검색 엔진으로 자동 분기 전송
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

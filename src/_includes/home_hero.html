@@ -1,0 +1,94 @@
+<style>
+.hero-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 4rem 2rem;
+    border-radius: 0 0 2rem 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #cbd5e1;
+}
+.hero-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #2b3947;
+    line-height: 1.2;
+}
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.road-card {
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    height: 100%;
+}
+.road-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #2b3947;
+}
+.btn-hero-primary {
+    background: linear-gradient(135deg, #3d4f61 0%, #2b3947 100%);
+    color: #ffffff !important;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(43, 57, 71, 0.2);
+}
+.btn-hero-primary:hover {
+    background: linear-gradient(135deg, #2b3947 0%, #1e293b 100%);
+}
+.btn-hero-outline {
+    border: 2px solid #2b3947;
+    color: #2b3947;
+    background: transparent;
+}
+.btn-hero-outline:hover {
+    background-color: #2b3947;
+    color: #ffffff !important;
+}
+.btn-road-action {
+    border: 1px solid #2b3947;
+    color: #2b3947;
+    transition: all 0.2s ease;
+}
+.btn-road-action:hover {
+    background-color: #2b3947;
+    color: #ffffff !important;
+}
+.badge-part1 { background-color: #e0f2fe; color: #0369a1; }
+.badge-part2 { background-color: #dcfce7; color: #15803d; }
+.badge-part3 { background-color: #fef9c3; color: #a16207; }
+.badge-part4 { background-color: #fae8ff; color: #86198f; }
+.badge-part5 { background-color: #ffe4e6; color: #be123c; }
+.badge-part6 { background-color: #fee2e2; color: #b91c1c; }
+.badge-part7 { background-color: #f1f5f9; color: #334155; }
+.badge-part8 { background-color: #e0e7ff; color: #4338ca; }
+</style>
+
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                <h1 class="hero-title">지니와 도로시가 함께<br>학습하는 도커와 컨테이너</h1>
+                <p class="hero-subtitle">
+                    이호진 교수님이 가르쳐주는 친절한 원리와 실습으로<br>
+                    컨테이너의 기초부터 클라우드 네이티브 프로덕션 배포까지 완벽히 정복합니다!
+                </p>
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                    <a href="{{ '/Part01_컨테이너기초와_도커엔진아키텍처/000_강의오리엔테이션_클라우드네이티브와_도커대모험/' | relative_url }}" class="btn btn-hero-primary btn-lg px-4 py-3 rounded-pill fw-bold">소개하기부터 시작 ➔</a>
+                    <a href="{{ '/curriculum/' | relative_url }}" class="btn btn-hero-outline btn-lg px-4 py-3 rounded-pill fw-bold">🎓 2학기 (28주) 커리큘럼 보기</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="{{ '/assets/images/docker_home_hero.jpg' | relative_url }}" alt="지니와 도로시의 도커 클라우드 모험" class="hero-image">
+            </div>
+        </div>
+    </div>
+</div>

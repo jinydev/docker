@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the 3 Core Prometheus Metric Types.
+Column 1: 'Counter' - Monotonically increasing staircase curve labeled 'http_requests_total', resets to 0 only on container crash/restart, icon of an odometer counter.
+Column 2: 'Gauge' - Fluid mercury thermometer level fluctuating up and down labeled 'process_resident_memory_bytes' and 'active_users', icon of a pressure dial gauge.
+Column 3: 'Histogram' - Segmented bar buckets labeled 'http_request_duration_seconds_bucket{le="0.1"}', calculating cumulative distributions and p95/p99 percentiles.
+Bottom Banner: Prometheus text exposition format snippet with '# HELP' and '# TYPE' annotations.
+Clean directional dividers, crisp status labels, scientific layout.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

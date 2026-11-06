@@ -1,0 +1,8 @@
+Studio Ghibli 2D anime style, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational technical infographic, masterpiece, highly detailed.
+NO humans, NO characters. Pure architectural schematic diagram showing the internal mechanics and engineering architecture of '리버스프록시3 로컬캐싱 proxy cache과 Stale응답 고가용성'.
+System Structure & Data Flow:
+- proxy_cache_valid 200 10m: 백엔드의 정상 응답(HTTP 200)을 10분간 프록시 로컬 스토리지에 캐싱
+- proxy_cache_use_stale의 마법: 백엔드가 500 에러를 뱉거나 타임아웃이 나면 만료된 옛날 캐시(Stale Data)라도 사용자에게 친절하게 제공
+- Part 03 도커 볼륨과의 결합: 프록시 캐시 경로(/var/cache/nginx)를 도커 볼륨으로 연결해 두면 프록시 컨테이너가 재시작되어도 고속 캐시 데이터가 그대로 유지됨
+Top-to-bottom or left-to-right clear data flow pipelines, labeled architectural blocks with soft pastel accents (cerulean blue, mint green, warm amber), clear directional arrows, status badges, protocol tags.
+Pure solid clean white background (#FFFFFF), centered layout, isolated presentation graphic cutout, subtle soft shadow, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.

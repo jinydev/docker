@@ -1,0 +1,6 @@
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed.
+Side-by-side comparison diagram showing Scraping Configuration myth vs reality.
+Left Side ('오해 (Myth) - Rigid Static IPs'): A frustrated engineer trying to manually hardcode dynamic container IP addresses into static configs; when containers autoscale or restart, the links break into red 'DOWN 404' error blocks. Dorothy looks perplexed with tangled cables.
+Right Side ('진실 (Truth) - Dynamic Docker DNS Service Discovery (dns_sd_configs)'): Prometheus querying Docker internal DNS, which instantly returns all 5 scaled replica container IPs; Prometheus effortlessly scrapes them in parallel with green glowing 'UP (100%)' checkmarks. Professor Hojin smiles warmly giving an encouraging thumbs-up.
+Toto the fluffy cream puppy wags his tail cheerfully beside the green target list.
+Pure solid clean white background (#FFFFFF), centered subject, isolated presentation graphic cutout, subtle soft contact shadows under feet, 1:1 square aspect ratio, no slide borders, no title banner, no text containers, no Japanese text.
